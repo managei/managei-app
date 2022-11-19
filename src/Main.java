@@ -1,3 +1,5 @@
+import DBHandler.DBHandler;
+import Utils.Printing;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,6 +20,9 @@ public class Main extends Application {
             primaryStage.setTitle("Managei");
             primaryStage.setScene(scene);
             primaryStage.show();
+            Printing.PrintStr("Main Started");
+            DBHandler db = new DBHandler();
+            db.readTable("users");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -30,6 +35,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+
         launch(args);
+
     }
 }
