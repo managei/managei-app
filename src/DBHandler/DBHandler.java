@@ -4,6 +4,7 @@ package DBHandler;
 import Utils.Printing;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DBHandler {
 
@@ -35,6 +36,35 @@ public class DBHandler {
             e.printStackTrace();
         }
     }
+
+    public ResultSet executeGenericSelectQueryAndGetResultSet(String q) {
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(q);
+            return rs;
+        }
+        catch (SQLException sqe){
+            System.out.println("Query Execution Error");
+        }
+        return null;
+    }
+
+//    public boolean getUserFromDBTrueFalse(String username, String Password) {
+//        String query = "select* from users where username='" + username + "'";
+//        ResultSet rs = executeGenericSelectQueryAndGetResultSet(query);
+//
+//        ArrayList<String> arr=new ArrayList<String>();
+//        try {
+//            while (rs.next()) {
+//                 arr.add(rs.getString(3));
+//            }
+//        }catch (SQLException sqe){
+//            return false;
+//        }
+//
+//        if(arr.get(0).equals(Password)) return true;
+//        else return  false;
+//    }
 
 //    public void saveStudent(Student s) {
 //        try {
