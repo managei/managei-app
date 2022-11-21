@@ -3,7 +3,7 @@ package ApplicationUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-public class controller {
+public class welcomeController {
 
     @FXML
     private TextField fName;
