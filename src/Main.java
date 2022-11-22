@@ -15,8 +15,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             stg = primaryStage;
-            Parent root = FXMLLoader.load(getClass().getResource("ApplicationUI/welcome.fxml"));
-            Scene scene = new Scene(root, 600, 400);
+            Parent root = FXMLLoader.load(getClass().getResource("ApplicationUI/teamDashboard.fxml"));
+            Scene scene = new Scene(root);
             primaryStage.setTitle("Managei");
             primaryStage.setScene(scene);
             primaryStage.show();

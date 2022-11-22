@@ -1,0 +1,44 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.background{
+	-fx-background-color:#222830;
+}
+
+.primary{
+    -fx-background-color:#2384fb;
+}
+
+.secondary{
+    -fx-background-color:#FF70D7;
+}
+
+.error{
+    -fx-background-color:#CA2E55;
+}
+
+.warning{
+    -fx-background-color:#F4AC45;
+}
+
+.teamDashboardBanner{
+    -fx-background-image: url('teamDashboardBanner.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+.Button{
+    -fx-font-size: 18;
+    -fx-background-radius:50;
+}
+
+.primaryButton{
+    -fx-background-color:#2384fb;
+    -fx-text-fill:white;
+}
+
+.secondaryButton{
+    -fx-background-color:#FF70D7;
+}
+
+.font{
+    -fx-font-family:"Times New Roman";
+}
