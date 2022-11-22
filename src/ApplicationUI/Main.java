@@ -1,9 +1,12 @@
+package ApplicationUI;
+
 import DBHandler.DBHandler;
 import Utils.Printing;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,12 +18,14 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             stg = primaryStage;
-            Parent root = FXMLLoader.load(getClass().getResource("ApplicationUI/welcome.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
             Scene scene = new Scene(root, 600, 400);
             primaryStage.setTitle("Managei");
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
+            primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../images/Managei.png")));
             primaryStage.show();
-            Printing.PrintStr("Main Started");
+            Printing.PrintStr("ApplicationUI.Main Started");
             DBHandler db = new DBHandler();
             db.readTable("users");
         } catch (Exception e) {

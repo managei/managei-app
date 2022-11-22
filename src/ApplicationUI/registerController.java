@@ -1,6 +1,5 @@
 package ApplicationUI;
 
-import DBHandler.DBHandler;
 import Utils.Printing;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class welcomeController {
+public class registerController {
     Main m=new Main();
 
 //    private DBHandler dbh;
@@ -23,10 +22,10 @@ public class welcomeController {
     @FXML
     void initialize(){
 //        dbh=new DBHandler();
-        Printing.PrintStr("Welcome Page initialized");
+        Printing.PrintStr("Register Page initialized");
     }
     @FXML
-    public void goToRegister(ActionEvent event) throws IOException {
-        m.changeScene("register.fxml");
+    public void goToWelcome(ActionEvent event) throws IOException {
+        m.changeScene("welcome.fxml");
     }
 }
