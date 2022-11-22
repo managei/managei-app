@@ -4,7 +4,7 @@ import DBHandler.DBHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-public class controller {
+public class welcomeController {
 
 //    private DBHandler dbh;
 
