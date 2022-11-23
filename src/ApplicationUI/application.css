@@ -27,7 +27,7 @@
 
 .Button{
     -fx-font-size: 18;
-    -fx-background-radius:50;
+    -fx-background-radius:25;
 }
 
 .primaryButton{
@@ -41,4 +41,9 @@
 
 .font{
     -fx-font-family:"Times New Roman";
+}
+
+.tableView{
+    -fx-background-color:#82a3a1;
+    -fx-text-fill:white;
 }
