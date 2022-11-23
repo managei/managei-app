@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.completeTaskController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.completeTaskController">
     <children>
-        <AnchorPane prefHeight="600.0" prefWidth="800.0">
+        <AnchorPane prefHeight="606.0" prefWidth="806.0" styleClass="background" stylesheets="@application.css">
             <children>
-                <SplitPane dividerPositions="0.2760934393638171" prefHeight="605.0" prefWidth="806.0">
+                <SplitPane dividerPositions="0.2760934393638171" prefHeight="605.0" prefWidth="806.0" styleClass="background" stylesheets="@application.css">
                     <items>
                         <AnchorPane fx:id="leftBanner" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="220.0" stylesheets="@application.css" SplitPane.resizableWithParent="false">
                             <styleClass>
@@ -27,7 +27,7 @@
                             <children>
                         <AnchorPane>
                            <children>
-                                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="578.4" styleClass="background" stylesheets="@application.css">
+                                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="579.0" styleClass="background" stylesheets="@application.css">
                                             <children>
                                                 <Label layoutX="20.0" layoutY="27.0" styleClass="font" stylesheets="@application.css" text="Member Task View" textAlignment="CENTER" textFill="WHITE">
                                                     <font>

@@ -18,7 +18,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             stg = primaryStage;
-            Parent root = FXMLLoader.load(getClass().getResource("completeTask.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("teamDashboard.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Managei");
             primaryStage.setScene(scene);
@@ -37,14 +37,8 @@ public class Main extends Application {
 
     public void changeScene(String fxml) throws IOException {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-        stg.getScene().setRoot(pane);
-        stg.show();
-        Scene scene = new Scene(pane);
-        stg.setScene(scene);
-        pane.requestFocus();
-    }
-    public void createScene(String fxml) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+//        stg.getScene().setRoot(pane);
+//        stg.show();
         Scene scene = new Scene(pane);
         stg.setScene(scene);
         pane.requestFocus();
