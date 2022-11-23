@@ -16,7 +16,10 @@ import java.util.ArrayList;
 public class Main extends Application {
     private static Stage stg;
     private static user loggedInUser=null;
-
+    public user getLoggedUser ()
+    {
+        return loggedInUser;
+    }
     @Override
     public void start(Stage primaryStage) {
         try {

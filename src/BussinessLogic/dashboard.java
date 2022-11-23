@@ -7,7 +7,15 @@ public class dashboard {
     static private ArrayList<team> teamList=null;
     static private ArrayList<finalYearProject> fypList=null;
     static private ArrayList<task> taskList=null;
-
+    public user loginUser(String userName,String password)
+    {
+        for (user u:
+             userList) {
+            if(u.checkCredentials(userName,password))
+            return u;
+        }
+        return null;
+    }
     public user registerUser(Integer userId, String userName, String firstName, String lastName, String password, String userType)
     {
         user ad = switch (userType) {

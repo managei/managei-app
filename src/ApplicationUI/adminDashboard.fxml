@@ -3,17 +3,80 @@
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.adminDashboard">
-   <children>
-      <Label layoutX="252.0" layoutY="49.0" text="Admin Dashboard" />
-      <Button fx:id="button_logOut" layoutX="252.0" layoutY="317.0" mnemonicParsing="false" onAction="#logOut" prefHeight="37.0" prefWidth="96.0" stylesheets="@application.css" text="Log out">
-         <styleClass>
-            <String fx:value="Button" />
-            <String fx:value="secondaryButton" />
-         </styleClass>
-      </Button>
-   </children>
-</AnchorPane>
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.adminDashboard">
+   <center>
+      <AnchorPane prefHeight="510.0" prefWidth="786.0" styleClass="background" stylesheets="@application.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="button_logOut" contentDisplay="CENTER" layoutX="355.0" layoutY="521.0" mnemonicParsing="false" onAction="#logOut" prefHeight="39.0" prefWidth="90.0" stylesheets="@application.css" text="Log out" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="Button" />
+                  <String fx:value="secondaryButton" />
+                  <String fx:value="font" />
+               </styleClass>
+            </Button>
+            <Label alignment="CENTER" layoutX="301.0" layoutY="67.0" prefHeight="42.0" prefWidth="199.0" stylesheets="@application.css" text="Welcome" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="36.0" />
+               </font>
+            </Label>
+            <Pane layoutX="170.0" layoutY="168.0" prefHeight="146.0" prefWidth="460.0" style="-fx-background-color: #4c5a6b; -fx-background-radius: 25;" stylesheets="@application.css">
+               <children>
+                  <Button fx:id="button_registerUser" layoutX="300.0" layoutY="32.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Register User" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="primaryButton" />
+                        <String fx:value="font" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="button_viewUser" layoutX="300.0" layoutY="81.0" mnemonicParsing="false" onAction="#viewUsers" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="View Users" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="primaryButton" />
+                        <String fx:value="font" />
+                     </styleClass>
+                  </Button>
+                  <ImageView fitHeight="115.0" fitWidth="159.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/juicy-ai-person-detection-slash-face-id.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane layoutX="168.0" layoutY="331.0" prefHeight="152.0" prefWidth="464.0" style="-fx-background-color: #4c5a6b; -fx-background-radius: 25;" stylesheets="@application.css">
+               <children>
+                  <Button fx:id="button_createTeam" layoutX="304.0" layoutY="31.0" mnemonicParsing="false" onAction="#createTeam" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Create Team" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="primaryButton" />
+                        <String fx:value="font" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="button_viewTeams" layoutX="304.0" layoutY="84.0" mnemonicParsing="false" onAction="#viewTeam" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="View Teams" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="primaryButton" />
+                        <String fx:value="font" />
+                     </styleClass>
+                  </Button>
+                  <ImageView fitHeight="135.0" fitWidth="150.0" layoutX="7.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/martina-solleagues-discussing-team-project-at-a-laptop.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Label fx:id="label_name" alignment="CENTER" layoutX="299.0" layoutY="109.0" prefHeight="42.0" prefWidth="204.0" stylesheets="@application.css" text="User" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
