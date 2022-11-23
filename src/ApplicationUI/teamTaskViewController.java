@@ -1,5 +1,6 @@
 package ApplicationUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -43,7 +44,12 @@ public class teamTaskViewController {
 
     @FXML
     void goToTeamDashboard(ActionEvent event) {
+        Main m = new Main();
+        try {
+            m.changeScene("teamDashboard.fxml");
+        }catch(IOException ie){
 
+        }
     }
 
     @FXML

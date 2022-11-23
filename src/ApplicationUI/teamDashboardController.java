@@ -51,28 +51,46 @@ public class teamDashboardController {
     private Button viewOwnTasksButton;
 
     @FXML
+    private Button progessGraphButton;
+    @FXML
     void completeTask(ActionEvent event) {
         Main m = new Main();
         try {
             m.changeScene("completeTask.fxml");
         }catch(IOException ie){
-
+            ie.printStackTrace();
         }
     }
 
     @FXML
     void suggestNewTask(ActionEvent event) {
+        Main m = new Main();
+        try {
+            m.changeScene("suggestTask.fxml");
+        }catch(IOException ie){
+            ie.printStackTrace();
+        }
+
 
     }
 
     @FXML
-    void viewOwnTasks(ActionEvent event) {
-
+    void showProgressGraph(ActionEvent event) {
+        Main m = new Main();
+        try {
+            m.changeScene("progressGraph.fxml");
+        }catch(IOException ie){
+            ie.printStackTrace();
+        }
     }
-
     @FXML
     void viewTeamTasks(ActionEvent event) {
-
+        Main m = new Main();
+        try {
+            m.changeScene("teamTaskView.fxml");
+        }catch(IOException ie){
+            ie.printStackTrace();
+        }
     }
 
     @FXML
@@ -83,8 +101,8 @@ public class teamDashboardController {
         assert completeTaskButton != null : "fx:id=\"completeTaskButton\" was not injected: check your FXML file 'teamDashboard.fxml'.";
         assert completedTaskCountLabel != null : "fx:id=\"completedTaskCountLabel\" was not injected: check your FXML file 'teamDashboard.fxml'.";
         assert leftBanner != null : "fx:id=\"leftBanner\" was not injected: check your FXML file 'teamDashboard.fxml'.";
+        assert progessGraphButton != null : "fx:id=\"progessGraphButton\" was not injected: check your FXML file 'teamDashboard.fxml'.";
         assert suggestNewTaskButton != null : "fx:id=\"suggestNewTaskButton\" was not injected: check your FXML file 'teamDashboard.fxml'.";
-        assert teamTaskButton != null : "fx:id=\"teamTaskButton\" was not injected: check your FXML file 'teamDashboard.fxml'.";
         assert userLabel != null : "fx:id=\"userLabel\" was not injected: check your FXML file 'teamDashboard.fxml'.";
         assert userNameLabel != null : "fx:id=\"userNameLabel\" was not injected: check your FXML file 'teamDashboard.fxml'.";
         assert viewOwnTasksButton != null : "fx:id=\"viewOwnTasksButton\" was not injected: check your FXML file 'teamDashboard.fxml'.";

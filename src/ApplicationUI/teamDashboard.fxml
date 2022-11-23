@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -23,69 +25,98 @@
                      <children>
                         <AnchorPane>
                            <children>
-                            <AnchorPane layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="578.0" styleClass="background" stylesheets="@application.css">
+                            <AnchorPane layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="578.0" styleClass="titleBannerBackground" stylesheets="@application.css">
                                  <children>
-                                    <Label layoutX="165.0" layoutY="26.0" styleClass="font" stylesheets="@application.css" text="Team Dashboard" textAlignment="CENTER" textFill="WHITE">
+                                    <Label layoutX="41.0" layoutY="26.0" styleClass="font" stylesheets="@application.css" text="Team Dashboard" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font size="36.0" />
                                        </font>
                                     </Label>
+                                    <ImageView fitHeight="75.0" fitWidth="92.0" layoutX="465.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@teamDashTopBanner.gif" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </AnchorPane>
                             <AnchorPane layoutX="-1.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="579.0" styleClass="background" stylesheets="@application.css">
                                  <children>
-                                    <Button fx:id="viewOwnTasksButton" layoutX="323.0" layoutY="257.0" mnemonicParsing="false" onAction="#viewTeamTasks" prefHeight="66.0" prefWidth="154.0" stylesheets="@application.css" text="View Tasks">
+                                    <Button fx:id="viewOwnTasksButton" layoutX="327.0" layoutY="379.0" mnemonicParsing="false" onAction="#viewTeamTasks" prefHeight="52.0" prefWidth="154.0" stylesheets="@application.css" text="Team Tasks" textFill="WHITE">
+                                       <styleClass>
+                                          <String fx:value="Button" />
+                                          <String fx:value="font" />
+                                          <String fx:value="secondaryButton" />
+                                       </styleClass>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="suggestNewTaskButton" layoutX="99.0" layoutY="290.0" mnemonicParsing="false" onAction="#suggestNewTask" prefHeight="52.0" prefWidth="159.0" stylesheets="@application.css" text="Suggest Task">
                                        <styleClass>
                                           <String fx:value="Button" />
                                           <String fx:value="font" />
                                           <String fx:value="primaryButton" />
                                        </styleClass>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
                                     </Button>
-                                    <Button fx:id="suggestNewTaskButton" layoutX="99.0" layoutY="257.0" mnemonicParsing="false" onAction="#suggestNewTask" prefHeight="66.0" prefWidth="159.0" stylesheets="@application.css" text="Suggest Task">
+                                    <Button fx:id="completeTaskButton" layoutX="101.0" layoutY="379.0" mnemonicParsing="false" onAction="#completeTask" prefHeight="52.0" prefWidth="154.0" stylesheets="@application.css" text="Own Tasks" textFill="WHITE">
                                        <styleClass>
                                           <String fx:value="Button" />
                                           <String fx:value="font" />
-                                          <String fx:value="primaryButton" />
+                                          <String fx:value="secondaryButton" />
                                        </styleClass>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
                                     </Button>
-                                    <Button fx:id="completeTaskButton" layoutX="216.0" layoutY="359.0" mnemonicParsing="false" onAction="#completeTask" prefHeight="66.0" prefWidth="154.0" stylesheets="@application.css" text="Complete Task">
-                                       <styleClass>
-                                          <String fx:value="Button" />
-                                          <String fx:value="font" />
-                                          <String fx:value="primaryButton" />
-                                       </styleClass>
-                                    </Button>
-                                    <Label fx:id="userLabel" layoutX="100.0" layoutY="61.0" styleClass="font" stylesheets="@application.css" text="User: " textFill="WHITE">
+                                    <Label fx:id="userLabel" layoutX="51.0" layoutY="72.0" styleClass="font" stylesheets="@application.css" text="User: " textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="userNameLabel" layoutX="162.0" layoutY="61.0" styleClass="font" stylesheets="@application.css" text="username" textFill="WHITE">
+                                    <Label fx:id="userNameLabel" layoutX="113.0" layoutY="72.0" styleClass="font" stylesheets="@application.css" text="username" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="assignedTaskLabel" layoutX="100.0" layoutY="105.0" styleClass="font" stylesheets="@application.css" text="Assigned Tasks:" textFill="WHITE">
+                                    <Label fx:id="assignedTaskLabel" layoutX="51.0" layoutY="116.0" styleClass="font" stylesheets="@application.css" text="Assigned Tasks:" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="assignedTaskCountLabel" layoutX="281.0" layoutY="105.0" styleClass="font" stylesheets="@application.css" text="0" textFill="WHITE">
+                                    <Label fx:id="assignedTaskCountLabel" layoutX="221.0" layoutY="116.0" styleClass="font" stylesheets="@application.css" text="0" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="CompletedTaskLabel" layoutX="100.0" layoutY="149.0" styleClass="font" stylesheets="@application.css" text="Completed Tasks:" textFill="WHITE">
+                                    <Label fx:id="CompletedTaskLabel" layoutX="51.0" layoutY="160.0" styleClass="font" stylesheets="@application.css" text="Completed Tasks:" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="completedTaskCountLabel" layoutX="296.0" layoutY="151.0" styleClass="font" stylesheets="@application.css" text="0" textFill="WHITE">
+                                    <Label fx:id="completedTaskCountLabel" layoutX="239.0" layoutY="162.0" styleClass="font" stylesheets="@application.css" text="0" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
                                     <Separator layoutX="-1.0" layoutY="-1.0" prefHeight="2.0" prefWidth="579.0" />
+                                    <ImageView fitHeight="243.0" fitWidth="220.0" layoutX="321.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@teamDashTopRight.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="progessGraphButton" layoutX="327.0" layoutY="290.0" mnemonicParsing="false" onAction="#showProgressGraph" prefHeight="52.0" prefWidth="154.0" stylesheets="@application.css" text="Progress Graph">
+                                       <styleClass>
+                                          <String fx:value="Button" />
+                                          <String fx:value="font" />
+                                          <String fx:value="primaryButton" />
+                                       </styleClass>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
                                  </children>
                               </AnchorPane>
                            </children>

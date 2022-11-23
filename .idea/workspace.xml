@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="">
+    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="Added teamTaskView.fxml, teamTaskViewController.java">
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/graphBannerTop.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/progressGraph.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/progressGraphController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/suggestTask.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/suggestTaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/taskSuggession.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashTopBanner.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashTopRight.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/register.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/registerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/registerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/completeTask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/completeTask.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/welcome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/welcome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamTaskView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamTaskView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamTaskViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamTaskViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Merge.Settings">
     <option name="BRANCH" value="origin/master" />
@@ -63,6 +80,7 @@
       <recent name="D:\Java Dev\managei-app\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Projects\Managei\src\ApplicationUI" />
       <recent name="D:\Java Dev\managei-app" />
       <recent name="D:\Java Dev\managei-app\lib" />
     </key>
@@ -76,6 +94,21 @@
       <option name="presentableId" value="Default" />
       <updated>1668799825326</updated>
     </task>
+    <task id="LOCAL-00001" summary="Updated UI layout Pattern">
+      <created>1669185576128</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669185576128</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added teamTaskView.fxml, teamTaskViewController.java">
+      <created>1669197059382</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669197059382</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -100,5 +133,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated UI layout Pattern" />
+    <MESSAGE value="Added teamTaskView.fxml, teamTaskViewController.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added teamTaskView.fxml, teamTaskViewController.java" />
   </component>
 </project>

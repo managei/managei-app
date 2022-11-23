@@ -46,3 +46,7 @@
 .tableView{
     -fx-text-fill:white;
 }
+
+.titleBannerBackground{
+ -fx-background-color:#AB2346
+}
