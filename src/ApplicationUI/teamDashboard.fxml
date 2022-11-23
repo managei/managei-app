@@ -3,48 +3,27 @@
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.teamDashboardController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="800.0">
+      <AnchorPane prefHeight="605.0" prefWidth="800.0">
          <children>
-            <MenuBar layoutX="-8.0" layoutY="2.0" prefHeight="26.0" prefWidth="814.0">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-            <SplitPane dividerPositions="0.2760934393638171" layoutY="28.0" prefHeight="576.0" prefWidth="806.0">
+            <SplitPane dividerPositions="0.2760934393638171" layoutY="-1.0" prefHeight="606.0" prefWidth="806.0">
               <items>
-                <AnchorPane fx:id="leftBanner" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.2" prefWidth="220.0" stylesheets="@application.css" SplitPane.resizableWithParent="false">
+                <AnchorPane fx:id="leftBanner" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="220.0" stylesheets="@application.css" SplitPane.resizableWithParent="false">
                      <styleClass>
                         <String fx:value="background" />
                         <String fx:value="teamDashboardBanner" />
                      </styleClass></AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
                      <children>
-                        <SplitPane dividerPositions="0.16527777777777775" orientation="VERTICAL" prefHeight="577.0" prefWidth="579.0">
-                          <items>
-                            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="578.4" styleClass="background" stylesheets="@application.css" SplitPane.resizableWithParent="false">
+                        <AnchorPane>
+                           <children>
+                            <AnchorPane layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="578.0" styleClass="background" stylesheets="@application.css">
                                  <children>
                                     <Label layoutX="165.0" layoutY="26.0" styleClass="font" stylesheets="@application.css" text="Team Dashboard" textAlignment="CENTER" textFill="WHITE">
                                        <font>
@@ -53,63 +32,64 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.4" prefWidth="579.2" styleClass="background" stylesheets="@application.css">
+                            <AnchorPane layoutX="-1.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="579.0" styleClass="background" stylesheets="@application.css">
                                  <children>
-                                    <Button fx:id="viewOwnTasksButton" layoutX="323.0" layoutY="219.0" mnemonicParsing="false" onAction="#viewTeamTasks" prefHeight="66.0" prefWidth="154.0" stylesheets="@application.css" text="View Own Tasks">
+                                    <Button fx:id="viewOwnTasksButton" layoutX="323.0" layoutY="257.0" mnemonicParsing="false" onAction="#viewTeamTasks" prefHeight="66.0" prefWidth="154.0" stylesheets="@application.css" text="View Own Tasks">
                                        <styleClass>
                                           <String fx:value="Button" />
                                           <String fx:value="font" />
                                           <String fx:value="primaryButton" />
                                        </styleClass>
                                     </Button>
-                                    <Button fx:id="suggestNewTaskButton" layoutX="99.0" layoutY="219.0" mnemonicParsing="false" onAction="#suggestNewTask" prefHeight="66.0" prefWidth="159.0" stylesheets="@application.css" text="Suggest New Task">
+                                    <Button fx:id="suggestNewTaskButton" layoutX="99.0" layoutY="257.0" mnemonicParsing="false" onAction="#suggestNewTask" prefHeight="66.0" prefWidth="159.0" stylesheets="@application.css" text="Suggest New Task">
                                        <styleClass>
                                           <String fx:value="Button" />
                                           <String fx:value="font" />
                                           <String fx:value="primaryButton" />
                                        </styleClass>
                                     </Button>
-                                    <Button fx:id="completeTaskButton" layoutX="216.0" layoutY="321.0" mnemonicParsing="false" onAction="#completeTask" prefHeight="66.0" prefWidth="154.0" stylesheets="@application.css" text="Complete Task">
+                                    <Button fx:id="completeTaskButton" layoutX="216.0" layoutY="359.0" mnemonicParsing="false" onAction="#completeTask" prefHeight="66.0" prefWidth="154.0" stylesheets="@application.css" text="Complete Task">
                                        <styleClass>
                                           <String fx:value="Button" />
                                           <String fx:value="font" />
                                           <String fx:value="primaryButton" />
                                        </styleClass>
                                     </Button>
-                                    <Label fx:id="userLabel" layoutX="100.0" layoutY="45.0" styleClass="font" stylesheets="@application.css" text="User: " textFill="WHITE">
+                                    <Label fx:id="userLabel" layoutX="100.0" layoutY="61.0" styleClass="font" stylesheets="@application.css" text="User: " textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="userNameLabel" layoutX="162.0" layoutY="45.0" styleClass="font" stylesheets="@application.css" text="username" textFill="WHITE">
+                                    <Label fx:id="userNameLabel" layoutX="162.0" layoutY="61.0" styleClass="font" stylesheets="@application.css" text="username" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="assignedTaskLabel" layoutX="100.0" layoutY="89.0" styleClass="font" stylesheets="@application.css" text="Assigned Tasks:" textFill="WHITE">
+                                    <Label fx:id="assignedTaskLabel" layoutX="100.0" layoutY="105.0" styleClass="font" stylesheets="@application.css" text="Assigned Tasks:" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="assignedTaskCountLabel" layoutX="281.0" layoutY="89.0" styleClass="font" stylesheets="@application.css" text="0" textFill="WHITE">
+                                    <Label fx:id="assignedTaskCountLabel" layoutX="281.0" layoutY="105.0" styleClass="font" stylesheets="@application.css" text="0" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="CompletedTaskLabel" layoutX="100.0" layoutY="133.0" styleClass="font" stylesheets="@application.css" text="Completed Tasks:" textFill="WHITE">
+                                    <Label fx:id="CompletedTaskLabel" layoutX="100.0" layoutY="149.0" styleClass="font" stylesheets="@application.css" text="Completed Tasks:" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="completedTaskCountLabel" layoutX="296.0" layoutY="135.0" styleClass="font" stylesheets="@application.css" text="0" textFill="WHITE">
+                                    <Label fx:id="completedTaskCountLabel" layoutX="296.0" layoutY="151.0" styleClass="font" stylesheets="@application.css" text="0" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
+                                    <Separator layoutX="-1.0" layoutY="-1.0" prefHeight="2.0" prefWidth="579.0" />
                                  </children>
                               </AnchorPane>
-                          </items>
-                        </SplitPane>
+                           </children>
+                        </AnchorPane>
                      </children></AnchorPane>
               </items>
             </SplitPane>
