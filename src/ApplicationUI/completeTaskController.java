@@ -11,7 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
-public class memberTaskViewController {
+public class completeTaskController {
 
     @FXML
     private ResourceBundle resources;
@@ -52,13 +52,13 @@ public class memberTaskViewController {
 
     @FXML
     void initialize() {
-        assert backButton != null : "fx:id=\"backButton\" was not injected: check your FXML file 'memberTaskView.fxml'.";
-        assert detailColumn != null : "fx:id=\"detailColumn\" was not injected: check your FXML file 'memberTaskView.fxml'.";
-        assert leftBanner != null : "fx:id=\"leftBanner\" was not injected: check your FXML file 'memberTaskView.fxml'.";
-        assert nameColumn != null : "fx:id=\"nameColumn\" was not injected: check your FXML file 'memberTaskView.fxml'.";
-        assert statusColumn != null : "fx:id=\"statusColumn\" was not injected: check your FXML file 'memberTaskView.fxml'.";
-        assert taskColumn != null : "fx:id=\"taskColumn\" was not injected: check your FXML file 'memberTaskView.fxml'.";
-        assert taskViewTable != null : "fx:id=\"taskViewTable\" was not injected: check your FXML file 'memberTaskView.fxml'.";
+        assert backButton != null : "fx:id=\"backButton\" was not injected: check your FXML file 'completeTask.fxml'.";
+        assert detailColumn != null : "fx:id=\"detailColumn\" was not injected: check your FXML file 'completeTask.fxml'.";
+        assert leftBanner != null : "fx:id=\"leftBanner\" was not injected: check your FXML file 'completeTask.fxml'.";
+        assert nameColumn != null : "fx:id=\"nameColumn\" was not injected: check your FXML file 'completeTask.fxml'.";
+        assert statusColumn != null : "fx:id=\"statusColumn\" was not injected: check your FXML file 'completeTask.fxml'.";
+        assert taskColumn != null : "fx:id=\"taskColumn\" was not injected: check your FXML file 'completeTask.fxml'.";
+        assert taskViewTable != null : "fx:id=\"taskViewTable\" was not injected: check your FXML file 'completeTask.fxml'.";
 
     }
 

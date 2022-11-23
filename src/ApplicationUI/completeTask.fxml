@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.memberTaskViewController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.completeTaskController">
     <children>
         <AnchorPane prefHeight="600.0" prefWidth="800.0">
             <children>
@@ -64,7 +64,7 @@
                                         </AnchorPane>
                                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.4" prefWidth="579.2" styleClass="background" stylesheets="@application.css">
                                             <children>
-                                    <TableView fx:id="taskViewTable" layoutX="22.0" layoutY="52.0" prefHeight="360.0" prefWidth="534.0" styleClass="tableView" stylesheets="@application.css">
+                                    <TableView fx:id="taskViewTable" layoutX="22.0" layoutY="17.0" prefHeight="172.0" prefWidth="534.0" styleClass="tableView" stylesheets="@application.css">
                                       <columns>
                                         <TableColumn fx:id="taskColumn" prefWidth="52.0" text="TaskID" />
                                         <TableColumn fx:id="nameColumn" prefWidth="113.5999755859375" text="Name" />

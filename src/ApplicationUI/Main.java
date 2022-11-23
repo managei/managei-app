@@ -17,7 +17,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             stg = primaryStage;
-            Parent root = FXMLLoader.load(getClass().getResource("memberTaskView.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("completeTask.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Managei");
             primaryStage.setScene(scene);
@@ -34,6 +34,7 @@ public class Main extends Application {
     public void changeScene(String fxml) throws IOException {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
         stg.getScene().setRoot(pane);
+        stg.show();
     }
 
     public static void main(String[] args) {

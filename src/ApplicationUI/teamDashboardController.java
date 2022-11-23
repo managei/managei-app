@@ -1,5 +1,6 @@
 package ApplicationUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -51,7 +52,12 @@ public class teamDashboardController {
 
     @FXML
     void completeTask(ActionEvent event) {
+        Main m = new Main();
+        try {
+            m.changeScene("completeTask.fxml");
+        }catch(IOException ie){
 
+        }
     }
 
     @FXML
