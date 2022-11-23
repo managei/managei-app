@@ -12,7 +12,7 @@ public class DBHandler {
 
     public DBHandler() {
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ManageiTaskManagementSystem", "root", "root");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ManageiTaskManagementSystem", "root", "Razi.432");
             Printing.PrintStr("Connection Done");
         } catch (SQLException e) {
             // TODO Auto-generated catch block

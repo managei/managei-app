@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="Changed welcome.fxml">
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/application.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashboardBanner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_19_2022_9_58_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_19_2022_9_58_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/registerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/registerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/welcome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/welcome.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="FxmlFile" />
-        <option value="Class" />
-      </list>
-    </option>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -31,11 +25,21 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="managei" />
+        <option name="repository" value="managei-app" />
+      </RepoCoordinatesHolder>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2HjYBCzUktrdUVUpvwCZkip5vuc" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -59,7 +63,6 @@
       <recent name="D:\Java Dev\managei-app\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Projects\Managei\src\ApplicationUI" />
       <recent name="D:\Java Dev\managei-app" />
       <recent name="D:\Java Dev\managei-app\lib" />
     </key>
