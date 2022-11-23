@@ -34,14 +34,14 @@
                               </AnchorPane>
                             <AnchorPane layoutX="-1.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="579.0" styleClass="background" stylesheets="@application.css">
                                  <children>
-                                    <Button fx:id="viewOwnTasksButton" layoutX="323.0" layoutY="257.0" mnemonicParsing="false" onAction="#viewTeamTasks" prefHeight="66.0" prefWidth="154.0" stylesheets="@application.css" text="View Own Tasks">
+                                    <Button fx:id="viewOwnTasksButton" layoutX="323.0" layoutY="257.0" mnemonicParsing="false" onAction="#viewTeamTasks" prefHeight="66.0" prefWidth="154.0" stylesheets="@application.css" text="View Tasks">
                                        <styleClass>
                                           <String fx:value="Button" />
                                           <String fx:value="font" />
                                           <String fx:value="primaryButton" />
                                        </styleClass>
                                     </Button>
-                                    <Button fx:id="suggestNewTaskButton" layoutX="99.0" layoutY="257.0" mnemonicParsing="false" onAction="#suggestNewTask" prefHeight="66.0" prefWidth="159.0" stylesheets="@application.css" text="Suggest New Task">
+                                    <Button fx:id="suggestNewTaskButton" layoutX="99.0" layoutY="257.0" mnemonicParsing="false" onAction="#suggestNewTask" prefHeight="66.0" prefWidth="159.0" stylesheets="@application.css" text="Suggest Task">
                                        <styleClass>
                                           <String fx:value="Button" />
                                           <String fx:value="font" />

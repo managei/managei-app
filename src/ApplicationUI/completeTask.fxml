@@ -7,6 +7,7 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -29,7 +30,7 @@
                            <children>
                                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="579.0" styleClass="background" stylesheets="@application.css">
                                             <children>
-                                                <Label layoutX="20.0" layoutY="27.0" styleClass="font" stylesheets="@application.css" text="Member Task View" textAlignment="CENTER" textFill="WHITE">
+                                                <Label layoutX="20.0" layoutY="27.0" styleClass="font" stylesheets="@application.css" text="Complete Assigned Task " textAlignment="CENTER" textFill="WHITE">
                                                     <font>
                                                         <Font size="36.0" />
                                                     </font>
@@ -43,7 +44,7 @@
                                         </AnchorPane>
                                         <AnchorPane layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="579.0" styleClass="background" stylesheets="@application.css">
                                             <children>
-                                    <TableView fx:id="taskViewTable" layoutX="22.0" layoutY="17.0" prefHeight="172.0" prefWidth="534.0" styleClass="tableView" stylesheets="@application.css">
+                                    <TableView fx:id="taskViewTable" layoutX="22.0" layoutY="17.0" prefHeight="274.0" prefWidth="534.0" styleClass="tableView" stylesheets="@application.css">
                                       <columns>
                                         <TableColumn fx:id="taskColumn" prefWidth="52.0" text="TaskID" />
                                         <TableColumn fx:id="nameColumn" prefWidth="113.5999755859375" text="Name" />
@@ -51,13 +52,27 @@
                                           <TableColumn fx:id="detailColumn" prefWidth="280.0" text="Detail" />
                                       </columns>
                                     </TableView>
-                                    <Button fx:id="backButton" layoutX="245.0" layoutY="425.0" mnemonicParsing="false" onAction="#goToTeamDashboard" style="-fx-font-size: 18;" stylesheets="@application.css" text="Go Back">
+                                    <Button fx:id="backButton" layoutX="246.0" layoutY="431.0" mnemonicParsing="false" onAction="#goToTeamDashboard" style="-fx-font-size: 18;" stylesheets="@application.css" text="Go Back">
                                        <styleClass>
                                           <String fx:value="primaryButton" />
                                           <String fx:value="font" />
+                                          <String fx:value="Button" />
                                        </styleClass>
                                     </Button>
                                     <Separator layoutY="-1.0" prefHeight="0.0" prefWidth="578.0" />
+                                    <Label layoutX="153.0" layoutY="330.0" styleClass="font" stylesheets="@application.css" text="Enter Task ID: " textFill="WHITE">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="taskIDField" layoutX="277.0" layoutY="329.0" promptText="Task ID" />
+                                    <Button fx:id="completeTaskButton" layoutX="223.0" layoutY="367.0" mnemonicParsing="false" onAction="#completeAssignedTask" style="-fx-font-size: 18;" stylesheets="@application.css" text="Complete Task">
+                                       <styleClass>
+                                          <String fx:value="primaryButton" />
+                                          <String fx:value="font" />
+                                          <String fx:value="Button" />
+                                       </styleClass>
+                                    </Button>
                                             </children>
                                         </AnchorPane>
                            </children>

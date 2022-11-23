@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class completeTaskController {
@@ -21,6 +22,9 @@ public class completeTaskController {
 
     @FXML
     private Button backButton;
+
+    @FXML
+    private Button completeTaskButton;
 
     @FXML
     private TableColumn<?, ?> detailColumn;
@@ -41,6 +45,8 @@ public class completeTaskController {
     private TableView<?> taskViewTable;
 
     @FXML
+    private TextField taskIDField;
+    @FXML
     void goToTeamDashboard(ActionEvent event) {
         Main m = new Main();
         try {
@@ -48,6 +54,11 @@ public class completeTaskController {
         }catch(IOException ie){
 
         }
+    }
+
+    @FXML
+    void completeAssignedTask(ActionEvent event) {
+
     }
 
     @FXML
