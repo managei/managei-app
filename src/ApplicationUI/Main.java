@@ -26,6 +26,7 @@ public class Main extends Application {
             primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../images/Managei.png")));
             primaryStage.show();
             root.requestFocus();
+            primaryStage.setResizable(false);
             Printing.PrintStr("ApplicationUI.Main Started");
             DBHandler db = new DBHandler();
 //            db.readTable("users");
