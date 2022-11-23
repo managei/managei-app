@@ -24,8 +24,8 @@
                 <Label layoutX="241.0" layoutY="217.0" />
             <TextField layoutX="379.0" layoutY="143.0" promptText="User Name" />
             <TextField layoutX="379.0" layoutY="187.0" promptText="Password" />
-            <Button layoutX="428.0" layoutY="274.0" mnemonicParsing="false" text="Login" />
-            <Button layoutX="424.0" layoutY="345.0" mnemonicParsing="false" onAction="#goToRegister" text="Register" />
+            <Button layoutX="355.0" layoutY="280.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Login" />
+            <Button layoutX="355.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToRegister" prefHeight="30.0" prefWidth="200.0" text="Register" />
             <Label layoutX="445.0" layoutY="310.0" text="or">
                <font>
                   <Font name="Calibri Bold" size="24.0" />

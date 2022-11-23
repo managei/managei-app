@@ -1,10 +1,11 @@
 package BussinessLogic;
 
-public class user {
+public abstract class user {
     private Integer userId;
     private String userName;
     private String firstName;
     private String lastName;
+    private String password;
     private String userType;
 
     @Override
@@ -14,15 +15,17 @@ public class user {
                 ", userName='" + userName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
                 ", userType='" + userType + '\'' +
                 '}';
     }
 
-    public user(Integer userId, String userName, String firstName, String lastName, String userType) {
+    public user(Integer userId, String userName, String firstName, String lastName,String password, String userType) {
         this.userId = userId;
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.password = password;
         this.userType = userType;
     }
 
@@ -56,6 +59,13 @@ public class user {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String lastName) {
+        this.password = password;
     }
 
     public String getUserType() {

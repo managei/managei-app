@@ -25,9 +25,10 @@ public class Main extends Application {
             primaryStage.setResizable(false);
             primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../images/Managei.png")));
             primaryStage.show();
+            root.requestFocus();
             Printing.PrintStr("ApplicationUI.Main Started");
             DBHandler db = new DBHandler();
-            db.readTable("users");
+//            db.readTable("users");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -37,6 +38,7 @@ public class Main extends Application {
     public void changeScene(String fxml) throws IOException {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
         stg.getScene().setRoot(pane);
+        pane.requestFocus();
     }
 
     public static void main(String[] args) {

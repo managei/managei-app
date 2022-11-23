@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -20,23 +18,17 @@
                         <Font name="Calibri Bold" size="36.0" />
                     </font>
                 </Label>
-                <Label layoutX="404.0" layoutY="120.0" text="Register to continue" />
+                <Label id="label_info" fx:id="label_info" layoutX="404.0" layoutY="120.0" text="Register to continue" />
                 <Label layoutX="241.0" layoutY="217.0" />
-                <TextField id="textBox_userName" layoutX="379.0" layoutY="143.0" promptText="User Name" />
-                <TextField id="textBox_password" layoutX="379.0" layoutY="187.0" promptText="Password" />
-                <Button id="button_register" layoutX="424.0" layoutY="273.0" mnemonicParsing="false" text="Register" />
-                <Button id="button_login" layoutX="429.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToWelcome" text="Login" />
-                <Label layoutX="445.0" layoutY="310.0" text="or">
+                <TextField id="textBox_userName" fx:id="textBox_userName" layoutX="377.0" layoutY="204.0" promptText="User Name" />
+                <TextField id="textBox_password" fx:id="textBox_password" layoutX="377.0" layoutY="235.0" promptText="Password" />
+                <Button id="button_register" fx:id="button_register" layoutX="356.0" layoutY="272.0" mnemonicParsing="false" onAction="#registerAdmin" prefHeight="30.0" prefWidth="200.0" text="Register as Admin" />
+                <Button id="button_login" fx:id="button_login" layoutX="356.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToWelcome" prefHeight="30.0" prefWidth="200.0" text="Login" />
+                <Label layoutX="453.0" layoutY="308.0" text="or">
                     <font>
                         <Font name="Calibri Bold" size="24.0" />
                     </font>
                 </Label>
-                <MenuButton id="menuButton_userRole" layoutX="389.0" layoutY="235.0" mnemonicParsing="false" text="Select User Role">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                </MenuButton>
                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="381.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../images/Managei.png" />
@@ -47,6 +39,8 @@
                         <Image url="@../images/lettering-hand-and-lettering-join-now-sticker.gif" />
                     </image>
                 </ImageView>
+            <TextField id="textBox_firstName" fx:id="textBox_firstName" layoutX="377.0" layoutY="148.0" promptText="First Name" />
+            <TextField id="textBox_lastName" fx:id="textBox_lastName" layoutX="377.0" layoutY="174.0" promptText="Last Name" />
             </children>
         </AnchorPane>
     </center>
