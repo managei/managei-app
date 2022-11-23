@@ -45,8 +45,8 @@ public class registerController {
             label_info.setText("Please Wait");
             admin ad= new admin(1,1,textBox_userName.getText(),textBox_firstName.getText(),textBox_lastName.getText(),textBox_password.getText(),"Admin");
             Printing.PrintStr(ad.toString());
+        m.changeScene("teamDashboard.fxml");
         }
-//        m.changeScene("welcome.fxml");
     }
     @FXML
     public void goToWelcome(ActionEvent event) throws IOException {
