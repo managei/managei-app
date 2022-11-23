@@ -31,7 +31,6 @@ public class Main extends Application {
             primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../images/Managei.png")));
             primaryStage.show();
             root.requestFocus();
-            DBHandler db = new DBHandler();
             initializeLists();
         } catch (Exception e) {
             e.printStackTrace();
@@ -42,6 +41,7 @@ public class Main extends Application {
         Scene scene = new Scene(pane);
         stg.setScene(scene);
         pane.requestFocus();
+        initializeLists();
     }
     public void logOutUser()
     {
@@ -62,11 +62,12 @@ public class Main extends Application {
     public static user getLoggedInUser() {
         return loggedInUser;
     }
-    public void initializeLists()
+    public static void initializeLists()
     {
+        DBHandler db = new DBHandler();
         dashboard.setFypList(new ArrayList<finalYearProject>());
         dashboard.setTaskList(new ArrayList<task>());
-        dashboard.setUserList(new ArrayList<user>());
+        dashboard.setUserList(db.readUsers());
         dashboard.setTeamList(new ArrayList<team>());
     }
     public static void main(String[] args) {

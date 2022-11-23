@@ -1,5 +1,7 @@
 package BussinessLogic;
 
+import DBHandler.DBHandler;
+
 import java.util.ArrayList;
 
 public class dashboard {
@@ -18,6 +20,7 @@ public class dashboard {
     }
     public user registerUser(Integer userId, String userName, String firstName, String lastName, String password, String userType)
     {
+        DBHandler db= new DBHandler();
         user ad = switch (userType) {
             case "admin" -> new admin(userId, userName, firstName, lastName, password, userType);
             case "supervisor" -> new supervisor(userId, userName, firstName, lastName, password, userType);
@@ -27,6 +30,7 @@ public class dashboard {
             default -> null;
         };
         userList.add(ad);
+        db.saveUser(ad);
         return ad;
     }
 
