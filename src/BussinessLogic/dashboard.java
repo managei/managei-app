@@ -1,6 +1,7 @@
 package BussinessLogic;
 
 import DBHandler.DBHandler;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
@@ -64,5 +65,15 @@ public class dashboard {
 
     public static void setTaskList(ArrayList<task> taskList) {
         dashboard.taskList = taskList;
+    }
+
+//    public ObservableList<ObservableList<String>> displaySupervisorProjects(DBHandler dbh,String query){
+//        ObservableList<ObservableList<String>> arr = dbh.getDataforTableUsingQuery(query);
+//        return arr;
+//    }
+
+    public ObservableList<finalYearProject> displaySupervisorProjects(DBHandler dbh){
+        ObservableList<finalYearProject> arr = dbh.getDataforSupervisorProjects();
+        return arr;
     }
 }

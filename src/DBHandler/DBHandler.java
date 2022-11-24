@@ -3,6 +3,9 @@ package DBHandler;
 
 import BussinessLogic.*;
 import Utils.Printing;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -103,41 +106,40 @@ public class DBHandler {
         return null;
     }
 
-//    public boolean getUserFromDBTrueFalse(String username, String Password) {
-//        String query = "select* from users where username='" + username + "'";
-//        ResultSet rs = executeGenericSelectQueryAndGetResultSet(query);
+//    public ObservableList<ObservableList<String>> getDataforTableUsingQuery(String query){
+//        ObservableList<ObservableList<String>> data = FXCollections.observableArrayList();
 //
-//        ArrayList<String> arr=new ArrayList<String>();
-//        try {
-//            while (rs.next()) {
-//                 arr.add(rs.getString(3));
+//        ResultSet rs = executeGenericSelectQueryAndGetResultSet(query);
+//        ObservableList<String> currentRow = FXCollections.observableArrayList();
+//        try{
+//            while(rs.next()) {
+//                for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+//                    currentRow.add(rs.getString(i));
+//                }
+//                data.add(currentRow);
 //            }
-//        }catch (SQLException sqe){
-//            return false;
+//        }catch (SQLException sql){
+//            sql.printStackTrace();
 //        }
 //
-//        if(arr.get(0).equals(Password)) return true;
-//        else return  false;
+//        return data;
 //    }
 
-//    public void saveStudent(Student s) {
-//        try {
-//
-//            String query = "INSERT INTO students (roll_no, name,batch,section) VALUES (?,?,?,?)";
-//            PreparedStatement stmt = con.prepareStatement(query);
-//            stmt.setInt(1, s.getRoll_no());
-//            stmt.setString(2, s.getName());
-//            stmt.setString(3, s.getBatch());
-//            stmt.setString(4, s.getSection());
-//
-//            int rows = stmt.executeUpdate();
-//            if (rows > 0) {
-//                System.out.println("A student was added...");
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//    }
+    public ObservableList<finalYearProject> getDataforSupervisorProjects(){
+        ObservableList<finalYearProject> data = FXCollections.observableArrayList();
+
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select f.fypID,f.fypName,f.fypStatus,t.teamID from manageitaskmanagementsystem.finalyearproject f inner join manageitaskmanagementsystem.team t on f.fypID=t.fypID;");
+        try{
+            while(rs.next()) {
+                finalYearProject fyp = new finalYearProject(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4));
+                data.add(fyp);
+            }
+        }catch (SQLException sql){
+            sql.printStackTrace();
+        }
+
+        return data;
+    }
 
 
     public void closeConnection() {
