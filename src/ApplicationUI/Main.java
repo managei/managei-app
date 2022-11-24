@@ -1,5 +1,6 @@
 package ApplicationUI;
 
+import BussinessLogic.*;
 import DBHandler.DBHandler;
 import Utils.Printing;
 import javafx.application.Application;
@@ -10,10 +11,15 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main extends Application {
     private static Stage stg;
-
+    private static user loggedInUser=null;
+    public static user getLoggedUser ()
+    {
+        return loggedInUser;
+    }
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -26,23 +32,44 @@ public class Main extends Application {
             primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../images/Managei.png")));
             primaryStage.show();
             root.requestFocus();
-            primaryStage.setResizable(false);
-            Printing.PrintStr("ApplicationUI.Main Started");
-            DBHandler db = new DBHandler();
-//            db.readTable("users");
+            initializeLists();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-
-    public void changeScene(String fxml) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-//        stg.getScene().setRoot(pane);
-//        stg.show();
+    public static void changeScene(String fxml) throws IOException {
+        Parent pane = FXMLLoader.load(Main.class.getResource(fxml));
         Scene scene = new Scene(pane);
         stg.setScene(scene);
         pane.requestFocus();
+        initializeLists();
+    }
+    public static void logOutUser()
+    {
+        loggedInUser=null;
+    }
+    public static void gotoDashboard(String userRole) throws IOException {
+        switch (userRole) {
+            case "admin" -> changeScene("adminDashboard.fxml");
+            case "supervisor" ->  changeScene("supervisorDashboard.fxml");
+            case "teamMember" ->  changeScene("teamDashboard.fxml");
+            case "headOfDepartment" ->  changeScene("HODDashboard.fxml");
+            case "fypLabInstructor" ->  changeScene("fypIDashboard.fxml");
+        };
+    }
+    public static void setLoggedInUser(user loggedInUser) {
+        Main.loggedInUser = loggedInUser;
+    }
+    public static user getLoggedInUser() {
+        return loggedInUser;
+    }
+    public static void initializeLists()
+    {
+        DBHandler db = new DBHandler();
+        dashboard.setFypList(new ArrayList<finalYearProject>());
+        dashboard.setTaskList(new ArrayList<task>());
+        dashboard.setUserList(db.readUsers());
+        dashboard.setTeamList(new ArrayList<team>());
     }
     public static void main(String[] args) {
 

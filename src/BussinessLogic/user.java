@@ -1,40 +1,47 @@
 package BussinessLogic;
 
 public abstract class user {
-    private Integer userId;
+    private Integer id;
     private String userName;
     private String firstName;
     private String lastName;
     private String password;
-    private String userType;
+    private String type;
 
     @Override
     public String toString() {
         return "user{" +
-                "userId=" + userId +
+                "userId=" + id +
                 ", userName='" + userName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
-                ", userType='" + userType + '\'' +
+                ", userType='" + type + '\'' +
                 '}';
     }
 
     public user(Integer userId, String userName, String firstName, String lastName,String password, String userType) {
-        this.userId = userId;
+        this.id = userId;
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        this.userType = userType;
+        this.type = userType;
     }
+    public boolean checkCredentials(String userName,String password)
+    {
+        if (this.userName.equals(userName)&&this.password.equals(password))
+            return true;
+        else
+            return false;
 
+    }
     public Integer getUserId() {
-        return userId;
+        return id;
     }
 
     public void setUserId(Integer userId) {
-        this.userId = userId;
+        this.id = userId;
     }
 
     public String getUserName() {
@@ -69,10 +76,10 @@ public abstract class user {
     }
 
     public String getUserType() {
-        return userType;
+        return type;
     }
 
     public void setUserType(String userType) {
-        this.userType = userType;
+        this.type = userType;
     }
 }

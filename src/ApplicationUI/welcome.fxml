@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,32 +10,29 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.welcomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.welcomeController">
     <center>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="364.0" layoutY="79.0" text="Hello Again!">
+                <Label layoutX="364.0" layoutY="79.0" stylesheets="@application.css" text="Hello Again!" textFill="WHITE">
                     <font>
                         <Font name="Calibri Bold" size="36.0" />
                     </font>
                 </Label>
-                <Label layoutX="404.0" layoutY="120.0" text="Login to continue" />
+                <Label fx:id="label_info" alignment="CENTER" layoutX="363.0" layoutY="120.0" prefHeight="18.0" prefWidth="185.0" text="Login to continue" textAlignment="CENTER" textFill="WHITE" />
                 <Label layoutX="241.0" layoutY="217.0" />
-            <TextField layoutX="379.0" layoutY="143.0" promptText="User Name" />
-            <TextField layoutX="379.0" layoutY="187.0" promptText="Password" />
-            <Button layoutX="355.0" layoutY="280.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Login" />
-            <Button layoutX="355.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToRegister" prefHeight="30.0" prefWidth="200.0" text="Register" />
-            <Label layoutX="445.0" layoutY="310.0" text="or">
-               <font>
-                  <Font name="Calibri Bold" size="24.0" />
-               </font>
-            </Label>
-            <MenuButton layoutX="389.0" layoutY="235.0" mnemonicParsing="false" text="Select User Role">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-            </MenuButton>
+            <TextField fx:id="textBox_userName" layoutX="379.0" layoutY="143.0" promptText="User Name" />
+            <TextField fx:id="textBox_password" layoutX="379.0" layoutY="174.0" promptText="Password" />
+            <Button fx:id="button_login" layoutX="355.0" layoutY="280.0" mnemonicParsing="false" onAction="#login" prefHeight="36.0" prefWidth="200.0" stylesheets="@application.css" text="Login">
+               <styleClass>
+                  <String fx:value="primaryButton" />
+                  <String fx:value="Button" />
+               </styleClass></Button>
+            <Button fx:id="button_register" layoutX="355.0" layoutY="325.0" mnemonicParsing="false" onAction="#goToRegister" prefHeight="37.0" prefWidth="200.0" stylesheets="@application.css" text="Register">
+               <styleClass>
+                  <String fx:value="secondaryButton" />
+                  <String fx:value="Button" />
+               </styleClass></Button>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="381.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/Managei.png" />
