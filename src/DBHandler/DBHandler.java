@@ -96,6 +96,18 @@ public class DBHandler {
         }
     }
 
+    public void executeGenericInsertQuery(String query){
+        Statement st = null;
+        try {
+            st = con.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Data added to DB");
+    }
+
     public ResultSet executeGenericSelectQueryAndGetResultSet(String q) {
         try {
             Statement st = con.createStatement();
@@ -105,6 +117,12 @@ public class DBHandler {
             System.out.println("Query Execution Error");
         }
         return null;
+    }
+
+    public void saveNewProjectInDB(String fypName,String fypStatus){
+        String query="insert into finalYearProject (fypName,fypStatus) values ("+ fypName + "," + fypStatus + ")";
+        System.out.println(query);
+        executeGenericInsertQuery(query);
     }
 
 //    public ObservableList<ObservableList<String>> getDataforTableUsingQuery(String query){

@@ -1,5 +1,6 @@
 package ApplicationUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -56,7 +57,12 @@ public class progressReportController {
 
     @FXML
     void goToTeamDashboard(ActionEvent event) {
-
+        Main.logOutUser();
+        try {
+            Main.changeScene("supervisorDashboard.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

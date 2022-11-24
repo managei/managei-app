@@ -41,7 +41,7 @@
                                 <TableColumn fx:id="teamIDColumn" prefWidth="90.4000244140625" text="Team ID" />
                             </columns>
                         </TableView>
-                        <Button fx:id="backButton" layoutX="258.0" layoutY="451.0" mnemonicParsing="false" onAction="#goToTeamDashboard" prefHeight="34.0" prefWidth="100.0" style="-fx-font-size: 18;" stylesheets="@application.css" text="Go Back" textFill="WHITE">
+                        <Button fx:id="backButton" layoutX="258.0" layoutY="451.0" mnemonicParsing="false" onAction="#goToSupervisorDashboard" prefHeight="34.0" prefWidth="100.0" style="-fx-font-size: 18;" stylesheets="@application.css" text="Go Back" textFill="WHITE">
                             <styleClass>
                                 <String fx:value="secondaryButton" />
                                 <String fx:value="Button" />

@@ -72,6 +72,13 @@ public class dashboard {
 //        return arr;
 //    }
 
+    public void createProject(DBHandler dbh,String projectName, String projectStatus){
+        if(fypList==null) fypList=new ArrayList<finalYearProject>();
+        finalYearProject fyp= new finalYearProject(fypList.get(fypList.size()-1).getId()+1,projectName,projectStatus);
+        fypList.add(fyp);
+        dbh.saveNewProjectInDB(projectName,projectStatus);
+    }
+
     public ObservableList<finalYearProject> displaySupervisorProjects(DBHandler dbh){
         ObservableList<finalYearProject> arr = dbh.getDataforSupervisorProjects();
         return arr;

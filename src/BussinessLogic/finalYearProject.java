@@ -40,6 +40,19 @@ public class finalYearProject {
         this.id = id;
     }
 
+    finalYearProject(){
+        id=-1;
+        name="";
+        status="";
+        teamID=-1;
+    }
+
+    public finalYearProject(String name, String status){
+        this.id=id;
+        this.name=name;
+        this.status=status;
+        this.teamID=teamID;
+    }
     public finalYearProject(Integer id, String name, String status, Integer teamID){
         this.id=id;
         this.name=name;

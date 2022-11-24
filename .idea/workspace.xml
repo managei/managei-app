@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="Added screens.">
+    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="Added View FYP for supervisor limited to current supervisor.">
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/createProject.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/createProjectController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/createProjectRobot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/gearsAnimated.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashManageProj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/application.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/completeTask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/completeTask.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/completeTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/completeTaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/progressGraph.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/progressGraph.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/progressReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/progressReport.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ApplicationUI/progressReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/progressReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/suggestTask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/suggestTask.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/suggestTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/suggestTaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamTaskView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamTaskView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/viewProjects.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/viewProjects.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/viewProjectsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/viewProjectsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/finalYearProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/finalYearProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBHandler/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBHandler/DBHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,21 +63,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/fasih/SceneBuilder/SceneBuilder.exe&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.26436782&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "F:/Projects/Managei/src/ApplicationUI",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.26436782",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Projects\Managei\src\ApplicationUI" />
       <recent name="D:\Java Dev\managei-app\.idea\runConfigurations" />
       <recent name="D:\Java Dev\managei-app\src" />
     </key>
@@ -107,7 +111,35 @@
       <option name="project" value="LOCAL" />
       <updated>1669197059382</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updated UI pattern.">
+      <created>1669280135079</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669280135079</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Updated UI pattern.">
+      <created>1669280566091</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669280566091</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added View FYP for supervisor.">
+      <created>1669308806473</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669308806474</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added View FYP for supervisor limited to current supervisor.">
+      <created>1669310286670</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669310286670</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,6 +168,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated UI layout Pattern" />
     <MESSAGE value="Added teamTaskView.fxml, teamTaskViewController.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added teamTaskView.fxml, teamTaskViewController.java" />
+    <MESSAGE value="Updated UI pattern." />
+    <MESSAGE value="Added View FYP for supervisor." />
+    <MESSAGE value="Added View FYP for supervisor limited to current supervisor." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added View FYP for supervisor limited to current supervisor." />
   </component>
 </project>

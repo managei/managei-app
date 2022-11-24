@@ -1,5 +1,6 @@
 package ApplicationUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -46,8 +47,13 @@ public class viewProjectsController {
     private TableColumn<finalYearProject, Integer> teamIDColumn;
 
     @FXML
-    void goToTeamDashboard(ActionEvent event) {
-
+    void goToSupervisorDashboard(ActionEvent event) {
+//        Main.logOutUser();
+        try {
+            Main.changeScene("supervisorDashboard.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
