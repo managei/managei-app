@@ -24,7 +24,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             stg = primaryStage;
-            Parent root = FXMLLoader.load(getClass().getResource("teamDashboard.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Managei");
             primaryStage.setScene(scene);
