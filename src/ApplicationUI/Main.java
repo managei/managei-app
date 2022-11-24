@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Main extends Application {
     private static Stage stg;
     private static user loggedInUser=null;
-    public user getLoggedUser ()
+    public static user getLoggedUser ()
     {
         return loggedInUser;
     }
@@ -36,18 +36,18 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-    public void changeScene(String fxml) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+    public static void changeScene(String fxml) throws IOException {
+        Parent pane = FXMLLoader.load(Main.class.getResource(fxml));
         Scene scene = new Scene(pane);
         stg.setScene(scene);
         pane.requestFocus();
         initializeLists();
     }
-    public void logOutUser()
+    public static void logOutUser()
     {
         loggedInUser=null;
     }
-    public void gotoDashboard(String userRole) throws IOException {
+    public static void gotoDashboard(String userRole) throws IOException {
         switch (userRole) {
             case "admin" -> changeScene("adminDashboard.fxml");
             case "supervisor" ->  changeScene("supervisorDashboard.fxml");
@@ -71,8 +71,6 @@ public class Main extends Application {
         dashboard.setTeamList(new ArrayList<team>());
     }
     public static void main(String[] args) {
-
         launch(args);
-
     }
 }

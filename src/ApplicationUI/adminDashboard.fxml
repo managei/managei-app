@@ -26,7 +26,7 @@
                   <Font name="SansSerif Regular" size="36.0" />
                </font>
             </Label>
-            <Pane layoutX="170.0" layoutY="168.0" prefHeight="146.0" prefWidth="460.0" style="-fx-background-color: #4c5a6b; -fx-background-radius: 25;" stylesheets="@application.css">
+            <Pane layoutX="170.0" layoutY="168.0" prefHeight="146.0" prefWidth="460.0" style="-fx-background-radius: 25; -fx-background-color: #4c5a6b;" styleClass="code" stylesheets="@application.css">
                <children>
                   <Button fx:id="button_registerUser" layoutX="300.0" layoutY="32.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Register User" textFill="WHITE">
                      <styleClass>

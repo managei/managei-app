@@ -42,9 +42,8 @@ public class memberTaskViewController {
 
     @FXML
     void goToTeamDashboard(ActionEvent event) {
-        Main m = new Main();
         try {
-            m.changeScene("teamDashboard.fxml");
+            Main.changeScene("teamDashboard.fxml");
         }catch(IOException ie){
 
         }

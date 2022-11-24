@@ -14,7 +14,6 @@ import javafx.scene.paint.Color;
 import java.io.IOException;
 
 public class welcomeController {
-    Main m=new Main();
     dashboard d= new dashboard();
 //    private DBHandler dbh;
     @FXML
@@ -44,8 +43,8 @@ public class welcomeController {
             label_info.setText("Please Wait...");
             user u = d.loginUser(textBox_userName.getText(),textBox_password.getText());
             if(u!=null) {
-                m.setLoggedInUser(u);
-                m.gotoDashboard(u.getUserType());
+                Main.setLoggedInUser(u);
+                Main.gotoDashboard(u.getUserType());
             }else {
                 label_info.setText("Username or Password, does not match");
                 label_info.setTextFill(Color.color(1, 0, 0));
@@ -54,6 +53,6 @@ public class welcomeController {
     }
     @FXML
     public void goToRegister(ActionEvent event) throws IOException {
-        m.changeScene("register.fxml");
+        Main.changeScene("register.fxml");
     }
 }

@@ -10,7 +10,6 @@ import java.io.IOException;
 
 public class adminDashboard {
 
-    Main m=new Main();
     dashboard d= new dashboard();
     @FXML
     private Label label_name;
@@ -30,32 +29,32 @@ public class adminDashboard {
     private Button button_viewUser;
 
     @FXML
-    void createTeam(ActionEvent event) {
-
+    void createTeam(ActionEvent event) throws IOException {
+        Main.changeScene("createTeamPage");
     }
 
     @FXML
-    void registerUser(ActionEvent event) {
-
+    void registerUser(ActionEvent event) throws IOException {
+        Main.changeScene("registerUserPage.fxml");
     }
 
     @FXML
-    void viewTeam(ActionEvent event) {
-
+    void viewTeam(ActionEvent event) throws IOException {
+        Main.changeScene("viewTeamPage");
     }
 
     @FXML
-    void viewUsers(ActionEvent event) {
-
+    void viewUsers(ActionEvent event) throws IOException {
+        Main.changeScene("viewUsersPage");
     }
     @FXML
     void logOut(ActionEvent event) throws IOException {
-        m.logOutUser();
-        m.changeScene("welcome.fxml");
+        Main.logOutUser();
+        Main.changeScene("welcome.fxml");
     }
 
     @FXML
     void initialize() {
-        label_name.setText(m.getLoggedUser().getFirstName()+" 👋");
+        label_name.setText(Main.getLoggedUser().getFirstName()+" 👋");
     }
 }

@@ -20,9 +20,10 @@ public class DBHandler {
             e.printStackTrace();
         }
     }
+
     public ArrayList<user> readUsers() {
         Statement stm;
-        ArrayList<user> userList=new ArrayList<user>();
+        ArrayList<user> userList = new ArrayList<user>();
         try {
             stm = con.createStatement();
 
@@ -30,14 +31,19 @@ public class DBHandler {
             ResultSet rs = stm.executeQuery(query);
             while (rs.next()) {
                 user u = switch (rs.getString("userType")) {
-                    case "admin" -> new admin(rs.getInt("userId"),rs.getString("userName") ,rs.getString("firstName") ,rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
-                    case "supervisor" -> new supervisor(rs.getInt("userId"),rs.getString("userName") ,rs.getString("firstName") ,rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
-                    case "teamMember" -> new teamMember(rs.getInt("userId"),rs.getString("userName") ,rs.getString("firstName") ,rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
-                    case "headOfDepartment" -> new headOfDepartment(rs.getInt("userId"),rs.getString("userName") ,rs.getString("firstName") ,rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
-                    case "fypLabInstructor" -> new fypLabInstructor(rs.getInt("userId"),rs.getString("userName") ,rs.getString("firstName") ,rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
+                    case "admin" ->
+                            new admin(rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
+                    case "supervisor" ->
+                            new supervisor(rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
+                    case "teamMember" ->
+                            new teamMember(rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
+                    case "headOfDepartment" ->
+                            new headOfDepartment(rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
+                    case "fypLabInstructor" ->
+                            new fypLabInstructor(rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
                     default -> null;
                 };
-                if(u!=null)
+                if (u != null)
                     userList.add(u);
             }
         } catch (SQLException e) {
@@ -46,22 +52,22 @@ public class DBHandler {
         }
         return userList;
     }
+
     public void saveUser(user u) {
         try {
 
-            String query = "INSERT INTO users (userID, userName,password,firstName,lastName,userType) VALUES (?,?,?,?,?,?)";
+            String query = "INSERT INTO users (userName,password,firstName,lastName,userType) VALUES (?,?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setInt(1, u.getUserId());
-            stmt.setString(2, u.getUserName());
-            stmt.setString(3, u.getPassword());
-            stmt.setString(4, u.getFirstName());
-            stmt.setString(5, u.getLastName());
-            stmt.setString(6, u.getUserType());
+            stmt.setString(1, u.getUserName());
+            stmt.setString(2, u.getPassword());
+            stmt.setString(3, u.getFirstName());
+            stmt.setString(4, u.getLastName());
+            stmt.setString(5, u.getUserType());
 
             int rows = stmt.executeUpdate();
             if (rows > 0) {
                 System.out.println("A user was added...");
-            }else
+            } else
                 System.out.println("User register failed...");
 
         } catch (Exception e) {
@@ -74,7 +80,7 @@ public class DBHandler {
         try {
             stm = con.createStatement();
 
-            String query = "SELECT * FROM "+table;
+            String query = "SELECT * FROM " + table;
             ResultSet rs = stm.executeQuery(query);
             while (rs.next()) {
                 Printing.PrintStr(rs.getString("userName"));
@@ -91,8 +97,7 @@ public class DBHandler {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(q);
             return rs;
-        }
-        catch (SQLException sqe){
+        } catch (SQLException sqe) {
             System.out.println("Query Execution Error");
         }
         return null;

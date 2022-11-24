@@ -7,6 +7,10 @@
 .primary{
     -fx-background-color:#2384fb;
 }
+.card {
+    -fx-background-color: #4c5a6b;
+    -fx-background-radius: 25;
+}
 
 .secondary{
     -fx-background-color:#FF70D7;
