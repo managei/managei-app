@@ -59,7 +59,7 @@ public class createProjectController {
         }
         d.createProject(dbh,fypName,fypStatus);
 
-
+        // Todo: Faraz will add create Team after this (called on click of next button)
         try {
             Main.changeScene("createTeam.fxml");
         } catch (IOException e) {
