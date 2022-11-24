@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 public class progressReportController {
 
@@ -44,6 +45,9 @@ public class progressReportController {
 
     @FXML
     private TableView<?> teamTable;
+
+    @FXML
+    private Text errorTextField;
 
     @FXML
     void generateProjectProgressReport(ActionEvent event) {

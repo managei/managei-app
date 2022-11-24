@@ -1,7 +1,7 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
 .background{
-	-fx-background-color:#435060;
+	-fx-background-color:#2a323c;
 }
 
 .primary{
@@ -19,7 +19,10 @@
 .warning{
     -fx-background-color:#F4AC45;
 }
-
+.card{
+    -fx-background-color:#4c5a6b;
+    -fx-background-radius:25;
+}
 .teamDashboardBanner{
     -fx-background-image: url('teamDashboardBanner.jpg');
     -fx-background-size: 100% 100%;
@@ -37,6 +40,7 @@
 
 .secondaryButton{
     -fx-background-color:#FF70D7;
+    -fx-text-fill:white;
 }
 
 .font{

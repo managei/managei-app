@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="Added teamTaskView.fxml, teamTaskViewController.java">
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/graphBannerTop.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/progressGraph.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/progressGraphController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/suggestTask.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/suggestTaskController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/taskSuggession.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashTopBanner.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashTopRight.png" afterDir="false" />
+    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="Added screens.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ApplicationUI/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/application.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ApplicationUI/completeTask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/completeTask.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/completeTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/completeTaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/progressGraph.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/progressGraph.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/progressReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/progressReport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/progressReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/progressReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/suggestTask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/suggestTask.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/suggestTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/suggestTaskController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamTaskView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamTaskView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamTaskViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamTaskViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +45,9 @@
         <option name="repository" value="managei-app" />
       </RepoCoordinatesHolder>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/ApplicationUI/Main.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

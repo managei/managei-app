@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -26,6 +27,9 @@ public class suggestTaskController {
 
     @FXML
     private TextField taskNameField;
+
+    @FXML
+    private Text errorTextField;
 
     @FXML
     private Label taskNameLabel;

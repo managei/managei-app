@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 public class completeTaskController {
 
@@ -46,6 +47,9 @@ public class completeTaskController {
 
     @FXML
     private TextField taskIDField;
+
+    @FXML
+    private Text errorTextField;
     @FXML
     void goToTeamDashboard(ActionEvent event) {
         Main m = new Main();
