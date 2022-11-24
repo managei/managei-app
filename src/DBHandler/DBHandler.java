@@ -1,6 +1,7 @@
 package DBHandler;
 
 
+import ApplicationUI.Main;
 import BussinessLogic.*;
 import Utils.Printing;
 import javafx.beans.Observable;
@@ -128,7 +129,10 @@ public class DBHandler {
     public ObservableList<finalYearProject> getDataforSupervisorProjects(){
         ObservableList<finalYearProject> data = FXCollections.observableArrayList();
 
-        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select f.fypID,f.fypName,f.fypStatus,t.teamID from manageitaskmanagementsystem.finalyearproject f inner join manageitaskmanagementsystem.team t on f.fypID=t.fypID;");
+        user u= Main.getLoggedInUser();
+        String user_id = u.getUserId().toString();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet(
+                "select f.fypID,f.fypName,f.fypStatus,t.teamID from manageitaskmanagementsystem.finalyearproject f inner join manageitaskmanagementsystem.team t on f.fypID=t.fypID inner join manageitaskmanagementsystem.supervisor s on s.assignedTeamID=t.teamID where s.supervisorID=" + user_id + ";");
         try{
             while(rs.next()) {
                 finalYearProject fyp = new finalYearProject(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4));
