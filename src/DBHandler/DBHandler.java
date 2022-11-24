@@ -120,7 +120,7 @@ public class DBHandler {
     }
 
     public void saveNewProjectInDB(String fypName,String fypStatus){
-        String query="insert into finalYearProject (fypName,fypStatus) values ("+ fypName + "," + fypStatus + ")";
+        String query="insert into finalYearProject (fypName,fypStatus) values ("+ "'" +fypName + "'" + "," + "'" + fypStatus + "'" + ")";
         System.out.println(query);
         executeGenericInsertQuery(query);
     }

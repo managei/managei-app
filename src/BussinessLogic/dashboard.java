@@ -1,5 +1,6 @@
 package BussinessLogic;
 
+import ApplicationUI.Main;
 import DBHandler.DBHandler;
 import javafx.collections.ObservableList;
 
@@ -73,10 +74,13 @@ public class dashboard {
 //    }
 
     public void createProject(DBHandler dbh,String projectName, String projectStatus){
-        if(fypList==null) fypList=new ArrayList<finalYearProject>();
-        finalYearProject fyp= new finalYearProject(fypList.get(fypList.size()-1).getId()+1,projectName,projectStatus);
-        fypList.add(fyp);
+//        if(fypList==null) fypList=new ArrayList<finalYearProject>();
+//        int sizeOffyp=fypList.size();
+//        if(sizeOffyp>0)
+//        finalYearProject fyp= new finalYearProject(fypList.get(fypList.size()-1).getId()+1,projectName,projectStatus);
+//        fypList.add(fyp);
         dbh.saveNewProjectInDB(projectName,projectStatus);
+        Main.initializeLists();
     }
 
     public ObservableList<finalYearProject> displaySupervisorProjects(DBHandler dbh){
