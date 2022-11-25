@@ -2,12 +2,20 @@ package ApplicationUI;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import BussinessLogic.dashboard;
+import BussinessLogic.supervisor;
+import BussinessLogic.team;
+import BussinessLogic.user;
+import DBHandler.DBHandler;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
@@ -44,7 +52,7 @@ public class progressReportController {
 //    private MenuButton reportTypeMenu;
 
     @FXML
-    private TableColumn<?, ?> teamIDColumn;
+    private TableColumn<team, Integer> teamIDColumn;
 
     @FXML
     private TextField teamIDTextField;
@@ -56,10 +64,10 @@ public class progressReportController {
     private Label teamIdLabel1;
 
     @FXML
-    private TableColumn<?, ?> teamNameColumn;
+    private TableColumn<team, String> teamNameColumn;
 
     @FXML
-    private TableView<?> teamTable;
+    private TableView<team> teamTable;
 
     @FXML
     private Text errorTextField;
@@ -122,6 +130,51 @@ public class progressReportController {
     }
 
     @FXML
+    private RadioButton bottomRadio;
+
+    @FXML
+    private RadioButton topRadio;
+
+    @FXML
+    void updateTeamTable(ActionEvent event) {
+        dashboard d=new dashboard();
+//        user currentUser = Main.getLoggedUser();
+        Main.initializeLists();
+        ArrayList<team> arr = d.fetchTeamData();
+
+        teamIDColumn.setCellValueFactory(new PropertyValueFactory<team,Integer>("id"));
+        teamNameColumn.setCellValueFactory(new PropertyValueFactory<team,String>("name"));
+
+//        String currentUserName = Main.getLoggedUser().getUserName();
+        int currentUserID =  Main.getLoggedUser().getUserId();
+        supervisor currentSupervisor = null;
+
+        for(int i=0; i<dashboard.getSupervisorList().size(); i++){
+            if(dashboard.getSupervisorList().get(i).getUserId()==currentUserID){
+                currentSupervisor=dashboard.getSupervisorList().get(i);
+//                System.out.println("Current Supervisor ID: " + currentSupervisor.getUserId().toString());
+            }
+        }
+
+        ObservableList<team> toDisp = FXCollections.observableArrayList();
+
+        if(topRadio.isSelected()){
+            for(int i=0; i<arr.size(); i++){
+                if(arr.get(i).getId()==currentSupervisor.getAssignedTeamId()){
+                    toDisp.add(arr.get(i));
+                }
+            }
+
+        }else{
+            for(int i=0; i<arr.size(); i++){
+                toDisp.add(arr.get(i));
+                System.out.println(arr.get(i).getName());
+            }
+        }
+        teamTable.setItems(toDisp);
+    }
+
+    @FXML
     void initialize() {
         assert generateReportButton != null : "fx:id=\"generateReportButton\" was not injected: check your FXML file 'progressReport.fxml'.";
         assert goBackButton != null : "fx:id=\"goBackButton\" was not injected: check your FXML file 'progressReport.fxml'.";
@@ -143,7 +196,7 @@ public class progressReportController {
 //        reportTypeMenu.getItems().set(0,i1);
 //        reportTypeMenu.getItems().set(1,i2);
 
-
+        updateTeamTable(null);
     }
 
 }

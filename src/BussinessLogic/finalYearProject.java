@@ -3,6 +3,7 @@ package BussinessLogic;
 import DBHandler.DBHandler;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class finalYearProject {
     private Integer id;
@@ -73,5 +74,9 @@ public class finalYearProject {
     public void deleteProject(String fypID) throws SQLException {
         DBHandler dbh = new DBHandler();
         dbh.deleteProject(fypID);
+    }
+
+    public ArrayList<finalYearProject> returnFypList(){
+        return dashboard.getFypList();
     }
 }

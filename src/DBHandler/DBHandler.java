@@ -73,6 +73,41 @@ public class DBHandler {
         return arr;
     }
 
+    public ArrayList<supervisor> readSupervisors(){
+
+        ArrayList<supervisor> arr = new ArrayList<supervisor>();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from supervisor s inner join users u on s.supervisorID=u.userID;");
+
+        try {
+            while (rs.next()) {
+                supervisor s = new supervisor(
+                        rs.getInt("supervisorID"),rs.getString("userName"),
+                        rs.getString("firstName"), rs.getString("lastName"),
+                        rs.getString("password"),rs.getString("userType"));
+                arr.add(s);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arr;
+    }
+
+    public ArrayList<team> readTeams(){
+
+        ArrayList<team> arr = new ArrayList<team>();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from team;");
+
+        try {
+            while (rs.next()) {
+                team t = new team(rs.getInt(1),rs.getString("teamName"),rs.getString("fypID"),"NULL");
+                arr.add(t);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arr;
+    }
+
     public void saveUser(user u) {
         try {
 

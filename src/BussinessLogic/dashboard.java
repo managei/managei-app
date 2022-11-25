@@ -12,6 +12,16 @@ public class dashboard {
     static private ArrayList<team> teamList=null;
     static private ArrayList<finalYearProject> fypList=null;
     static private ArrayList<task> taskList=null;
+
+    public static ArrayList<supervisor> getSupervisorList() {
+        return supervisorList;
+    }
+
+    public static void setSupervisorList(ArrayList<supervisor> supervisorList) {
+        dashboard.supervisorList = supervisorList;
+    }
+
+    static private ArrayList<supervisor> supervisorList=null;
     public user loginUser(String userName,String password)
     {
         for (user u:
@@ -100,5 +110,11 @@ public class dashboard {
 
     public ArrayList<String> generateShortProjectProgressReport(String teamID){
         return supervisor.generateShortProjectProgressReport(teamID);
+    }
+
+    public ArrayList<team> fetchTeamData(){
+        ArrayList<team> arr;
+        arr=team.returnTeamList();
+        return arr;
     }
 }

@@ -69,7 +69,8 @@ public class Main extends Application {
         dashboard.setFypList(db.readFyps());
         dashboard.setTaskList(new ArrayList<task>());
         dashboard.setUserList(db.readUsers());
-        dashboard.setTeamList(new ArrayList<team>());
+        dashboard.setTeamList(db.readTeams());
+        dashboard.setSupervisorList(db.readSupervisors());
     }
     public static void main(String[] args) {
 
