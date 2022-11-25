@@ -1,7 +1,10 @@
 package BussinessLogic;
 
+import ApplicationUI.Main;
 import DBHandler.DBHandler;
+import javafx.collections.ObservableList;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class dashboard {
@@ -64,5 +67,29 @@ public class dashboard {
 
     public static void setTaskList(ArrayList<task> taskList) {
         dashboard.taskList = taskList;
+    }
+
+//    public ObservableList<ObservableList<String>> displaySupervisorProjects(DBHandler dbh,String query){
+//        ObservableList<ObservableList<String>> arr = dbh.getDataforTableUsingQuery(query);
+//        return arr;
+//    }
+
+    public void createProject(DBHandler dbh,String projectName, String projectStatus){
+//        if(fypList==null) fypList=new ArrayList<finalYearProject>();
+//        int sizeOffyp=fypList.size();
+//        if(sizeOffyp>0)
+//        finalYearProject fyp= new finalYearProject(fypList.get(fypList.size()-1).getId()+1,projectName,projectStatus);
+//        fypList.add(fyp);
+        dbh.saveNewProjectInDB(projectName,projectStatus);
+        Main.initializeLists();
+    }
+
+    public void updateProjectDetail(DBHandler dbh,String fypName,String fypStatus,String fypID) throws SQLException {
+        dbh.updateProjectDetails(fypName,fypStatus,fypID);
+        Main.initializeLists();
+    }
+    public ObservableList<finalYearProject> displaySupervisorProjects(DBHandler dbh){
+        ObservableList<finalYearProject> arr = dbh.getDataforSupervisorProjects();
+        return arr;
     }
 }

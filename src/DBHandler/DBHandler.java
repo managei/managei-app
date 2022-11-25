@@ -1,8 +1,12 @@
 package DBHandler;
 
 
+import ApplicationUI.Main;
 import BussinessLogic.*;
 import Utils.Printing;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,7 +17,7 @@ public class DBHandler {
 
     public DBHandler() {
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ManageiTaskManagementSystem", "root", "Razi.432");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ManageiTaskManagementSystem", "root", "root");
             Printing.PrintStr("Connection Done");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -92,6 +96,29 @@ public class DBHandler {
         }
     }
 
+    public void executeGenericInsertQuery(String query){
+        Statement st = null;
+        try {
+            st = con.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Data added to DB");
+    }
+
+    public void executeGenericUpdateDeleteQuery(String query) throws SQLException{
+        Statement st = null;
+//        try {
+            st = con.createStatement();
+            st.executeUpdate(query);
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        System.out.println("Data updated/Deleted in DB");
+    }
     public ResultSet executeGenericSelectQueryAndGetResultSet(String q) {
         try {
             Statement st = con.createStatement();
@@ -103,41 +130,56 @@ public class DBHandler {
         return null;
     }
 
-//    public boolean getUserFromDBTrueFalse(String username, String Password) {
-//        String query = "select* from users where username='" + username + "'";
-//        ResultSet rs = executeGenericSelectQueryAndGetResultSet(query);
+    public void saveNewProjectInDB(String fypName,String fypStatus){
+        String query="insert into finalYearProject (fypName,fypStatus) values ("+ "'" +fypName + "'" + "," + "'" + fypStatus + "'" + ")";
+        System.out.println(query);
+        executeGenericInsertQuery(query);
+    }
+
+    public void updateProjectDetails(String fypName,String fypStatus,String fypID) throws SQLException{
+        String query= "UPDATE manageitaskmanagementsystem.finalyearproject" +
+                " SET manageitaskmanagementsystem.finalyearproject.fypName='" + fypName +"', manageitaskmanagementsystem.finalyearproject.fypStatus='" +
+                fypStatus +"' WHERE manageitaskmanagementsystem.finalyearproject.fypID=" + fypID + ";";
+        executeGenericUpdateDeleteQuery(query);
+    }
+
+//    public ObservableList<ObservableList<String>> getDataforTableUsingQuery(String query){
+//        ObservableList<ObservableList<String>> data = FXCollections.observableArrayList();
 //
-//        ArrayList<String> arr=new ArrayList<String>();
-//        try {
-//            while (rs.next()) {
-//                 arr.add(rs.getString(3));
+//        ResultSet rs = executeGenericSelectQueryAndGetResultSet(query);
+//        ObservableList<String> currentRow = FXCollections.observableArrayList();
+//        try{
+//            while(rs.next()) {
+//                for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+//                    currentRow.add(rs.getString(i));
+//                }
+//                data.add(currentRow);
 //            }
-//        }catch (SQLException sqe){
-//            return false;
+//        }catch (SQLException sql){
+//            sql.printStackTrace();
 //        }
 //
-//        if(arr.get(0).equals(Password)) return true;
-//        else return  false;
+//        return data;
 //    }
 
-//    public void saveStudent(Student s) {
-//        try {
-//
-//            String query = "INSERT INTO students (roll_no, name,batch,section) VALUES (?,?,?,?)";
-//            PreparedStatement stmt = con.prepareStatement(query);
-//            stmt.setInt(1, s.getRoll_no());
-//            stmt.setString(2, s.getName());
-//            stmt.setString(3, s.getBatch());
-//            stmt.setString(4, s.getSection());
-//
-//            int rows = stmt.executeUpdate();
-//            if (rows > 0) {
-//                System.out.println("A student was added...");
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//    }
+    public ObservableList<finalYearProject> getDataforSupervisorProjects(){
+        ObservableList<finalYearProject> data = FXCollections.observableArrayList();
+
+        user u= Main.getLoggedInUser();
+        String user_id = u.getUserId().toString();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet(
+                "select f.fypID,f.fypName,f.fypStatus,t.teamID from manageitaskmanagementsystem.finalyearproject f inner join manageitaskmanagementsystem.team t on f.fypID=t.fypID inner join manageitaskmanagementsystem.supervisor s on s.assignedTeamID=t.teamID where s.supervisorID=" + user_id + ";");
+        try{
+            while(rs.next()) {
+                finalYearProject fyp = new finalYearProject(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4));
+                data.add(fyp);
+            }
+        }catch (SQLException sql){
+            sql.printStackTrace();
+        }
+
+        return data;
+    }
 
 
     public void closeConnection() {

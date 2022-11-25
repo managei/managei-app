@@ -28,6 +28,7 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             primaryStage.setTitle("Managei");
             primaryStage.setScene(scene);
+//            primaryStage.setResizable(false);
             primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../images/Managei.png")));
             primaryStage.show();
             root.requestFocus();
@@ -71,6 +72,8 @@ public class Main extends Application {
         dashboard.setTeamList(new ArrayList<team>());
     }
     public static void main(String[] args) {
+
         launch(args);
+
     }
 }

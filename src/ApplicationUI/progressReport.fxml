@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.progressReportController">
+    <children>
+        <AnchorPane prefHeight="605.0" prefWidth="800.0">
+            <children>
+                <SplitPane layoutY="-1.0" prefHeight="606.0" prefWidth="806.0">
+                    <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+                            <children>
+                                <AnchorPane>
+                                    <children>
+                                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="806.0" styleClass="titleBannerBackground" stylesheets="@application.css">
+                                            <children>
+                                                <Label layoutX="41.0" layoutY="26.0" styleClass="font" stylesheets="@application.css" text="Generate Progress Report" textAlignment="CENTER" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="36.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="75.0" fitWidth="92.0" layoutX="693.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@reportGif.gif" />
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="-1.0" layoutY="91.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="806.0" styleClass="background" stylesheets="@application.css">
+                                            <children>
+                                                <Separator prefHeight="3.0" prefWidth="806.0" />
+                                    <Pane layoutX="128.0" layoutY="50.0" prefHeight="413.0" prefWidth="550.0" styleClass="card" stylesheets="@application.css">
+                                       <children>
+                                                      <Label fx:id="teamIdLabel" layoutX="31.0" layoutY="267.0" styleClass="font" stylesheets="@application.css" text="Enter Team ID:" textFill="WHITE">
+                                                          <font>
+                                                              <Font size="24.0" />
+                                                          </font>
+                                                      </Label>
+                                                      <Button fx:id="goBackButton" layoutX="204.0" layoutY="360.0" mnemonicParsing="false" onAction="#goToTeamDashboard" prefHeight="33.0" prefWidth="108.0" stylesheets="@application.css" text="Go Back" textFill="WHITE">
+                                                          <styleClass>
+                                                              <String fx:value="Button" />
+                                                              <String fx:value="font" />
+                                                              <String fx:value="secondaryButton" />
+                                                          </styleClass>
+                                                          <font>
+                                                              <Font size="14.0" />
+                                                          </font>
+                                                      </Button>
+                                          <TextField fx:id="teamIDTextField" layoutX="198.0" layoutY="269.0" />
+                                          <MenuButton fx:id="reportTypeMenu" layoutX="198.0" layoutY="312.0" mnemonicParsing="false" text="Type of report">
+                                            <items>
+                                              <MenuItem mnemonicParsing="false" text="Action 1" />
+                                              <MenuItem mnemonicParsing="false" text="Action 2" />
+                                            </items>
+                                          </MenuButton>
+                                          <Label fx:id="teamIdLabel1" layoutX="61.0" layoutY="311.0" styleClass="font" stylesheets="@application.css" text="Select Type:" textFill="WHITE">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="generateReportButton" layoutX="63.0" layoutY="360.0" mnemonicParsing="false" onAction="#generateProjectProgressReport" prefHeight="33.0" prefWidth="108.0" stylesheets="@application.css" text="Generate">
+                                             <styleClass>
+                                                <String fx:value="Button" />
+                                                <String fx:value="font" />
+                                                <String fx:value="primaryButton" />
+                                             </styleClass>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <TableView fx:id="teamTable" layoutX="369.0" layoutY="40.0" prefHeight="358.0" prefWidth="151.0">
+                                            <columns>
+                                              <TableColumn fx:id="teamIDColumn" prefWidth="60.0" text="Team ID" />
+                                              <TableColumn fx:id="teamNameColumn" prefWidth="91.2000732421875" text="Team Name" />
+                                            </columns>
+                                          </TableView>
+                                          <ImageView fitHeight="248.0" fitWidth="294.0" layoutX="34.0" layoutY="10.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@faraz.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Text fx:id="errorTextField" fill="WHITE" layoutX="34.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                       </children>
+                                    </Pane>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                            </children></AnchorPane>
+                    </items>
+                </SplitPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
