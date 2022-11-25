@@ -1,5 +1,6 @@
 package ApplicationUI;
 
+import BussinessLogic.dashboard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -43,13 +44,14 @@ public class suggestTaskController {
         try {
             m.changeScene("teamDashboard.fxml");
         }catch(IOException ie){
-
+            ie.printStackTrace();
         }
     }
 
     @FXML
     void suggestTask(ActionEvent event) {
-
+        dashboard d = new dashboard();
+        d.selectSuggestNewTask(taskNameField.getText(),taskDetailsField.getText());
     }
 
 }

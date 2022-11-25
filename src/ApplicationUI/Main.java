@@ -71,6 +71,7 @@ public class Main extends Application {
         dashboard.setUserList(db.readUsers());
         dashboard.setTeamList(db.readTeams());
         dashboard.setSupervisorList(db.readSupervisors());
+        dashboard.setTeamMembersList(db.readMembers());
     }
     public static void main(String[] args) {
 

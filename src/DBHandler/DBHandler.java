@@ -125,6 +125,24 @@ public class DBHandler {
         return arr;
     }
 
+    public ArrayList<teamMember> readMembers(){
+
+        ArrayList<teamMember> arr = new ArrayList<teamMember>();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from teammember m inner join users u on m.memberID=u.userID;");
+
+        try {
+            while (rs.next()) {
+                teamMember t = new teamMember(rs.getInt(1),rs.getString("userName"),
+                        rs.getString("firstName"), rs.getString("lastName"),
+                        rs.getString("password"),rs.getString("userType"),rs.getInt(2));
+                arr.add(t);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arr;
+    }
+
     public void saveUser(user u) {
         try {
 
@@ -200,6 +218,13 @@ public class DBHandler {
 
     public void saveNewProjectInDB(String fypName,String fypStatus){
         String query="insert into finalYearProject (fypName,fypStatus) values ("+ "'" +fypName + "'" + "," + "'" + fypStatus + "'" + ")";
+        System.out.println(query);
+        executeGenericInsertQuery(query);
+    }
+
+    public void saveTask(String taskName,String taskDetail,String fypID,String memberID,String taskStatus){
+        String query="insert into task (fypID,memberID,taskName,taskDetail,taskStatus) values ("
+                 + fypID + ", " + memberID + ", " + "'" + taskName + "', " + "'" + taskDetail + "', '" + taskStatus + "');";
         System.out.println(query);
         executeGenericInsertQuery(query);
     }

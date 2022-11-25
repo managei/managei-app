@@ -13,6 +13,16 @@ public class dashboard {
     static private ArrayList<finalYearProject> fypList=null;
     static private ArrayList<task> taskList=null;
 
+    public static ArrayList<teamMember> getTeamMembersList() {
+        return teamMembersList;
+    }
+
+    public static void setTeamMembersList(ArrayList<teamMember> teamMembersList) {
+        dashboard.teamMembersList = teamMembersList;
+    }
+
+    static private ArrayList<teamMember> teamMembersList = null;
+
     public static ArrayList<supervisor> getSupervisorList() {
         return supervisorList;
     }
@@ -116,5 +126,33 @@ public class dashboard {
         ArrayList<team> arr;
         arr=team.returnTeamList();
         return arr;
+    }
+    public void selectSuggestNewTask(String taskName,String taskDetail){
+        user currentUser = Main.getLoggedInUser();
+
+        teamMember currentTeamMember = null;
+
+        for(int i=0; i<teamMembersList.size(); i++){
+            System.out.println(teamMembersList.get(i).getUserId());
+            System.out.println(currentUser.getUserId());
+
+            if(teamMembersList.get(i).getUserId()==currentUser.getUserId()){
+                currentTeamMember=teamMembersList.get(i);
+                System.out.println(teamMembersList.get(i).getFirstName());
+            }
+        }
+
+        System.out.println("team members: " + teamMembersList.size());
+        team curTeam = null;
+
+        for(int i=0; i<teamList.size(); i++){
+            if(teamList.get(i).getId()==currentTeamMember.getTeamId()){
+                curTeam=teamList.get(i);
+            }
+        }
+
+        String fypID = curTeam.getFypId();
+        teamMember.suggestNewTask(taskName,taskDetail,fypID,Main.getLoggedInUser().getUserId().toString());
+
     }
 }
