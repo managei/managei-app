@@ -143,6 +143,11 @@ public class DBHandler {
         executeGenericUpdateDeleteQuery(query);
     }
 
+    public void deleteProject(String fypID) throws SQLException{
+        String query= "delete from manageitaskmanagementsystem.finalyearproject where manageitaskmanagementsystem.finalyearproject.fypID=" + fypID + ";";
+        executeGenericUpdateDeleteQuery(query);
+    }
+
 //    public ObservableList<ObservableList<String>> getDataforTableUsingQuery(String query){
 //        ObservableList<ObservableList<String>> data = FXCollections.observableArrayList();
 //

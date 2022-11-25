@@ -88,6 +88,11 @@ public class dashboard {
         dbh.updateProjectDetails(fypName,fypStatus,fypID);
         Main.initializeLists();
     }
+
+    public void deleteProject(String fypID) throws SQLException{
+        finalYearProject fyp = new finalYearProject();
+        fyp.deleteProject(fypID);
+    }
     public ObservableList<finalYearProject> displaySupervisorProjects(DBHandler dbh){
         ObservableList<finalYearProject> arr = dbh.getDataforSupervisorProjects();
         return arr;

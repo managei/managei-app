@@ -60,7 +60,11 @@ public class supervisorDashboardController {
 
     @FXML
     void deleteProject(ActionEvent event) {
-
+        try {
+            Main.changeScene("deleteProject.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

@@ -1,5 +1,9 @@
 package BussinessLogic;
 
+import DBHandler.DBHandler;
+
+import java.sql.SQLException;
+
 public class finalYearProject {
     private Integer id;
     private String name;
@@ -66,4 +70,8 @@ public class finalYearProject {
         this.status=status;
     }
 
+    public void deleteProject(String fypID) throws SQLException {
+        DBHandler dbh = new DBHandler();
+        dbh.deleteProject(fypID);
+    }
 }
