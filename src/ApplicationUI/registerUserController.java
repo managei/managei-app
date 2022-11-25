@@ -69,7 +69,7 @@ public class registerUserController {
             label_info.setTextFill(Color.color(1, 0, 0));
         } else {
             label_info.setText("Please Wait...");
-            user u = d.registerUser(1, firstName_textField.getText(), lastName_textField.getText(), username_textField.getText(), password_textField.getText(), selectedRole);
+            user u = d.registerUser(1, username_textField.getText(), firstName_textField.getText(), lastName_textField.getText(), password_textField.getText(), selectedRole);
             Main.initializeLists();
             label_info.setTextFill(Color.color(0, 1, 0));
             label_info.setText("User Saved Successfully");

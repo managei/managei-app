@@ -13,15 +13,15 @@
 
 
 <BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.registerUserController">
-   <center>
-      <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@application.css">
+   <top>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background" stylesheets="@application.css" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="190.0" layoutY="23.0" text="Register User" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="280.0" layoutY="100.0" text="Register User" textFill="WHITE">
                <font>
                   <Font name="SansSerif Regular" size="36.0" />
                </font>
             </Label>
-            <Pane layoutX="80.0" layoutY="73.0" prefHeight="258.0" prefWidth="441.0" styleClass="card" stylesheets="@application.css">
+            <Pane layoutX="170.0" layoutY="171.0" prefHeight="327.0" prefWidth="441.0" styleClass="card" stylesheets="@application.css">
                <children>
                   <TextField fx:id="firstName_textField" layoutX="146.0" layoutY="53.0" promptText="First Name" />
                   <TextField fx:id="lastName_textField" layoutX="146.0" layoutY="83.0" promptText="Last Name" />
@@ -46,21 +46,21 @@
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Label>
+                  <Button layoutX="103.0" layoutY="254.0" mnemonicParsing="false" onAction="#goBack" stylesheets="@application.css" text="Go Back">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="secondaryButton" />
+                     </styleClass>
+                  </Button>
+                  <Button layoutX="250.0" layoutY="254.0" mnemonicParsing="false" onAction="#registerUser" stylesheets="@application.css" text="Register">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="primaryButton" />
+                     </styleClass>
+                  </Button>
                </children>
             </Pane>
-            <Button layoutX="190.0" layoutY="347.0" mnemonicParsing="false" onAction="#goBack" stylesheets="@application.css" text="Go Back">
-               <styleClass>
-                  <String fx:value="Button" />
-                  <String fx:value="secondaryButton" />
-               </styleClass>
-            </Button>
-            <Button layoutX="322.0" layoutY="347.0" mnemonicParsing="false" onAction="#registerUser" stylesheets="@application.css" text="Register">
-               <styleClass>
-                  <String fx:value="Button" />
-                  <String fx:value="primaryButton" />
-               </styleClass>
-            </Button>
          </children>
       </AnchorPane>
-   </center>
+   </top>
 </BorderPane>
