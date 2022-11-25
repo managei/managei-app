@@ -97,22 +97,6 @@ public class DBHandler {
         return userList;
     }
 
-    public ArrayList<finalYearProject> readFyps(){
-
-        ArrayList<finalYearProject> arr = new ArrayList<finalYearProject>();
-        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from finalYearProject");
-
-        try {
-            while (rs.next()) {
-                finalYearProject fyp = new finalYearProject(Integer.parseInt(rs.getString("fypID")), rs.getString("fypName"),rs.getString("fypStatus"));
-                arr.add(fyp);
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return arr;
-    }
-
     public ArrayList<supervisor> readSupervisors(){
 
         ArrayList<supervisor> arr = new ArrayList<supervisor>();
@@ -125,39 +109,6 @@ public class DBHandler {
                         rs.getString("firstName"), rs.getString("lastName"),
                         rs.getString("password"),rs.getString("userType"));
                 arr.add(s);
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return arr;
-    }
-
-    public ArrayList<team> readTeams(){
-
-        ArrayList<team> arr = new ArrayList<team>();
-        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from team;");
-
-        try {
-            while (rs.next()) {
-                team t = new team(rs.getInt(1),rs.getString("teamName"),rs.getString("fypID"),"NULL");
-                arr.add(t);
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return arr;
-    }
-
-    public ArrayList<task> readTasks(){
-
-        ArrayList<task> arr = new ArrayList<task>();
-        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from task;");
-
-        try {
-            while (rs.next()) {
-                task t = new task(rs.getInt("taskID"),rs.getString("taskName"),rs.getString("taskDetail"),
-                        rs.getString("taskStatus"),rs.getInt("fypID"),rs.getInt("memberID"));
-                arr.add(t);
             }
         }catch (SQLException e){
             e.printStackTrace();

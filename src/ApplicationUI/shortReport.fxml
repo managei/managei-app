@@ -71,7 +71,7 @@
                                           </Label>
                                           <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="378.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@National_University_of_Computer_and_Emerging_Sciences_logo.png" />
+                                                <Image url="@../images/National_University_of_Computer_and_Emerging_Sciences_logo.png" />
                                              </image>
                                           </ImageView>
                                           <Text fx:id="fypID" fill="WHITE" layoutX="111.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Text">

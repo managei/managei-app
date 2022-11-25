@@ -66,7 +66,7 @@
                                                         <TextField fx:id="fypIDTextField" layoutX="199.0" layoutY="253.0" prefHeight="26.0" prefWidth="229.0" />
                                           <ImageView fitHeight="192.0" fitWidth="204.0" layoutX="144.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@deleteProject.png" />
+                                                <Image url="@../images/deleteProject.png" />
                                              </image>
                                           </ImageView>
                                                     </children>
