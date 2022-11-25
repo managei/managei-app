@@ -23,7 +23,7 @@
                         </Label>
                         <ImageView fitHeight="83.0" fitWidth="111.0" layoutX="703.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@memberTaskTopRight.gif" />
+                                <Image url="@../images/memberTaskTopRight.gif" />
                             </image>
                         </ImageView>
                     </children>

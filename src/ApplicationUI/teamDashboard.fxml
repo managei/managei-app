@@ -27,7 +27,7 @@
                               </Label>
                               <ImageView fitHeight="75.0" fitWidth="92.0" layoutX="693.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@teamDashTopBanner.gif" />
+                                    <Image url="@../images/teamDashTopBanner.gif" />
                                  </image>
                               </ImageView>
                            </children>
@@ -98,7 +98,7 @@
                                     </Label>
                                     <ImageView fitHeight="243.0" fitWidth="220.0" layoutX="288.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@teamDashTopRight.png" />
+                                          <Image url="@../images/teamDashTopRight.png" />
                                        </image>
                                     </ImageView>
                                     <Button fx:id="progessGraphButton" layoutX="294.0" layoutY="276.0" mnemonicParsing="false" onAction="#showProgressGraph" prefHeight="52.0" prefWidth="154.0" stylesheets="@application.css" text="Progress Graph">

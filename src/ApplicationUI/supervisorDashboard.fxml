@@ -41,7 +41,7 @@
                         </Button>
                         <ImageView fitHeight="155.0" fitWidth="164.0" layoutX="38.0" layoutY="46.0" pickOnBounds="true">
                             <image>
-                                <Image url="@supervisorDashManageProj.png" />
+                                <Image url="@../images/supervisorDashManageProj.png" />
                             </image>
                         </ImageView>
                   <Button fx:id="updateProjectButton" layoutX="286.0" layoutY="123.0" mnemonicParsing="false" onAction="#updateProject" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Update Project" textFill="WHITE">
@@ -82,7 +82,7 @@
                         </Button>
                         <ImageView fitHeight="158.0" fitWidth="168.0" layoutX="44.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@gearsAnimated.gif" />
+                                <Image url="@../images/gearsAnimated.gif" />
                             </image>
                         </ImageView>
                   <Button fx:id="createTaskButton" layoutX="277.0" layoutY="135.0" mnemonicParsing="false" onAction="#createTask" prefHeight="39.0" prefWidth="160.0" stylesheets="@application.css" text="Create Task" textFill="WHITE">

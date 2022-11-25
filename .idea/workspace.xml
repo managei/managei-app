@@ -2,19 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="Added View FYP for supervisor limited to current supervisor.">
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/createProject.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/createProjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/createProjectRobot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/gearsAnimated.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashManageProj.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboard.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/progressReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/progressReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/completeTask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/completeTask.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/createProject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/createProject.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/createProjectRobot.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/createProjectRobot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/faraz.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/faraz.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/gearsAnimated.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/gearsAnimated.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/graphBannerTop.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/graphBannerTop.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/memberTaskTopRight.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/memberTaskTopRight.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/progressGraph.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/progressGraph.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/progressReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/progressReport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/reportGif.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/reportGif.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/suggestTask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/suggestTask.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashManageProj.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/supervisorDashManageProj.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboardBanner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/supervisorDashboardBanner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/taskSuggession.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/taskSuggession.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashTopBanner.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/teamDashTopBanner.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashTopRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/teamDashTopRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashboardBanner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/teamDashboardBanner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamTaskView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamTaskView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/updateProject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/updateProject.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ApplicationUI/viewProjects.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/viewProjects.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/viewProjectsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/viewProjectsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/finalYearProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/finalYearProject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DBHandler/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBHandler/DBHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,19 +73,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "F:/Projects/Managei/src/ApplicationUI",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.26436782",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Projects/Managei/src/ApplicationUI&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.26436782&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Projects\Managei\src\ApplicationUI" />
