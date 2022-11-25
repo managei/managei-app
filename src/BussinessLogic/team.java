@@ -1,5 +1,7 @@
 package BussinessLogic;
 
+import java.util.ArrayList;
+
 public class team {
     private Integer id;
     private String name;
@@ -43,5 +45,9 @@ public class team {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    public static ArrayList<team> returnTeamList(){
+        return dashboard.getTeamList();
     }
 }

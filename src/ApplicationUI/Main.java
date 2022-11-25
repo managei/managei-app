@@ -43,7 +43,6 @@ public class Main extends Application {
             primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../images/Managei.png")));
             primaryStage.show();
             root.requestFocus();
-            db = new DBHandler();
             initializeLists();
         } catch (Exception e) {
             e.printStackTrace();
@@ -77,10 +76,12 @@ public class Main extends Application {
     }
     public static void initializeLists()
     {
+        DBHandler db = new DBHandler();
         dashboard.setFypList(db.readFYP());
         dashboard.setTaskList(db.readTasks());
         dashboard.setUserList(db.readUsers());
         dashboard.setTeamList(db.readTeams());
+        dashboard.setSupervisorList(db.readSupervisors());
     }
     public static void main(String[] args) {
 

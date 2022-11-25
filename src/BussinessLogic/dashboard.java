@@ -14,6 +14,16 @@ public class dashboard {
     static private ArrayList<team> teamList=null;
     static private ArrayList<finalYearProject> fypList=null;
     static private ArrayList<task> taskList=null;
+
+    public static ArrayList<supervisor> getSupervisorList() {
+        return supervisorList;
+    }
+
+    public static void setSupervisorList(ArrayList<supervisor> supervisorList) {
+        dashboard.supervisorList = supervisorList;
+    }
+    // Why needed a new list for supervisor, we have user already
+    static private ArrayList<supervisor> supervisorList=null;
     public user loginUser(String userName,String password)
     {
         for (user u:
@@ -88,6 +98,11 @@ public class dashboard {
         dbh.updateProjectDetails(fypName,fypStatus,fypID);
         Main.initializeLists();
     }
+
+    public void deleteProject(String fypID) throws SQLException{
+        finalYearProject fyp = new finalYearProject();
+        fyp.deleteProject(fypID);
+    }
     public ObservableList<finalYearProject> displaySupervisorProjects(DBHandler dbh){
         ObservableList<finalYearProject> arr = dbh.getDataforSupervisorProjects();
         return arr;
@@ -119,4 +134,14 @@ public class dashboard {
         return fypList;
     }
 
+
+    public ArrayList<String> generateShortProjectProgressReport(String teamID){
+        return supervisor.generateShortProjectProgressReport(teamID);
+    }
+
+    public ArrayList<team> fetchTeamData(){
+        ArrayList<team> arr;
+        arr=team.returnTeamList();
+        return arr;
+    }
 }

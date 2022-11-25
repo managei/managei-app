@@ -97,6 +97,74 @@ public class DBHandler {
         return userList;
     }
 
+    public ArrayList<finalYearProject> readFyps(){
+
+        ArrayList<finalYearProject> arr = new ArrayList<finalYearProject>();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from finalYearProject");
+
+        try {
+            while (rs.next()) {
+                finalYearProject fyp = new finalYearProject(Integer.parseInt(rs.getString("fypID")), rs.getString("fypName"),rs.getString("fypStatus"));
+                arr.add(fyp);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arr;
+    }
+
+    public ArrayList<supervisor> readSupervisors(){
+
+        ArrayList<supervisor> arr = new ArrayList<supervisor>();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from supervisor s inner join users u on s.supervisorID=u.userID;");
+
+        try {
+            while (rs.next()) {
+                supervisor s = new supervisor(
+                        rs.getInt("supervisorID"),rs.getString("userName"),
+                        rs.getString("firstName"), rs.getString("lastName"),
+                        rs.getString("password"),rs.getString("userType"));
+                arr.add(s);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arr;
+    }
+
+    public ArrayList<team> readTeams(){
+
+        ArrayList<team> arr = new ArrayList<team>();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from team;");
+
+        try {
+            while (rs.next()) {
+                team t = new team(rs.getInt(1),rs.getString("teamName"),rs.getString("fypID"),"NULL");
+                arr.add(t);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arr;
+    }
+
+    public ArrayList<task> readTasks(){
+
+        ArrayList<task> arr = new ArrayList<task>();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from task;");
+
+        try {
+            while (rs.next()) {
+                task t = new task(rs.getInt("taskID"),rs.getString("taskName"),rs.getString("taskDetail"),
+                        rs.getString("taskStatus"),rs.getInt("fypID"),rs.getInt("memberID"));
+                arr.add(t);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arr;
+    }
+
     public void saveUser(user u) {
         try {
 
@@ -185,6 +253,36 @@ public class DBHandler {
                 " SET manageitaskmanagementsystem.finalyearproject.fypName='" + fypName +"', manageitaskmanagementsystem.finalyearproject.fypStatus='" +
                 fypStatus +"' WHERE manageitaskmanagementsystem.finalyearproject.fypID=" + fypID + ";";
         executeGenericUpdateDeleteQuery(query);
+    }
+
+    public void deleteProject(String fypID) throws SQLException{
+        String query= "delete from manageitaskmanagementsystem.finalyearproject where manageitaskmanagementsystem.finalyearproject.fypID=" + fypID + ";";
+        executeGenericUpdateDeleteQuery(query);
+    }
+
+    public ArrayList<String> generateShortReportData(String teamID){
+        ArrayList<String> arr = new ArrayList<String>();
+
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select f.fypID, f.fypName, f.fypStatus from finalYearProject f inner join team t on f.fypID=t.fypID where t.teamID='" + teamID + "';");
+
+        try {
+            rs.next();
+            arr.add(rs.getString(1));
+            arr.add(rs.getString(2));
+            arr.add(rs.getString(3));
+
+            rs = executeGenericSelectQueryAndGetResultSet("select count(t.taskID) from task t inner join team tm on t.fypID=tm.fypID where tm.teamID=" + teamID + ";");
+            rs.next();
+            arr.add(rs.getString(1));
+
+            rs = executeGenericSelectQueryAndGetResultSet("select count(t.taskID) from task t inner join team tm on t.fypID=tm.fypID where tm.teamID=" + teamID + " and t.taskStatus='Done';");
+            rs.next();
+            arr.add(rs.getString(1));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return arr;
     }
 
 //    public ObservableList<ObservableList<String>> getDataforTableUsingQuery(String query){
