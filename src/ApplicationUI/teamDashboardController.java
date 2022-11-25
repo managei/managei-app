@@ -60,6 +60,7 @@ public class teamDashboardController {
         }catch(IOException ie){
             ie.printStackTrace();
         }
+        Main.initializeLists();
     }
 
     @FXML
@@ -70,8 +71,7 @@ public class teamDashboardController {
         }catch(IOException ie){
             ie.printStackTrace();
         }
-
-
+        Main.initializeLists();
     }
 
     @FXML

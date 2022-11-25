@@ -50,8 +50,13 @@ public class suggestTaskController {
 
     @FXML
     void suggestTask(ActionEvent event) {
+
+        if(taskNameField.getText().equals("") || taskDetailsField.getText().equals("")){
+            errorTextField.setText("Fill all fields first");
+        }
         dashboard d = new dashboard();
         d.selectSuggestNewTask(taskNameField.getText(),taskDetailsField.getText());
+        errorTextField.setText("Task suggested successfully");
     }
 
 }

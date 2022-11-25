@@ -266,6 +266,11 @@ public class DBHandler {
         return arr;
     }
 
+    public void updateTaskStatus(String taskID,String status) throws SQLException{
+        String query= "update task set taskStatus='" + status + "' where taskID=" + taskID + ";";
+        executeGenericUpdateDeleteQuery(query);
+    }
+
 //    public ObservableList<ObservableList<String>> getDataforTableUsingQuery(String query){
 //        ObservableList<ObservableList<String>> data = FXCollections.observableArrayList();
 //

@@ -1,6 +1,12 @@
 package BussinessLogic;
 
+import ApplicationUI.Main;
 import DBHandler.DBHandler;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class teamMember extends user{
     private Integer teamId;
@@ -36,5 +42,27 @@ public class teamMember extends user{
     public static void suggestNewTask(String taskName,String taskDetail,String fypID,String userID){
         DBHandler dbh = new DBHandler();
         dbh.saveTask(taskName,taskDetail,fypID,userID,"suggested");
+    }
+
+    public static ObservableList<task> viewOwnTasks(){
+        Main.initializeLists();
+        ObservableList<task> t = FXCollections.observableArrayList();
+
+        for(int i=0; i<dashboard.getTaskList().size(); i++){
+            if(dashboard.getTaskList().get(i).getMemberId()==Main.getLoggedInUser().getUserId()){
+                t.add(dashboard.getTaskList().get(i));
+            }
+        }
+        return t;
+    }
+
+    public static boolean completeTask(String taskID){
+        DBHandler dbh = new DBHandler();
+        try {
+            dbh.updateTaskStatus(taskID,"complete");
+        } catch (SQLException e) {
+            return false;
+        }
+        return true;
     }
 }

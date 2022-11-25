@@ -155,4 +155,12 @@ public class dashboard {
         teamMember.suggestNewTask(taskName,taskDetail,fypID,Main.getLoggedInUser().getUserId().toString());
 
     }
+
+    public ObservableList<task> selectViewOwnTasks(){
+        return teamMember.viewOwnTasks();
+    }
+
+    public boolean completeTask(String taskID){
+        return teamMember.completeTask(taskID);
+    }
 }
