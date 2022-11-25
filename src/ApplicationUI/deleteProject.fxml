@@ -32,7 +32,7 @@
                                                 </Label>
                                                 <ImageView fitHeight="81.0" fitWidth="69.0" layoutX="723.0" layoutY="7.0" pickOnBounds="true">
                                                     <image>
-                                                        <Image url="@supervisorDashManageProj.png" />
+                                                        <Image url="@../images/supervisorDashManageProj.png" />
                                                     </image>
                                                 </ImageView>
                                                 <Text layoutX="740.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete" textAlignment="CENTER" />

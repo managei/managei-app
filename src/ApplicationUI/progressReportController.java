@@ -146,11 +146,11 @@ public class progressReportController {
         teamNameColumn.setCellValueFactory(new PropertyValueFactory<team,String>("name"));
 
 //        String currentUserName = Main.getLoggedUser().getUserName();
-        int currentUserID =  Main.getLoggedUser().getUserId();
+        int currentUserID =  Main.getLoggedUser().getId();
         supervisor currentSupervisor = null;
 
         for(int i=0; i<dashboard.getSupervisorList().size(); i++){
-            if(dashboard.getSupervisorList().get(i).getUserId()==currentUserID){
+            if(dashboard.getSupervisorList().get(i).getId()==currentUserID){
                 currentSupervisor=dashboard.getSupervisorList().get(i);
 //                System.out.println("Current Supervisor ID: " + currentSupervisor.getUserId().toString());
             }
