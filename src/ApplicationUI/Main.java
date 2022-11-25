@@ -14,8 +14,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main extends Application {
+    private static DBHandler db;
+    private static dashboard d=new dashboard();
     private static Stage stg;
     private static user loggedInUser=null;
+    public static DBHandler getDBHandler ()
+    {
+        return db;
+    }
+    public static dashboard getDashBoard ()
+    {
+        return d;
+    }
+
     public static user getLoggedUser ()
     {
         return loggedInUser;
@@ -32,6 +43,7 @@ public class Main extends Application {
             primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../images/Managei.png")));
             primaryStage.show();
             root.requestFocus();
+            db = new DBHandler();
             initializeLists();
         } catch (Exception e) {
             e.printStackTrace();
@@ -65,11 +77,10 @@ public class Main extends Application {
     }
     public static void initializeLists()
     {
-        DBHandler db = new DBHandler();
-        dashboard.setFypList(new ArrayList<finalYearProject>());
-        dashboard.setTaskList(new ArrayList<task>());
+        dashboard.setFypList(db.readFYP());
+        dashboard.setTaskList(db.readTasks());
         dashboard.setUserList(db.readUsers());
-        dashboard.setTeamList(new ArrayList<team>());
+        dashboard.setTeamList(db.readTeams());
     }
     public static void main(String[] args) {
 

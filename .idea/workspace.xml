@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="Added View FYP for supervisor limited to current supervisor.">
+    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="moved images">
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/addMemberPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/createTeamController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/createTeamPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/manageMembersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/viewTeamController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/viewTeamPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/viewUsersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/viewUsersPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/completeTask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/completeTask.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/createProject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/createProject.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/createProjectRobot.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/createProjectRobot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/faraz.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/faraz.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/gearsAnimated.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/gearsAnimated.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/graphBannerTop.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/graphBannerTop.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/memberTaskTopRight.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/memberTaskTopRight.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/progressGraph.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/progressGraph.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/progressReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/progressReport.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/reportGif.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/reportGif.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/suggestTask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/suggestTask.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashManageProj.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/supervisorDashManageProj.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboardBanner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/supervisorDashboardBanner.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/taskSuggession.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/taskSuggession.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashTopBanner.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/teamDashTopBanner.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashTopRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/teamDashTopRight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamDashboardBanner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/teamDashboardBanner.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/teamTaskView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/teamTaskView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/updateProject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/updateProject.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/viewProjects.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/viewProjects.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/adminDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/adminDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/adminDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/adminDashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/registerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/registerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/registerUserPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/registerUserPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/welcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/welcomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/finalYearProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/finalYearProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/user.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DBHandler/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBHandler/DBHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,6 +89,7 @@
       <recent name="D:\Java Dev\managei-app\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Work\managei-app\src\images" />
       <recent name="F:\Projects\Managei\src\ApplicationUI" />
       <recent name="D:\Java Dev\managei-app" />
       <recent name="D:\Java Dev\managei-app\lib" />
@@ -149,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669310286670</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="moved images">
+      <created>1669387791318</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669387791318</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,6 +185,7 @@
     <MESSAGE value="Updated UI pattern." />
     <MESSAGE value="Added View FYP for supervisor." />
     <MESSAGE value="Added View FYP for supervisor limited to current supervisor." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added View FYP for supervisor limited to current supervisor." />
+    <MESSAGE value="moved images" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved images" />
   </component>
 </project>

@@ -24,29 +24,69 @@ public class DBHandler {
             e.printStackTrace();
         }
     }
-
+    public ArrayList<finalYearProject> readFYP() {
+        Statement stm;
+        ArrayList<finalYearProject> fypList = new ArrayList<finalYearProject>();
+        try {
+            stm = con.createStatement();
+            String query = "SELECT * FROM finalYearProject";
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next()) {
+                finalYearProject fyp = new finalYearProject(rs.getInt("fypID"), rs.getString("fypName"), rs.getString("fypStatus"));
+                if (fyp != null)
+                    fypList.add(fyp);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return fypList;
+    }
+    public ArrayList<team> readTeams() {
+        Statement stm;
+        ArrayList<team> teamList = new ArrayList<team>();
+        try {
+            stm = con.createStatement();
+            String query = "SELECT * FROM team";
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next()) {
+                team t = new team(rs.getInt("teamID"), rs.getString("teamName"),rs.getString("teamDetail"), rs.getInt("fypId"));
+                if (t != null)
+                    teamList.add(t);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return teamList;
+    }
+    public ArrayList<task> readTasks() {
+        Statement stm;
+        ArrayList<task> tasksList = new ArrayList<task>();
+        try {
+            stm = con.createStatement();
+            String query = "SELECT * FROM task";
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next()) {
+                task t = new task(rs.getInt("taskID"), rs.getString("taskName"), rs.getString("taskDetail"), rs.getString("taskStatus"),rs.getInt("fypID"),rs.getInt("memberID"));
+                if (t != null)
+                    tasksList.add(t);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return tasksList;
+    }
     public ArrayList<user> readUsers() {
         Statement stm;
         ArrayList<user> userList = new ArrayList<user>();
         try {
             stm = con.createStatement();
-
             String query = "SELECT * FROM users";
             ResultSet rs = stm.executeQuery(query);
             while (rs.next()) {
-                user u = switch (rs.getString("userType")) {
-                    case "admin" ->
-                            new admin(rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
-                    case "supervisor" ->
-                            new supervisor(rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
-                    case "teamMember" ->
-                            new teamMember(rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
-                    case "headOfDepartment" ->
-                            new headOfDepartment(rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
-                    case "fypLabInstructor" ->
-                            new fypLabInstructor(rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
-                    default -> null;
-                };
+                user u =user.returnUserByType( rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
                 if (u != null)
                     userList.add(u);
             }
@@ -66,7 +106,7 @@ public class DBHandler {
             stmt.setString(2, u.getPassword());
             stmt.setString(3, u.getFirstName());
             stmt.setString(4, u.getLastName());
-            stmt.setString(5, u.getUserType());
+            stmt.setString(5, u.getType());
 
             int rows = stmt.executeUpdate();
             if (rows > 0) {
@@ -135,7 +175,11 @@ public class DBHandler {
         System.out.println(query);
         executeGenericInsertQuery(query);
     }
-
+    public void saveNewTeamInDB(String teamName,String teamDetails,Integer fypId){
+        String query="insert into team (teamName,teamDetail,fypID) values ("+ "'" +teamName + "'" + "," + "'" + teamDetails + "'" + ","+fypId+")";
+        System.out.println(query);
+        executeGenericInsertQuery(query);
+    }
     public void updateProjectDetails(String fypName,String fypStatus,String fypID) throws SQLException{
         String query= "UPDATE manageitaskmanagementsystem.finalyearproject" +
                 " SET manageitaskmanagementsystem.finalyearproject.fypName='" + fypName +"', manageitaskmanagementsystem.finalyearproject.fypStatus='" +
@@ -166,13 +210,28 @@ public class DBHandler {
         ObservableList<finalYearProject> data = FXCollections.observableArrayList();
 
         user u= Main.getLoggedInUser();
-        String user_id = u.getUserId().toString();
+        String user_id = u.getId().toString();
         ResultSet rs = executeGenericSelectQueryAndGetResultSet(
                 "select f.fypID,f.fypName,f.fypStatus,t.teamID from manageitaskmanagementsystem.finalyearproject f inner join manageitaskmanagementsystem.team t on f.fypID=t.fypID inner join manageitaskmanagementsystem.supervisor s on s.assignedTeamID=t.teamID where s.supervisorID=" + user_id + ";");
         try{
             while(rs.next()) {
                 finalYearProject fyp = new finalYearProject(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4));
                 data.add(fyp);
+            }
+        }catch (SQLException sql){
+            sql.printStackTrace();
+        }
+
+        return data;
+    }
+    public ObservableList<user> getDataforAllUsers(){
+        ObservableList<user> data = FXCollections.observableArrayList();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet(
+                "select * from manageitaskmanagementsystem.users");
+        try{
+            while(rs.next()) {
+                user newUser = user.returnUserByType( rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
+                data.add(newUser);
             }
         }catch (SQLException sql){
             sql.printStackTrace();

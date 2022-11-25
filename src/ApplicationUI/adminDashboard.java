@@ -12,6 +12,8 @@ public class adminDashboard {
 
     dashboard d= new dashboard();
     @FXML
+    private Button button_addMember;
+    @FXML
     private Label label_name;
     @FXML
     private Button button_createTeam;
@@ -30,9 +32,12 @@ public class adminDashboard {
 
     @FXML
     void createTeam(ActionEvent event) throws IOException {
-        Main.changeScene("createTeamPage");
+        Main.changeScene("createTeamPage.fxml");
     }
-
+    @FXML
+    void addMember(ActionEvent event) throws IOException {
+        Main.changeScene("addMemberPage.fxml");
+    }
     @FXML
     void registerUser(ActionEvent event) throws IOException {
         Main.changeScene("registerUserPage.fxml");
@@ -40,12 +45,12 @@ public class adminDashboard {
 
     @FXML
     void viewTeam(ActionEvent event) throws IOException {
-        Main.changeScene("viewTeamPage");
+        Main.changeScene("viewTeamPage.fxml");
     }
 
     @FXML
     void viewUsers(ActionEvent event) throws IOException {
-        Main.changeScene("viewUsersPage");
+        Main.changeScene("viewUsersPage.fxml");
     }
     @FXML
     void logOut(ActionEvent event) throws IOException {

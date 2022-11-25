@@ -44,7 +44,7 @@ public class welcomeController {
             user u = d.loginUser(textBox_userName.getText(),textBox_password.getText());
             if(u!=null) {
                 Main.setLoggedInUser(u);
-                Main.gotoDashboard(u.getUserType());
+                Main.gotoDashboard(u.getType());
             }else {
                 label_info.setText("Username or Password, does not match");
                 label_info.setTextFill(Color.color(1, 0, 0));

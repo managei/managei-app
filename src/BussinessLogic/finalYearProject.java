@@ -60,7 +60,7 @@ public class finalYearProject {
         this.teamID=teamID;
     }
 
-    finalYearProject(Integer id, String name, String status){
+    public finalYearProject(Integer id, String name, String status){
         this.id=id;
         this.name=name;
         this.status=status;

@@ -50,14 +50,14 @@
                </children></Pane>
             <Pane layoutX="168.0" layoutY="331.0" prefHeight="152.0" prefWidth="464.0" style="-fx-background-color: #4c5a6b; -fx-background-radius: 25;" stylesheets="@application.css">
                <children>
-                  <Button fx:id="button_createTeam" layoutX="304.0" layoutY="31.0" mnemonicParsing="false" onAction="#createTeam" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Create Team" textFill="WHITE">
+                  <Button fx:id="button_createTeam" layoutX="304.0" layoutY="8.0" mnemonicParsing="false" onAction="#createTeam" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Create Team" textFill="WHITE">
                      <styleClass>
                         <String fx:value="Button" />
                         <String fx:value="primaryButton" />
                         <String fx:value="font" />
                      </styleClass>
                   </Button>
-                  <Button fx:id="button_viewTeams" layoutX="304.0" layoutY="84.0" mnemonicParsing="false" onAction="#viewTeam" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="View Teams" textFill="WHITE">
+                  <Button fx:id="button_viewTeams" layoutX="304.0" layoutY="103.0" mnemonicParsing="false" onAction="#viewTeam" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="View Teams" textFill="WHITE">
                      <styleClass>
                         <String fx:value="Button" />
                         <String fx:value="primaryButton" />
@@ -69,6 +69,13 @@
                         <Image url="@../images/martina-solleagues-discussing-team-project-at-a-laptop.png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="button_addMember" layoutX="304.0" layoutY="55.0" mnemonicParsing="false" onAction="#addMember" prefHeight="39.0" prefWidth="146.0" style="-fx-font-size: 16;" stylesheets="@application.css" text="Manage Members" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="primaryButton" />
+                        <String fx:value="font" />
+                     </styleClass>
+                  </Button>
                </children>
             </Pane>
             <Label fx:id="label_name" alignment="CENTER" layoutX="299.0" layoutY="109.0" prefHeight="42.0" prefWidth="204.0" stylesheets="@application.css" text="User" textFill="WHITE">
