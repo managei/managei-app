@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="main-javaFx" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="ApplicationUI.ApplicationUI.Main" />
+    <option name="MAIN_CLASS_NAME" value="ApplicationUI.Main" />
     <module name="managei-app" />
     <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
     <method v="2">
