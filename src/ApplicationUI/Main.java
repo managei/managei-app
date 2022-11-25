@@ -67,7 +67,7 @@ public class Main extends Application {
     {
         DBHandler db = new DBHandler();
         dashboard.setFypList(db.readFyps());
-        dashboard.setTaskList(new ArrayList<task>());
+        dashboard.setTaskList(db.readTasks());
         dashboard.setUserList(db.readUsers());
         dashboard.setTeamList(db.readTeams());
         dashboard.setSupervisorList(db.readSupervisors());

@@ -108,6 +108,23 @@ public class DBHandler {
         return arr;
     }
 
+    public ArrayList<task> readTasks(){
+
+        ArrayList<task> arr = new ArrayList<task>();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from task;");
+
+        try {
+            while (rs.next()) {
+                task t = new task(rs.getInt("taskID"),rs.getString("taskName"),rs.getString("taskDetail"),
+                        rs.getString("taskStatus"),rs.getInt("fypID"),rs.getInt("memberID"));
+                arr.add(t);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arr;
+    }
+
     public void saveUser(user u) {
         try {
 
