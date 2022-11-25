@@ -90,7 +90,11 @@ public class supervisorDashboardController {
 
     @FXML
     void updateProject(ActionEvent event) {
-
+        try {
+            Main.changeScene("updateProject.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

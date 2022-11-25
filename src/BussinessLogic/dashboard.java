@@ -4,6 +4,7 @@ import ApplicationUI.Main;
 import DBHandler.DBHandler;
 import javafx.collections.ObservableList;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class dashboard {
@@ -83,6 +84,10 @@ public class dashboard {
         Main.initializeLists();
     }
 
+    public void updateProjectDetail(DBHandler dbh,String fypName,String fypStatus,String fypID) throws SQLException {
+        dbh.updateProjectDetails(fypName,fypStatus,fypID);
+        Main.initializeLists();
+    }
     public ObservableList<finalYearProject> displaySupervisorProjects(DBHandler dbh){
         ObservableList<finalYearProject> arr = dbh.getDataforSupervisorProjects();
         return arr;

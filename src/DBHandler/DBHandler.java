@@ -108,6 +108,17 @@ public class DBHandler {
         System.out.println("Data added to DB");
     }
 
+    public void executeGenericUpdateDeleteQuery(String query) throws SQLException{
+        Statement st = null;
+//        try {
+            st = con.createStatement();
+            st.executeUpdate(query);
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        System.out.println("Data updated/Deleted in DB");
+    }
     public ResultSet executeGenericSelectQueryAndGetResultSet(String q) {
         try {
             Statement st = con.createStatement();
@@ -123,6 +134,13 @@ public class DBHandler {
         String query="insert into finalYearProject (fypName,fypStatus) values ("+ "'" +fypName + "'" + "," + "'" + fypStatus + "'" + ")";
         System.out.println(query);
         executeGenericInsertQuery(query);
+    }
+
+    public void updateProjectDetails(String fypName,String fypStatus,String fypID) throws SQLException{
+        String query= "UPDATE manageitaskmanagementsystem.finalyearproject" +
+                " SET manageitaskmanagementsystem.finalyearproject.fypName='" + fypName +"', manageitaskmanagementsystem.finalyearproject.fypStatus='" +
+                fypStatus +"' WHERE manageitaskmanagementsystem.finalyearproject.fypID=" + fypID + ";";
+        executeGenericUpdateDeleteQuery(query);
     }
 
 //    public ObservableList<ObservableList<String>> getDataforTableUsingQuery(String query){
