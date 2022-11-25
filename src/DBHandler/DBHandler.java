@@ -57,6 +57,22 @@ public class DBHandler {
         return userList;
     }
 
+    public ArrayList<finalYearProject> readFyps(){
+
+        ArrayList<finalYearProject> arr = new ArrayList<finalYearProject>();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from finalYearProject");
+
+        try {
+            while (rs.next()) {
+                finalYearProject fyp = new finalYearProject(Integer.parseInt(rs.getString("fypID")), rs.getString("fypName"),rs.getString("fypStatus"));
+                arr.add(fyp);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arr;
+    }
+
     public void saveUser(user u) {
         try {
 
@@ -146,6 +162,31 @@ public class DBHandler {
     public void deleteProject(String fypID) throws SQLException{
         String query= "delete from manageitaskmanagementsystem.finalyearproject where manageitaskmanagementsystem.finalyearproject.fypID=" + fypID + ";";
         executeGenericUpdateDeleteQuery(query);
+    }
+
+    public ArrayList<String> generateShortReportData(String teamID){
+        ArrayList<String> arr = new ArrayList<String>();
+
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select f.fypID, f.fypName, f.fypStatus from finalYearProject f inner join team t on f.fypID=t.fypID where t.teamID='" + teamID + "';");
+
+        try {
+            rs.next();
+            arr.add(rs.getString(1));
+            arr.add(rs.getString(2));
+            arr.add(rs.getString(3));
+
+            rs = executeGenericSelectQueryAndGetResultSet("select count(t.taskID) from task t inner join team tm on t.fypID=tm.fypID where tm.teamID=" + teamID + ";");
+            rs.next();
+            arr.add(rs.getString(1));
+
+            rs = executeGenericSelectQueryAndGetResultSet("select count(t.taskID) from task t inner join team tm on t.fypID=tm.fypID where tm.teamID=" + teamID + " and t.taskStatus='Done';");
+            rs.next();
+            arr.add(rs.getString(1));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return arr;
     }
 
 //    public ObservableList<ObservableList<String>> getDataforTableUsingQuery(String query){

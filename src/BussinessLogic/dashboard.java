@@ -97,4 +97,8 @@ public class dashboard {
         ObservableList<finalYearProject> arr = dbh.getDataforSupervisorProjects();
         return arr;
     }
+
+    public ArrayList<String> generateShortProjectProgressReport(String teamID){
+        return supervisor.generateShortProjectProgressReport(teamID);
+    }
 }

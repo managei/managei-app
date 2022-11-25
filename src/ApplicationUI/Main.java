@@ -66,7 +66,7 @@ public class Main extends Application {
     public static void initializeLists()
     {
         DBHandler db = new DBHandler();
-        dashboard.setFypList(new ArrayList<finalYearProject>());
+        dashboard.setFypList(db.readFyps());
         dashboard.setTaskList(new ArrayList<task>());
         dashboard.setUserList(db.readUsers());
         dashboard.setTeamList(new ArrayList<team>());
