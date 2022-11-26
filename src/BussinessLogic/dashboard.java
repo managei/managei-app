@@ -19,7 +19,6 @@ public class dashboard {
 
 
     public static ArrayList<teamMember> getTeamMembersList() {
-        Printing.PrintStr(teamMembersList.toString());
         return teamMembersList;
     }
 
@@ -27,15 +26,6 @@ public class dashboard {
         dashboard.teamMembersList = teamMembersList;
     }
 
-    public static ArrayList<teamMember> getTeamMembersList() {
-        return teamMembersList;
-    }
-
-    public static void setTeamMembersList(ArrayList<teamMember> teamMembersList) {
-        dashboard.teamMembersList = teamMembersList;
-    }
-
-    static private ArrayList<teamMember> teamMembersList = null;
 
     public static ArrayList<supervisor> getSupervisorList() {
         return supervisorList;
@@ -176,7 +166,6 @@ public class dashboard {
         for(int i=0; i<teamMembersList.size(); i++){
             System.out.println(teamMembersList.get(i).getUserId());
             System.out.println(currentUser.getUserId());
-
             if(teamMembersList.get(i).getUserId()==currentUser.getUserId()){
                 currentTeamMember=teamMembersList.get(i);
                 System.out.println(teamMembersList.get(i).getFirstName());
@@ -192,7 +181,7 @@ public class dashboard {
             }
         }
 
-        String fypID = curTeam.getFypId();
+        String fypID = curTeam.getFypId().toString();
         teamMember.suggestNewTask(taskName,taskDetail,fypID,Main.getLoggedInUser().getUserId().toString());
 
     }

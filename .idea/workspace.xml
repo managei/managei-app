@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="merge fixed 2">
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/manageMembersPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/updateTeamController.java" afterDir="false" />
+    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="partial commit for Manage Teams">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ApplicationUI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/addMemberPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/updateTeamPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/adminDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/adminDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/adminDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/adminDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/createProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/createProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/createTeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/createTeamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/manageMembersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/manageMembersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BussinessLogic/dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/supervisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/supervisor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BussinessLogic/teamMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/teamMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/user.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DBHandler/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBHandler/DBHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +32,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="recentNewPullRequestHead">
@@ -171,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669412476641</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="partial commit for Manage Teams">
+      <created>1669456146106</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669456146106</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,6 +238,7 @@
     <MESSAGE value="error fixed" />
     <MESSAGE value="merge fixed + moved images" />
     <MESSAGE value="merge fixed 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge fixed 2" />
+    <MESSAGE value="partial commit for Manage Teams" />
+    <option name="LAST_COMMIT_MESSAGE" value="partial commit for Manage Teams" />
   </component>
 </project>

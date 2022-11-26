@@ -54,6 +54,9 @@ public abstract class user {
     public Integer getId() {
         return id;
     }
+    public Integer getUserId() {
+        return id;
+    }
 
     public void setUserId(Integer userId) {
         this.id = userId;

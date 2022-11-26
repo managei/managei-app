@@ -50,7 +50,7 @@ public class DBHandler {
             String query = "SELECT * FROM team";
             ResultSet rs = stm.executeQuery(query);
             while (rs.next()) {
-                team t = new team(rs.getInt("teamID"), rs.getString("teamName"),rs.getString("teamDetail"), rs.getInt("fypId"));
+                team t = new team(rs.getInt("teamID"), rs.getString("teamName"),rs.getString("teamDetails"), rs.getInt("fypId"));
                 if (t != null)
                     teamList.add(t);
             }
@@ -109,23 +109,6 @@ public class DBHandler {
         }
         return userList;
     }
-
-    public ArrayList<finalYearProject> readFyps(){
-
-        ArrayList<finalYearProject> arr = new ArrayList<finalYearProject>();
-        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from finalYearProject");
-
-        try {
-            while (rs.next()) {
-                finalYearProject fyp = new finalYearProject(Integer.parseInt(rs.getString("fypID")), rs.getString("fypName"),rs.getString("fypStatus"));
-                arr.add(fyp);
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return arr;
-    }
-
     public ArrayList<supervisor> readSupervisors(){
 
         ArrayList<supervisor> arr = new ArrayList<supervisor>();
@@ -265,7 +248,7 @@ public class DBHandler {
         return null;
     }
     public String addToTeam(Integer memberID,Integer teamID){
-        String query="update teamMember set teamID= "+ "'" +teamID + "'" + " Where memberID = " + "'" + memberID + "'" + ")";
+        String query="update teamMember set teamID= "+ "'" +teamID + "'" + " Where memberID = " + "'" + memberID + "';";
         System.out.println(query);
         return executeGenericInsertQuery(query);
     }
@@ -275,8 +258,8 @@ public class DBHandler {
         executeGenericInsertQuery(query);
     }
     public void saveNewTeamInDB(String teamName,String teamDetails,Integer fypId){
-        String query="insert into team (teamName,teamDetail,fypID) values ("+ "'" +teamName + "'" + "," + "'" + teamDetails + "'" + ","+fypId+")";
-//        System.out.println(query);
+        String query="insert into team (teamName,teamDetails,fypID) values ("+ "'" +teamName + "'" + "," + "'" + teamDetails + "'" + ","+fypId+")";
+        System.out.println(query);
         executeGenericInsertQuery(query);
     }
 
