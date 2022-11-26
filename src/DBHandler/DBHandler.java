@@ -256,7 +256,7 @@ public class DBHandler {
             rs.next();
             arr.add(rs.getString(1));
 
-            rs = executeGenericSelectQueryAndGetResultSet("select count(t.taskID) from task t inner join team tm on t.fypID=tm.fypID where tm.teamID=" + teamID + " and t.taskStatus='Done';");
+            rs = executeGenericSelectQueryAndGetResultSet("select count(t.taskID) from task t inner join team tm on t.fypID=tm.fypID where tm.teamID=" + teamID + " and t.taskStatus='complete';");
             rs.next();
             arr.add(rs.getString(1));
         } catch (SQLException e) {
