@@ -5,6 +5,7 @@ import DBHandler.DBHandler;
 import Utils.Printing;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.XYChart;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -207,6 +208,10 @@ public class dashboard {
 
     public boolean assignTask(String taskID){
         return teamMember.assignTask(taskID);
+    }
+
+    public static XYChart.Series<String,Integer>  getTeamGraphData(){
+        return team.getTeamGraphData();
     }
 
 }
