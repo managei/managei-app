@@ -17,7 +17,7 @@ public class DBHandler {
 
     public DBHandler() {
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ManageiTaskManagementSystem", "root", "root");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ManageiTaskManagementSystem", "root", "Razi.432");
             Printing.PrintStr("Connection Done");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -145,9 +145,21 @@ public class DBHandler {
         }
         return arr;
     }
+    public ArrayList<meetingSchedule> readMeetings(){
+        ArrayList<meetingSchedule> arr = new ArrayList<meetingSchedule>();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select * from meetingSchedule;");
+        try {
+            while (rs.next()) {
+                meetingSchedule s = new meetingSchedule(rs.getInt("meetingID"),rs.getInt("instructorID"),rs.getInt("supervisorID"),rs.getInt("teamID"),rs.getString("meetingTime"),rs.getString("meetingDate"),rs.getString("location"),rs.getString("meetingName"),rs.getString("details"));
+                arr.add(s);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arr;
+    }
     public void saveUser(user u) {
         try {
-
             String query = "INSERT INTO users (userName,password,firstName,lastName,userType) VALUES (?,?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, u.getUserName());
@@ -181,7 +193,7 @@ public class DBHandler {
                         System.out.println(query2);
                         executeGenericInsertQuery(query2);
                     }
-                    case "FYPLabInstructor"->{
+                    case "fypLabInstructor"->{
                         query2="insert into labInstructor (instructorID) values ("+ "'" + rs.getInt(1) + "'" + ")";
                         System.out.println(query2);
                         executeGenericInsertQuery(query2);
@@ -228,13 +240,8 @@ public class DBHandler {
 
     public void executeGenericUpdateDeleteQuery(String query) throws SQLException{
         Statement st = null;
-//        try {
-            st = con.createStatement();
-            st.executeUpdate(query);
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-
+        st = con.createStatement();
+        st.executeUpdate(query);
         System.out.println("Data updated/Deleted in DB");
     }
     public ResultSet executeGenericSelectQueryAndGetResultSet(String q) {
@@ -252,17 +259,35 @@ public class DBHandler {
         System.out.println(query);
         return executeGenericInsertQuery(query);
     }
+    public String removeFromTeam(Integer memberID,Integer teamID){
+        String query="update teamMember set teamID= "+  -1 + " Where memberID = "  + memberID + " and teamID="+ teamID +";";
+        System.out.println(query);
+        return executeGenericInsertQuery(query);
+    }
     public void saveNewProjectInDB(String fypName,String fypStatus){
         String query="insert into finalYearProject (fypName,fypStatus) values ("+ "'" +fypName + "'" + "," + "'" + fypStatus + "'" + ")";
 //        System.out.println(query);
         executeGenericInsertQuery(query);
     }
-    public void saveNewTeamInDB(String teamName,String teamDetails,Integer fypId){
+    public void saveNewTeamInDB(String teamName,String teamDetails,Integer fypId,Integer supId) throws SQLException {
         String query="insert into team (teamName,teamDetails,fypID) values ("+ "'" +teamName + "'" + "," + "'" + teamDetails + "'" + ","+fypId+")";
-        System.out.println(query);
+        if(executeGenericInsertQuery(query).equals("Operation Success"))
+        {
+            ResultSet rs = executeGenericSelectQueryAndGetResultSet("SELECT teamID AS LastID FROM team WHERE teamID = @@Identity;");
+            rs.next();
+            query="insert into supervisor (supervisorID, assignedTeamID) values ("+supId+", "+rs.getInt("LastID")+");";
+            executeGenericInsertQuery(query);
+        }
+    }
+    public void saveNewMeetingInDB(String name,String details,String location,String date,String time,Integer supId,Integer teamId,Integer instructorId) throws SQLException {
+        String query="insert into meetingSchedule (meetingName,details,location,meetingDate,meetingTime,supervisorID,teamID,instructorID) values ('" + name + "', '" + details + "', '"+location+"', '" + date + "', '" + time + "', "+supId+", "+teamId+", "+instructorId+");";
         executeGenericInsertQuery(query);
     }
-
+    public void updateTeamInDB(Integer teamID,String teamName,String teamDetails,Integer fypId) throws SQLException {
+        String query="update team set teamName='"+teamName+"',teamDetails='"+teamDetails+"',fypID='"+fypId+"' where teamID="+ teamID + ";";
+        Printing.PrintStr(query);
+        executeGenericUpdateDeleteQuery(query);
+    }
     public void saveTask(String taskName,String taskDetail,String fypID,String memberID,String taskStatus){
         String query="insert into task (fypID,memberID,taskName,taskDetail,taskStatus) values ("
                  + fypID + ", " + memberID + ", " + "'" + taskName + "', " + "'" + taskDetail + "', '" + taskStatus + "');";

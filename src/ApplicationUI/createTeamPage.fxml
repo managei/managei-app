@@ -2,54 +2,72 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.createTeamController">
    <top>
       <AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background" stylesheets="@application.css" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="280.0" layoutY="100.0" text="Create Team" textFill="WHITE">
-               <font>
-                  <Font name="SansSerif Regular" size="36.0" />
-               </font>
-            </Label>
             <Pane layoutX="172.0" layoutY="170.0" prefHeight="327.0" prefWidth="441.0" styleClass="card" stylesheets="@application.css">
                <children>
-                  <Label alignment="CENTER" layoutX="138.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Input in required fields to create a new Team." textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Label alignment="CENTER" layoutX="138.0" layoutY="29.0" prefHeight="35.0" prefWidth="179.0" text="Input in required fields to create a new Team." textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="teamName_textField" layoutX="150.0" layoutY="70.0" promptText="Team Name" />
-                  <MenuButton fx:id="selectFYP_MenuButton" layoutX="154.0" layoutY="202.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Select FYP" />
-                  <Label fx:id="label_info" alignment="CENTER" layoutX="131.0" layoutY="239.0" prefHeight="35.0" prefWidth="179.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <TextField fx:id="teamName_textField" layoutX="43.0" layoutY="99.0" promptText="Team Name" />
+                  <MenuButton fx:id="selectFYP_MenuButton" layoutX="256.0" layoutY="99.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Select FYP" />
+                  <Label fx:id="label_info" alignment="CENTER" layoutX="138.0" layoutY="209.0" prefHeight="35.0" prefWidth="179.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Label>
-                  <Button layoutX="250.0" layoutY="274.0" mnemonicParsing="false" onAction="#createTeam" stylesheets="@application.css" text="Register">
+                  <Button layoutX="250.0" layoutY="255.0" mnemonicParsing="false" onAction="#createTeam" stylesheets="@application.css" text="Register">
                      <styleClass>
                         <String fx:value="Button" />
                         <String fx:value="primaryButton" />
                      </styleClass>
                   </Button>
-                  <Button layoutX="103.0" layoutY="274.0" mnemonicParsing="false" onAction="#goBack" stylesheets="@application.css" text="Go Back">
+                  <Button layoutX="103.0" layoutY="255.0" mnemonicParsing="false" onAction="#goBack" stylesheets="@application.css" text="Go Back">
                      <styleClass>
                         <String fx:value="Button" />
                         <String fx:value="secondaryButton" />
                      </styleClass>
                   </Button>
-                  <Label layoutX="154.0" layoutY="185.0" styleClass="font" stylesheets="@application.css" text="Final Year Project" textFill="WHITE" />
-                  <TextArea fx:id="teamDetails_textArea" layoutX="150.0" layoutY="101.0" prefHeight="72.0" prefWidth="149.0" promptText="Team Details" />
+                  <Label layoutX="256.0" layoutY="82.0" styleClass="font" stylesheets="@application.css" text="Final Year Project" textFill="WHITE" />
+                  <TextArea fx:id="teamDetails_textArea" layoutX="43.0" layoutY="139.0" prefHeight="72.0" prefWidth="149.0" promptText="Team Details" />
+                  <MenuButton fx:id="selectSUP_MenuButton" layoutX="256.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Select Supervisor" />
+                  <Label layoutX="256.0" layoutY="158.0" styleClass="font" stylesheets="@application.css" text="Supervisor" textFill="WHITE" />
+                  <Hyperlink layoutX="285.0" layoutY="128.0" onAction="#goToCreateFYP" text="Create FYP" />
+                  <Label layoutX="274.0" layoutY="132.0" styleClass="font" stylesheets="@application.css" text="or" textFill="WHITE" />
                </children>
             </Pane>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="806.0" styleClass="titleBannerBackground" stylesheets="@application.css">
+               <children>
+                  <Label layoutX="35.0" layoutY="25.0" styleClass="font" stylesheets="@application.css" text="Create Team" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="81.0" fitWidth="69.0" layoutX="723.0" layoutY="7.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../images/supervisorDashManageProj.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="740.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </top>

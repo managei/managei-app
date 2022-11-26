@@ -18,7 +18,6 @@ public class dashboard {
     static private ArrayList<supervisor> supervisorList=null;
     static private ArrayList<teamMember> teamMembersList=null;
 
-
     public static ArrayList<teamMember> getTeamMembersList() {
         return teamMembersList;
     }
@@ -56,13 +55,16 @@ public class dashboard {
             case "fypLabInstructor" -> new fypLabInstructor(userId, userName, firstName, lastName, password, userType);
             default -> null;
         };
-        userList.add(ad);
         db.saveUser(ad);
         return ad;
     }
     public String addTeamMember(Integer memberID,Integer teamID)
     {
         return Main.getDBHandler().addToTeam(memberID, teamID);
+    }
+    public String removeTeamMember(Integer memberID,Integer teamID)
+    {
+        return Main.getDBHandler().removeFromTeam(memberID, teamID);
     }
     public static ArrayList<user> getUserList() {
         return userList;
@@ -100,9 +102,16 @@ public class dashboard {
 //        ObservableList<ObservableList<String>> arr = dbh.getDataforTableUsingQuery(query);
 //        return arr;
 //    }
-
-    public void createTeam(DBHandler dbh,String name, String details,Integer fypID){
-        dbh.saveNewTeamInDB(name,details,fypID);
+    public void createMeeting(DBHandler dbh,String name, String details,String location,String data,String time,Integer supID,Integer teamID,Integer instructorID) throws SQLException {
+    dbh.saveNewMeetingInDB(name,details,location,data,time,supID,teamID,instructorID);
+    Main.initializeLists();
+}
+    public void createTeam(DBHandler dbh,String name, String details,Integer fypID,Integer supID) throws SQLException {
+        dbh.saveNewTeamInDB(name,details,fypID,supID);
+        Main.initializeLists();
+    }
+    public void updateTeam(DBHandler dbh,Integer teamID,String name, String details,Integer fypID) throws SQLException {
+        dbh.updateTeamInDB(teamID,name,details,fypID);
         Main.initializeLists();
     }
     public void createProject(DBHandler dbh,String projectName, String projectStatus){
@@ -148,7 +157,13 @@ public class dashboard {
     public static ArrayList<finalYearProject> getFYP(){
         return fypList;
     }
-
+    public ObservableList<meetingSchedule> getMeetings(DBHandler dbh){
+        ObservableList<meetingSchedule> data = FXCollections.observableArrayList();
+        for (meetingSchedule t:dbh.readMeetings()) {
+            data.add(t);
+        }
+        return data;
+    }
 
     public ArrayList<String> generateShortProjectProgressReport(String teamID){
         return supervisor.generateShortProjectProgressReport(teamID);

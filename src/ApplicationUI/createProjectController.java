@@ -59,7 +59,7 @@ public class createProjectController {
         }
         d.createProject(dbh,fypName,fypStatus);
 
-        // Todo: Faraz will add create Team after this (called on click of next button)
+        // DONE: Faraz will add create Team after this (called on click of next button)
         try {
             Main.changeScene("createTeamPage.fxml");
         } catch (IOException e) {
@@ -68,23 +68,14 @@ public class createProjectController {
     }
 
     @FXML
-    void gotoSupervisorDashboard(ActionEvent event) {
-
-        if(Main.getLoggedInUser().getType().equals("headOfDepartment")){
-            try {
-                Main.changeScene("HODDashboard.fxml");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }else {
-            try {
-                Main.changeScene("supervisorDashboard.fxml");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+    void gotoSupervisorDashboard(ActionEvent event) throws IOException {
+        if(Main.getLoggedUser().getType().equals("admin"))
+            Main.changeScene("adminDashBoard.fxml");
+        else if(Main.getLoggedUser().getType().equals("supervisor"))
+            Main.changeScene("supervisorDashboard.fxml");
+        else if(Main.getLoggedUser().getType().equals("headOfDepartment"))
+            Main.changeScene("HODDashboard.fxml");
     }
-
     @FXML
     void initialize() {
         assert createErrorMsg != null : "fx:id=\"createErrorMsg\" was not injected: check your FXML file 'createProject.fxml'.";

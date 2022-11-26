@@ -12,10 +12,6 @@ public class adminDashboard {
 
     dashboard d= new dashboard();
     @FXML
-    private Button button_addMember;
-    @FXML
-    private Label label_name;
-    @FXML
     private Button button_createTeam;
 
     @FXML
@@ -64,6 +60,5 @@ public class adminDashboard {
 
     @FXML
     void initialize() {
-        label_name.setText(Main.getLoggedUser().getFirstName()+" 👋");
     }
 }

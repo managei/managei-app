@@ -40,9 +40,13 @@ public class suggestTaskController {
 
     @FXML
     void gotoTeamDashboard(ActionEvent event) {
-        Main m = new Main();
         try {
-            m.changeScene("teamDashboard.fxml");
+            if(Main.getLoggedUser().getType().equals("admin"))
+                Main.changeScene("adminDashBoard.fxml");
+            else if(Main.getLoggedUser().getType().equals("teamMember"))
+                Main.changeScene("teamDashboard.fxml");
+            else if(Main.getLoggedUser().getType().equals("supervisor"))
+                Main.changeScene("supervisorDashboard.fxml");
         }catch(IOException ie){
             ie.printStackTrace();
         }

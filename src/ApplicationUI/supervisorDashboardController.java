@@ -56,8 +56,8 @@ public class supervisorDashboardController {
     }
 
     @FXML
-    void createTask(ActionEvent event) {
-        //todo: add option for supervisor to also create tasks
+    void createTask(ActionEvent event) throws IOException {
+//        Main.changeScene("suggestTask.fxml");
     }
 
     @FXML
@@ -96,13 +96,13 @@ public class supervisorDashboardController {
     }
 
     @FXML
-    void modifyTeam(ActionEvent event) {
-        //todo: link with Faraz's modify team path
+    void modifyTeam(ActionEvent event) throws IOException {
+        Main.changeScene("manageMembersPage.fxml");
     }
 
     @FXML
-    void scheduleFypMeeting(ActionEvent event) {
-        //todo: Faraz will add FYP meeting stuff
+    void scheduleFypMeeting(ActionEvent event) throws IOException {
+        Main.changeScene("createMeeting.fxml");
     }
 
     @FXML
@@ -125,16 +125,6 @@ public class supervisorDashboardController {
 
     @FXML
     void initialize() {
-        assert button_logOut != null : "fx:id=\"button_logOut\" was not injected: check your FXML file 'supervisorDashboard.fxml'.";
-        assert createProjectButton != null : "fx:id=\"createProjectButton\" was not injected: check your FXML file 'supervisorDashboard.fxml'.";
-        assert createTaskButton != null : "fx:id=\"createTaskButton\" was not injected: check your FXML file 'supervisorDashboard.fxml'.";
-        assert deleteProjectButton != null : "fx:id=\"deleteProjectButton\" was not injected: check your FXML file 'supervisorDashboard.fxml'.";
-        assert generateReportButton != null : "fx:id=\"generateReportButton\" was not injected: check your FXML file 'supervisorDashboard.fxml'.";
-        assert modifyTeamButton != null : "fx:id=\"modifyTeamButton\" was not injected: check your FXML file 'supervisorDashboard.fxml'.";
-        assert updateProjectButton != null : "fx:id=\"updateProjectButton\" was not injected: check your FXML file 'supervisorDashboard.fxml'.";
-        assert viewProjectButton != null : "fx:id=\"viewProjectButton\" was not injected: check your FXML file 'supervisorDashboard.fxml'.";
-
-        dbh= new DBHandler();
     }
 
 }

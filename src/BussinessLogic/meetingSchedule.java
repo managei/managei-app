@@ -7,18 +7,47 @@ public class meetingSchedule {
     private Integer instructorId;
     private Integer supervisorId;
     private Integer teamId;
-    private Date time;
+    private String time;
+    private String date;
     private String location;
+    private String meetingName;
     private String details;
 
-    public meetingSchedule(Integer id, Integer instructorId, Integer supervisorId, Integer teamId, Date time, String location, String details) {
+
+    public meetingSchedule(Integer id, Integer instructorId, Integer supervisorId, Integer teamId, String time, String date, String location, String meetingName, String details) {
         this.id = id;
         this.instructorId = instructorId;
         this.supervisorId = supervisorId;
         this.teamId = teamId;
         this.time = time;
+        this.date = date;
         this.location = location;
+        this.meetingName = meetingName;
         this.details = details;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getMeetingName() {
+        return meetingName;
+    }
+
+    public void setMeetingName(String meetingName) {
+        this.meetingName = meetingName;
     }
 
     public Integer getId() {
@@ -53,13 +82,6 @@ public class meetingSchedule {
         this.teamId = teamId;
     }
 
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
 
     public String getLocation() {
         return location;

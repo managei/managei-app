@@ -13,10 +13,10 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.HODDashboardController">
-    <center>
+   <center>
         <AnchorPane prefHeight="510.0" prefWidth="800.0" styleClass="background" stylesheets="@application.css" BorderPane.alignment="CENTER">
             <children>
-                <Pane layoutX="170.0" layoutY="157.0" prefHeight="285.0" prefWidth="460.0" style="-fx-background-radius: 25; -fx-background-color: #4c5a6b;" styleClass="code" stylesheets="@application.css">
+                <Pane layoutX="170.0" layoutY="119.0" prefHeight="285.0" prefWidth="460.0" style="-fx-background-radius: 25; -fx-background-color: #4c5a6b;" styleClass="code" stylesheets="@application.css">
                     <children>
                         <Button fx:id="viewProjectButton" layoutX="286.0" layoutY="22.0" mnemonicParsing="false" onAction="#viewProjects" prefHeight="39.0" prefWidth="145.0" stylesheets="@application.css" text="View Projects" textFill="WHITE">
                             <styleClass>
@@ -63,23 +63,26 @@
                         <String fx:value="font" />
                      </styleClass>
                   </Button>
-                    </children></Pane>
-                <AnchorPane prefHeight="76.0" prefWidth="800.0" styleClass="titleBannerBackground" stylesheets="@application.css">
-                    <children>
-                        <Label alignment="CENTER" layoutX="21.0" layoutY="17.0" prefHeight="42.0" prefWidth="526.0" stylesheets="@application.css" text="Head of Department Dashboard" textFill="WHITE">
-                            <font>
-                                <Font name="SansSerif Regular" size="36.0" />
-                            </font>
-                        </Label>
-                        <Separator layoutY="75.0" prefHeight="0.0" prefWidth="800.0" />
-                        <ImageView fx:id="logOutButton" fitHeight="58.0" fitWidth="55.0" layoutX="731.0" layoutY="12.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/logOut.png" />
-                            </image>
-                        </ImageView>
                     </children>
-                </AnchorPane>
+            </Pane>
             </children>
         </AnchorPane>
-    </center>
+   </center>
+   <top>
+          <AnchorPane prefHeight="73.0" prefWidth="800.0" styleClass="titleBannerBackground" stylesheets="@application.css" BorderPane.alignment="CENTER">
+              <children>
+                  <Label alignment="CENTER" layoutX="21.0" layoutY="17.0" prefHeight="42.0" prefWidth="526.0" stylesheets="@application.css" text="Head of Department Dashboard" textFill="WHITE">
+                      <font>
+                          <Font name="SansSerif Regular" size="36.0" />
+                      </font>
+                  </Label>
+                  <Separator layoutY="75.0" prefHeight="0.0" prefWidth="800.0" />
+                  <ImageView fx:id="logOutButton" fitHeight="58.0" fitWidth="55.0" layoutX="731.0" layoutY="12.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                          <Image url="@../images/logOut.png" />
+                      </image>
+                  </ImageView>
+              </children>
+          </AnchorPane>
+   </top>
 </BorderPane>

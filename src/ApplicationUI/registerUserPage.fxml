@@ -32,7 +32,7 @@
                       <MenuItem fx:id="supervisor" mnemonicParsing="false" onAction="#selectRole" text="Supervisor" />
                         <MenuItem fx:id="teamMember" mnemonicParsing="false" onAction="#selectRole" text="Team Member" />
                         <MenuItem fx:id="headOfDepartment" mnemonicParsing="false" onAction="#selectRole" text="Head of Department" />
-                        <MenuItem fx:id="FYPLabInstructor" mnemonicParsing="false" text="FYP Lab Instructor" />
+                        <MenuItem fx:id="fypLabInstructor" mnemonicParsing="false" onAction="#selectRole" text="FYP Lab Instructor" />
                     </items>
                   </MenuButton>
                   <Label alignment="CENTER" layoutX="131.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Input in required fields to register a new User." textAlignment="CENTER" textFill="WHITE" wrapText="true">
