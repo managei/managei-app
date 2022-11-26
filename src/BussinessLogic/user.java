@@ -28,7 +28,14 @@ public abstract class user {
         this.password = password;
         this.type = userType;
     }
+    public boolean checkCredentials(String userName,String password)
+    {
+        if (this.userName.equals(userName)&&this.password.equals(password))
+            return true;
+        else
+            return false;
 
+    }
     public Integer getUserId() {
         return id;
     }

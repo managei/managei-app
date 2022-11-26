@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class registerController {
-    Main m=new Main();
     dashboard d= new dashboard();
 //    private DBHandler dbh;
     @FXML
@@ -46,13 +45,13 @@ public class registerController {
         } else {
             label_info.setText("Please Wait...");
             user u = d.registerUser(1,textBox_userName.getText(),textBox_firstName.getText(),textBox_lastName.getText(),textBox_password.getText(),"admin");
-            m.setLoggedInUser(u);
-            m.gotoDashboard(u.getUserType());
+            Main.setLoggedInUser(u);
+            Main.gotoDashboard(u.getUserType());
         }
     }
 
     @FXML
     public void goToWelcome(ActionEvent event) throws IOException {
-        m.changeScene("welcome.fxml");
+        Main.changeScene("welcome.fxml");
     }
 }

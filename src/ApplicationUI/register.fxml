@@ -21,7 +21,7 @@
                 </Label>
                 <Label id="label_info" fx:id="label_info" layoutX="404.0" layoutY="120.0" text="Register to continue" textFill="WHITE" />
                 <Label layoutX="241.0" layoutY="217.0" />
-                <TextField id="textBox_userName" fx:id="textBox_userName" layoutX="377.0" layoutY="204.0" promptText="User Name" />
+                <TextField id="textBox_userName" fx:id="textBox_userName" layoutX="377.0" layoutY="206.0" promptText="User Name" />
                 <TextField id="textBox_password" fx:id="textBox_password" layoutX="377.0" layoutY="235.0" promptText="Password" />
                 <Button id="button_register" fx:id="button_register" layoutX="356.0" layoutY="281.0" mnemonicParsing="false" onAction="#registerAdmin" prefHeight="41.0" prefWidth="200.0" stylesheets="@application.css" text="Register as Admin">
                <styleClass>
@@ -44,7 +44,7 @@
                     </image>
                 </ImageView>
             <TextField id="textBox_firstName" fx:id="textBox_firstName" layoutX="377.0" layoutY="148.0" promptText="First Name" />
-            <TextField id="textBox_lastName" fx:id="textBox_lastName" layoutX="377.0" layoutY="174.0" promptText="Last Name" />
+            <TextField id="textBox_lastName" fx:id="textBox_lastName" layoutX="377.0" layoutY="177.0" promptText="Last Name" />
             </children>
         </AnchorPane>
     </center>

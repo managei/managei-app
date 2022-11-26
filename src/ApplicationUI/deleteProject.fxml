@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.deleteProjectController">
+    <children>
+        <AnchorPane prefHeight="605.0" prefWidth="800.0">
+            <children>
+                <SplitPane layoutY="-1.0" prefHeight="606.0" prefWidth="806.0" styleClass="background" stylesheets="@application.css">
+                    <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+                            <children>
+                                <AnchorPane>
+                                    <children>
+                                        <AnchorPane layoutY="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="806.0" styleClass="titleBannerBackground" stylesheets="@application.css">
+                                            <children>
+                                                <Label layoutX="35.0" layoutY="25.0" styleClass="font" stylesheets="@application.css" text="Delete Project" textAlignment="CENTER" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="36.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="81.0" fitWidth="69.0" layoutX="723.0" layoutY="7.0" pickOnBounds="true">
+                                                    <image>
+                                                        <Image url="@supervisorDashManageProj.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <Text layoutX="740.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete" textAlignment="CENTER" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="-1.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="806.0" styleClass="background" stylesheets="@application.css">
+                                            <children>
+                                                <Separator layoutY="1.0" prefHeight="2.0" prefWidth="806.0" />
+                                                <Pane layoutX="169.0" layoutY="67.0" prefHeight="378.0" prefWidth="467.0" styleClass="card" stylesheets="@application.css">
+                                                    <children>
+                                                        <Button fx:id="goBackButton" layoutX="247.0" layoutY="315.0" mnemonicParsing="false" onAction="#gotoSupervisorDashboard" prefHeight="34.0" prefWidth="122.0" stylesheets="@application.css" text="Go Back" textFill="WHITE">
+                                                            <styleClass>
+                                                                <String fx:value="Button" />
+                                                                <String fx:value="font" />
+                                                                <String fx:value="secondaryButton" />
+                                                            </styleClass>
+                                                        </Button>
+                                                        <Button fx:id="deleteButton" layoutX="94.0" layoutY="315.0" mnemonicParsing="false" onAction="#deleteProject" prefHeight="34.0" prefWidth="139.0" stylesheets="@application.css" text="Delete">
+                                                            <styleClass>
+                                                                <String fx:value="Button" />
+                                                                <String fx:value="font" />
+                                                                <String fx:value="primaryButton" />
+                                                            </styleClass>
+                                                        </Button>
+                                                        <Text fx:id="createErrorMsg" fill="RED" layoutX="219.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="28.0" />
+                                                        <Label fx:id="taskNameLabel2" layoutX="39.0" layoutY="252.0" styleClass="font" stylesheets="@application.css" text="Enter FYP ID:" textFill="WHITE">
+                                                            <font>
+                                                                <Font size="24.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="fypIDTextField" layoutX="199.0" layoutY="253.0" prefHeight="26.0" prefWidth="229.0" />
+                                          <ImageView fitHeight="192.0" fitWidth="204.0" layoutX="144.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@deleteProject.png" />
+                                             </image>
+                                          </ImageView>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                            </children></AnchorPane>
+                    </items>
+                </SplitPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
