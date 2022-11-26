@@ -164,8 +164,8 @@ public class dashboard {
         teamMember currentTeamMember = null;
 
         for(int i=0; i<teamMembersList.size(); i++){
-            System.out.println(teamMembersList.get(i).getUserId());
-            System.out.println(currentUser.getUserId());
+            System.out.println("TM ID:" + teamMembersList.get(i).getUserId());
+            System.out.println("UID: "  + currentUser.getUserId());
             if(teamMembersList.get(i).getUserId()==currentUser.getUserId()){
                 currentTeamMember=teamMembersList.get(i);
                 System.out.println(teamMembersList.get(i).getFirstName());

@@ -80,7 +80,7 @@ public class teamMember extends user{
 
         for(int i=0; i<dashboard.getTaskList().size(); i++){
 //            System.out.println("Checking task with fypID:" + dashboard.getTaskList().get(i).getFypId() + ", Member ID:" + dashboard.getTaskList().get(i).getMemberId());
-            if(dashboard.getTaskList().get(i).getFypId().toString().equals(curTeam.getFypId()) && dashboard.getTaskList().get(i).getStatus().equals(status)){
+            if(dashboard.getTaskList().get(i).getFypId()==curTeam.getFypId() && dashboard.getTaskList().get(i).getStatus().equals(status)){
 //                System.out.println("Checking: " + dashboard.getTaskList().get(i).getId());
                 if(dashboard.getTaskList().get(i).getMemberId()==curMember.getMemberId()){
                     count++;

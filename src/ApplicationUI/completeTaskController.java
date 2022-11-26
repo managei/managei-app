@@ -74,7 +74,7 @@ public class completeTaskController {
             errorTextField.setText("Wrong ID format.");
         }
 
-        if(taskIDField.getText().equals("") || taskID>dashboard.getTaskList().size()){
+        if(taskIDField.getText().equals("") || taskID>dashboard.getTaskList().get(dashboard.getTaskList().size()-1).getId()){
             errorTextField.setText("ID out of range");
         }
 
