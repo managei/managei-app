@@ -100,6 +100,16 @@ public class teamMember extends user{
         return true;
     }
 
+    public static boolean assignTask(String taskID){
+        DBHandler dbh = new DBHandler();
+        try {
+            dbh.updateTaskStatus(taskID,"assigned");
+        } catch (SQLException e) {
+            return false;
+        }
+        return true;
+    }
+
     public static ObservableList<teamTaskViewCapsule> openTaskView(){
         return team.getTeamTaskAndProgress();
     }

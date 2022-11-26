@@ -72,4 +72,15 @@ public class team {
         System.out.println("Selected: " + currentMember.getMemberId());
         return dbh.generateTeamTaskView(currentMember.getTeamId().toString());
     }
+
+    public static ObservableList<task> selectViewAllTask(){
+        ObservableList<task> arr = FXCollections.observableArrayList();
+        DBHandler dbh = new DBHandler();
+        Main.initializeLists();
+        for(int i=0; i<dashboard.getTaskList().size(); i++){
+            arr.add(dashboard.getTaskList().get(i));
+        }
+        return arr;
+    }
+
 }

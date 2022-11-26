@@ -190,6 +190,10 @@ public class dashboard {
         return teamMember.viewOwnTasks();
     }
 
+    public ObservableList<task> selectViewAllTasks(){
+        return team.selectViewAllTask();
+    }
+
     public Integer getTeamMemberTasksWithStatus(String status){
         return teamMember.getTasksWithStatus(status);
     }
@@ -200,4 +204,9 @@ public class dashboard {
     public ObservableList<teamTaskViewCapsule> openTaskView(){
         return teamMember.openTaskView();
     }
+
+    public boolean assignTask(String taskID){
+        return teamMember.assignTask(taskID);
+    }
+
 }
