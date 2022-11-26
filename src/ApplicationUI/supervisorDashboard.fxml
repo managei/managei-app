@@ -16,14 +16,7 @@
     <center>
         <AnchorPane prefHeight="510.0" prefWidth="800.0" styleClass="background" stylesheets="@application.css" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="button_logOut" contentDisplay="CENTER" layoutX="355.0" layoutY="546.0" mnemonicParsing="false" onAction="#logOut" prefHeight="39.0" prefWidth="90.0" stylesheets="@application.css" text="Log out" textFill="WHITE">
-                    <styleClass>
-                        <String fx:value="Button" />
-                        <String fx:value="secondaryButton" />
-                        <String fx:value="font" />
-                    </styleClass>
-                </Button>
-                <Pane layoutX="170.0" layoutY="86.0" prefHeight="228.0" prefWidth="460.0" style="-fx-background-radius: 25; -fx-background-color: #4c5a6b;" styleClass="code" stylesheets="@application.css">
+                <Pane layoutX="170.0" layoutY="104.0" prefHeight="228.0" prefWidth="460.0" style="-fx-background-radius: 25; -fx-background-color: #4c5a6b;" styleClass="code" stylesheets="@application.css">
                     <children>
                         <Button fx:id="viewProjectButton" layoutX="286.0" layoutY="22.0" mnemonicParsing="false" onAction="#viewProjects" prefHeight="39.0" prefWidth="145.0" stylesheets="@application.css" text="View Projects" textFill="WHITE">
                             <styleClass>
@@ -64,28 +57,35 @@
                      </font>
                   </Text>
                     </children></Pane>
-                <Pane layoutX="168.0" layoutY="331.0" prefHeight="200.0" prefWidth="464.0" style="-fx-background-color: #4c5a6b; -fx-background-radius: 25;" stylesheets="@application.css">
+                <Pane layoutX="168.0" layoutY="343.0" prefHeight="235.0" prefWidth="464.0" style="-fx-background-color: #4c5a6b; -fx-background-radius: 25;" stylesheets="@application.css">
                     <children>
-                        <Button fx:id="modifyTeamButton" layoutX="277.0" layoutY="27.0" mnemonicParsing="false" onAction="#modifyTeam" prefHeight="39.0" prefWidth="160.0" stylesheets="@application.css" text="Modify Team" textFill="WHITE">
+                        <Button fx:id="modifyTeamButton" layoutX="267.0" layoutY="20.0" mnemonicParsing="false" onAction="#modifyTeam" prefHeight="39.0" prefWidth="170.0" stylesheets="@application.css" text="Modify Team" textFill="WHITE">
                             <styleClass>
                                 <String fx:value="Button" />
                                 <String fx:value="primaryButton" />
                                 <String fx:value="font" />
                             </styleClass>
                         </Button>
-                        <Button fx:id="generateReportButton" layoutX="277.0" layoutY="80.0" mnemonicParsing="false" onAction="#generateProjectProgressReport" prefHeight="39.0" prefWidth="160.0" stylesheets="@application.css" text="Generate Report" textFill="WHITE">
+                        <Button fx:id="generateReportButton" layoutX="267.0" layoutY="72.0" mnemonicParsing="false" onAction="#generateProjectProgressReport" prefHeight="39.0" prefWidth="170.0" stylesheets="@application.css" text="Generate Report" textFill="WHITE">
                             <styleClass>
                                 <String fx:value="Button" />
                                 <String fx:value="primaryButton" />
                                 <String fx:value="font" />
                             </styleClass>
                         </Button>
-                        <ImageView fitHeight="158.0" fitWidth="168.0" layoutX="44.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="158.0" fitWidth="168.0" layoutX="44.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/gearsAnimated.gif" />
                             </image>
                         </ImageView>
-                  <Button fx:id="createTaskButton" layoutX="277.0" layoutY="135.0" mnemonicParsing="false" onAction="#createTask" prefHeight="39.0" prefWidth="160.0" stylesheets="@application.css" text="Create Task" textFill="WHITE">
+                  <Button fx:id="createTaskButton" layoutX="267.0" layoutY="125.0" mnemonicParsing="false" onAction="#createTask" prefHeight="39.0" prefWidth="170.0" stylesheets="@application.css" text="Create Task" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="primaryButton" />
+                        <String fx:value="font" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="meetingButton" layoutX="267.0" layoutY="177.0" mnemonicParsing="false" onAction="#scheduleFypMeeting" prefHeight="39.0" prefWidth="170.0" stylesheets="@application.css" text="Schedule Meeting" textFill="WHITE">
                      <styleClass>
                         <String fx:value="Button" />
                         <String fx:value="primaryButton" />

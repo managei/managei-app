@@ -69,10 +69,19 @@ public class createProjectController {
 
     @FXML
     void gotoSupervisorDashboard(ActionEvent event) {
-        try {
-            Main.changeScene("supervisorDashboard.fxml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+
+        if(Main.getLoggedInUser().getType().equals("headOfDepartment")){
+            try {
+                Main.changeScene("HODDashboard.fxml");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            try {
+                Main.changeScene("supervisorDashboard.fxml");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

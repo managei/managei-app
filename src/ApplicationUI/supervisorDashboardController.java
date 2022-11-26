@@ -57,7 +57,7 @@ public class supervisorDashboardController {
 
     @FXML
     void createTask(ActionEvent event) {
-
+        //todo: add option for supervisor to also create tasks
     }
 
     @FXML
@@ -81,6 +81,10 @@ public class supervisorDashboardController {
 
     @FXML
     private ImageView logOutButton;
+
+    @FXML
+    private Button meetingButton;
+
     @FXML
     void logOut(MouseEvent event) {
         Main.logOutUser();
@@ -93,7 +97,12 @@ public class supervisorDashboardController {
 
     @FXML
     void modifyTeam(ActionEvent event) {
+        //todo: link with Faraz's modify team path
+    }
 
+    @FXML
+    void scheduleFypMeeting(ActionEvent event) {
+        //todo: Faraz will add FYP meeting stuff
     }
 
     @FXML

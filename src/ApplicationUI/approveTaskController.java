@@ -59,6 +59,17 @@ public class approveTaskController {
 
     @FXML
     private ImageView logOutButton;
+
+    @FXML
+    private Button goBackButton;
+    @FXML
+    void goBack(ActionEvent event) {
+        try {
+            Main.changeScene("HODDashboard.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     @FXML
     void logOut(MouseEvent event) {
         Main.logOutUser();

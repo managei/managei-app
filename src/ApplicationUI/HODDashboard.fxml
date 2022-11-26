@@ -4,66 +4,82 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.approveTaskController">
-    <children>
-        <AnchorPane layoutY="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="806.0" styleClass="titleBannerBackground" stylesheets="@application.css">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.HODDashboardController">
+    <center>
+        <AnchorPane prefHeight="510.0" prefWidth="800.0" styleClass="background" stylesheets="@application.css" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="20.0" layoutY="27.0" styleClass="font" stylesheets="@application.css" text="Approve Task" textAlignment="CENTER" textFill="WHITE">
-                    <font>
-                        <Font size="36.0" />
-                    </font>
-                </Label>
-                <ImageView fx:id="logOutButton" fitHeight="61.0" fitWidth="54.0" layoutX="738.0" layoutY="19.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../images/logOut.png" />
-                    </image>
-                </ImageView>
-            </children>
-        </AnchorPane>
-        <AnchorPane layoutY="87.0" prefHeight="513.0" prefWidth="806.0">
-            <children>
-                <Separator prefHeight="0.0" prefWidth="806.0" />
-                <Pane layoutX="110.0" layoutY="41.0" prefHeight="432.0" prefWidth="586.0" styleClass="card" stylesheets="@application.css">
+                <Pane layoutX="170.0" layoutY="157.0" prefHeight="285.0" prefWidth="460.0" style="-fx-background-radius: 25; -fx-background-color: #4c5a6b;" styleClass="code" stylesheets="@application.css">
                     <children>
-                        <TableView fx:id="taskViewTable" layoutX="26.0" layoutY="22.0" prefHeight="274.0" prefWidth="534.0" stylesheets="@application.css">
-                            <columns>
-                                <TableColumn fx:id="taskColumn" prefWidth="52.0" text="TaskID" />
-                                <TableColumn fx:id="nameColumn" prefWidth="113.5999755859375" text="Name" />
-                                <TableColumn fx:id="statusColumn" prefWidth="88.0" text="Status" />
-                                <TableColumn fx:id="detailColumn" prefWidth="280.0" text="Detail" />
-                            </columns>
-                        </TableView>
-                        <Label layoutX="152.0" layoutY="329.0" styleClass="font" stylesheets="@application.css" text="Enter Task ID: " textFill="WHITE">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="taskIDField" layoutX="285.0" layoutY="328.0" promptText="Task ID" />
-                        <Button fx:id="completeTaskButton" layoutX="224.0" layoutY="374.0" mnemonicParsing="false" onAction="#assignTask" style="-fx-font-size: 18;" stylesheets="@application.css" text="Assign Task">
+                        <Button fx:id="viewProjectButton" layoutX="286.0" layoutY="22.0" mnemonicParsing="false" onAction="#viewProjects" prefHeight="39.0" prefWidth="145.0" stylesheets="@application.css" text="View Projects" textFill="WHITE">
                             <styleClass>
+                                <String fx:value="Button" />
                                 <String fx:value="primaryButton" />
                                 <String fx:value="font" />
-                                <String fx:value="Button" />
                             </styleClass>
                         </Button>
-                        <Text fx:id="errorTextField" fill="RED" layoutX="156.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font">
+                        <Button fx:id="createProjectButton" layoutX="286.0" layoutY="72.0" mnemonicParsing="false" onAction="#createProject" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Create Project" textFill="WHITE">
+                            <styleClass>
+                                <String fx:value="Button" />
+                                <String fx:value="primaryButton" />
+                                <String fx:value="font" />
+                            </styleClass>
+                        </Button>
+                        <ImageView fitHeight="192.0" fitWidth="209.0" layoutX="21.0" layoutY="47.0" pickOnBounds="true">
+                            <image>
+                                <Image url="@../images/supervisorDashManageProj.png" />
+                            </image>
+                        </ImageView>
+                        <Button fx:id="updateProjectButton" layoutX="286.0" layoutY="123.0" mnemonicParsing="false" onAction="#updateProject" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Update Project" textFill="WHITE">
+                            <styleClass>
+                                <String fx:value="Button" />
+                                <String fx:value="primaryButton" />
+                                <String fx:value="font" />
+                            </styleClass>
+                        </Button>
+                        <Button fx:id="deleteProjectButton" layoutX="286.0" layoutY="174.0" mnemonicParsing="false" onAction="#deleteProject" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Delete Project" textFill="WHITE">
+                            <styleClass>
+                                <String fx:value="Button" />
+                                <String fx:value="primaryButton" />
+                                <String fx:value="font" />
+                            </styleClass>
+                        </Button>
+                        <Text fill="#b140a8" layoutX="63.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Project" textAlignment="CENTER">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Text>
+                  <Button fx:id="approveTaskButton" layoutX="286.0" layoutY="224.0" mnemonicParsing="false" onAction="#approveTask" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Approve Task" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="primaryButton" />
+                        <String fx:value="font" />
+                     </styleClass>
+                  </Button>
+                    </children></Pane>
+                <AnchorPane prefHeight="76.0" prefWidth="800.0" styleClass="titleBannerBackground" stylesheets="@application.css">
+                    <children>
+                        <Label alignment="CENTER" layoutX="21.0" layoutY="17.0" prefHeight="42.0" prefWidth="526.0" stylesheets="@application.css" text="Head of Department Dashboard" textFill="WHITE">
+                            <font>
+                                <Font name="SansSerif Regular" size="36.0" />
+                            </font>
+                        </Label>
+                        <Separator layoutY="75.0" prefHeight="0.0" prefWidth="800.0" />
+                        <ImageView fx:id="logOutButton" fitHeight="58.0" fitWidth="55.0" layoutX="731.0" layoutY="12.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/logOut.png" />
+                            </image>
+                        </ImageView>
                     </children>
-                </Pane>
+                </AnchorPane>
             </children>
         </AnchorPane>
-    </children>
-</AnchorPane>
+    </center>
+</BorderPane>

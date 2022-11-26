@@ -103,7 +103,7 @@ public class teamMember extends user{
     public static boolean assignTask(String taskID){
         DBHandler dbh = new DBHandler();
         try {
-            dbh.updateTaskStatus(taskID,"assigned");
+            dbh.updateTaskStatus(taskID,"approved");
         } catch (SQLException e) {
             return false;
         }

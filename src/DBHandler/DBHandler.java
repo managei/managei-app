@@ -336,8 +336,14 @@ public class DBHandler {
 
         user u= Main.getLoggedInUser();
         String user_id = u.getId().toString();
-        ResultSet rs = executeGenericSelectQueryAndGetResultSet(
-                "select f.fypID,f.fypName,f.fypStatus,t.teamID from manageitaskmanagementsystem.finalyearproject f inner join manageitaskmanagementsystem.team t on f.fypID=t.fypID inner join manageitaskmanagementsystem.supervisor s on s.assignedTeamID=t.teamID where s.supervisorID=" + user_id + ";");
+
+        String query;
+
+        if(Main.getLoggedInUser().getType().equals("headOfDepartment")){
+            query="select f.fypID,f.fypName,f.fypStatus,t.teamID from finalYearProject f left outer join team t on f.fypID=t.fypID;";
+        }else query= "select f.fypID,f.fypName,f.fypStatus,t.teamID from manageitaskmanagementsystem.finalyearproject f inner join manageitaskmanagementsystem.team t on f.fypID=t.fypID inner join manageitaskmanagementsystem.supervisor s on s.assignedTeamID=t.teamID where s.supervisorID=" + user_id + ";";
+
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet(query);
         try{
             while(rs.next()) {
                 finalYearProject fyp = new finalYearProject(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4));

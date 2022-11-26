@@ -47,6 +47,8 @@ public class createTeamController {
             Main.changeScene("adminDashBoard.fxml");
         else if(Main.getLoggedUser().getType().equals("supervisor"))
             Main.changeScene("supervisorDashboard.fxml");
+        else if(Main.getLoggedUser().getType().equals("headOfDepartment"))
+            Main.changeScene("HODDashboard.fxml");
     }
 
     @FXML
