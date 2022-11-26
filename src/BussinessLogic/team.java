@@ -1,5 +1,10 @@
 package BussinessLogic;
 
+import ApplicationUI.Main;
+import DBHandler.DBHandler;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 
 public class team {
@@ -49,5 +54,22 @@ public class team {
 
     public static ArrayList<team> returnTeamList(){
         return dashboard.getTeamList();
+    }
+
+    public static ObservableList<teamTaskViewCapsule> getTeamTaskAndProgress(){
+        DBHandler dbh = new DBHandler();
+        Main.initializeLists();
+        teamMember currentMember =null;
+
+        for(int i=0;i<dashboard.getTeamMembersList().size(); i++){
+            if(dashboard.getTeamMembersList().get(i).getMemberId()==Main.getLoggedInUser().getUserId()){
+                currentMember=dashboard.getTeamMembersList().get(i);
+                break;
+            }
+        }
+
+        if(currentMember==null) return null;
+        System.out.println("Selected: " + currentMember.getMemberId());
+        return dbh.generateTeamTaskView(currentMember.getTeamId().toString());
     }
 }

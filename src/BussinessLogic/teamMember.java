@@ -99,4 +99,8 @@ public class teamMember extends user{
         }
         return true;
     }
+
+    public static ObservableList<teamTaskViewCapsule> openTaskView(){
+        return team.getTeamTaskAndProgress();
+    }
 }

@@ -33,14 +33,23 @@
     -fx-background-radius:25;
 }
 
+
 .primaryButton{
     -fx-background-color:#2384fb;
     -fx-text-fill:white;
 }
 
+.primaryButton:hover{
+    -fx-background-color:#03418c;
+}
+
 .secondaryButton{
     -fx-background-color:#FF70D7;
     -fx-text-fill:white;
+}
+
+.secondaryButton:hover{
+    -fx-background-color:#8f0066
 }
 
 .font{

@@ -196,4 +196,8 @@ public class dashboard {
     public boolean completeTask(String taskID){
         return teamMember.completeTask(taskID);
     }
+
+    public ObservableList<teamTaskViewCapsule> openTaskView(){
+        return teamMember.openTaskView();
+    }
 }

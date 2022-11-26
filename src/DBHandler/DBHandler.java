@@ -365,6 +365,25 @@ public class DBHandler {
         return data;
     }
 
+    public ObservableList<teamTaskViewCapsule> generateTeamTaskView(String teamID){
+        ObservableList<teamTaskViewCapsule> arr = FXCollections.observableArrayList();
+
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet(
+                "select t.taskID, t.memberID, t.taskName, t.taskDetail, t.taskStatus " +
+                        "from task t inner join teamMember tm on t.memberID=tm.memberID " +
+                        "where tm.teamID=" + teamID + ";");
+        try{
+            while(rs.next()) {
+                teamTaskViewCapsule cap = new teamTaskViewCapsule(rs.getInt(1),rs.getInt(2),rs.getString(3),
+                        rs.getString(4),rs.getString(5));
+                arr.add(cap);
+            }
+        }catch (SQLException sql){
+            sql.printStackTrace();
+        }
+//        System.out.println(arr.toString());
+        return arr;
+    }
 
     public void closeConnection() {
         try {

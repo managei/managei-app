@@ -41,28 +41,28 @@
                                         <AnchorPane layoutX="-1.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="806.0" styleClass="background" stylesheets="@application.css">
                                             <children>
                                                 <Separator layoutY="1.0" prefHeight="2.0" prefWidth="806.0" />
-                                    <Pane layoutX="169.0" layoutY="57.0" prefHeight="398.0" prefWidth="467.0" styleClass="card" stylesheets="@application.css">
+                                    <Pane layoutX="169.0" layoutY="43.0" prefHeight="426.0" prefWidth="467.0" styleClass="card" stylesheets="@application.css">
                                        <children>
-                                                      <Button fx:id="viewOwnTasksButton" layoutX="254.0" layoutY="342.0" mnemonicParsing="false" onAction="#gotoTeamDashboard" prefHeight="34.0" prefWidth="122.0" stylesheets="@application.css" text="Go Back" textFill="WHITE">
+                                                      <Button fx:id="viewOwnTasksButton" layoutX="89.0" layoutY="381.0" mnemonicParsing="false" onAction="#gotoTeamDashboard" prefHeight="34.0" prefWidth="122.0" stylesheets="@application.css" text="Go Back" textFill="WHITE">
                                                           <styleClass>
                                                               <String fx:value="Button" />
                                                               <String fx:value="font" />
                                                               <String fx:value="secondaryButton" />
                                                           </styleClass>
                                                       </Button>
-                                                      <Label fx:id="taskNameLabel" layoutX="26.0" layoutY="23.0" styleClass="font" stylesheets="@application.css" text="Enter Task Name:" textFill="WHITE">
+                                                      <Label fx:id="taskNameLabel" layoutX="26.0" layoutY="184.0" styleClass="font" stylesheets="@application.css" text="Enter Task Name:" textFill="WHITE">
                                                           <font>
                                                               <Font size="24.0" />
                                                           </font>
                                                       </Label>
-                                                      <Label fx:id="taskDetailsLabel" layoutX="26.0" layoutY="69.0" styleClass="font" stylesheets="@application.css" text="Enter Task Details:" textFill="WHITE">
+                                                      <Label fx:id="taskDetailsLabel" layoutX="26.0" layoutY="230.0" styleClass="font" stylesheets="@application.css" text="Enter Task Details:" textFill="WHITE">
                                                           <font>
                                                               <Font size="24.0" />
                                                           </font>
                                                       </Label>
-                                          <TextField fx:id="taskNameField" layoutX="227.0" layoutY="26.0" prefHeight="26.0" prefWidth="229.0" />
-                                          <TextArea fx:id="taskDetailsField" layoutX="26.0" layoutY="102.0" prefHeight="200.0" prefWidth="414.0" />
-                                          <Button fx:id="suggestTaskButton" layoutX="89.0" layoutY="342.0" mnemonicParsing="false" onAction="#suggestTask" prefHeight="34.0" prefWidth="122.0" stylesheets="@application.css" text="Submit">
+                                          <TextField fx:id="taskNameField" layoutX="227.0" layoutY="187.0" prefHeight="26.0" prefWidth="229.0" />
+                                          <TextArea fx:id="taskDetailsField" layoutX="26.0" layoutY="263.0" prefHeight="94.0" prefWidth="429.0" />
+                                          <Button fx:id="suggestTaskButton" layoutX="252.0" layoutY="381.0" mnemonicParsing="false" onAction="#suggestTask" prefHeight="34.0" prefWidth="122.0" stylesheets="@application.css" text="Submit">
                                              <styleClass>
                                                 <String fx:value="Button" />
                                                 <String fx:value="font" />
@@ -70,6 +70,11 @@
                                              </styleClass>
                                           </Button>
                                           <Text fx:id="errorTextField" fill="RED" layoutX="223.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                          <ImageView fitHeight="176.0" fitWidth="243.0" layoutX="102.0" layoutY="14.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../images/suggestBrainstorm.png" />
+                                             </image>
+                                          </ImageView>
                                        </children>
                                     </Pane>
                                             </children>
