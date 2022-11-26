@@ -10,6 +10,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
@@ -55,16 +57,17 @@ public class approveTaskController {
         @FXML
         private Text errorTextField;
 
-        @FXML
-        void logOut(ActionEvent event) {
-            Main.logOutUser();
-            try {
-                Main.changeScene("welcome.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    @FXML
+    private ImageView logOutButton;
+    @FXML
+    void logOut(MouseEvent event) {
+        Main.logOutUser();
+        try {
+            Main.changeScene("welcome.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
+    }
         @FXML
         void assignTask(ActionEvent event) {
             Main.initializeLists();

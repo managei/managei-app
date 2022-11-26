@@ -8,6 +8,8 @@ import DBHandler.DBHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class supervisorDashboardController {
 
@@ -78,7 +80,9 @@ public class supervisorDashboardController {
     }
 
     @FXML
-    void logOut(ActionEvent event) {
+    private ImageView logOutButton;
+    @FXML
+    void logOut(MouseEvent event) {
         Main.logOutUser();
         try {
             Main.changeScene("welcome.fxml");

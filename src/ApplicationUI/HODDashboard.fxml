@@ -23,9 +23,9 @@
                         <Font size="36.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="83.0" fitWidth="111.0" layoutX="709.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="logOutButton" fitHeight="61.0" fitWidth="54.0" layoutX="738.0" layoutY="19.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../images/memberTaskTopRight.gif" />
+                        <Image url="@../images/logOut.png" />
                     </image>
                 </ImageView>
             </children>
@@ -33,7 +33,7 @@
         <AnchorPane layoutY="87.0" prefHeight="513.0" prefWidth="806.0">
             <children>
                 <Separator prefHeight="0.0" prefWidth="806.0" />
-                <Pane layoutX="110.0" layoutY="17.0" prefHeight="479.0" prefWidth="586.0" styleClass="card" stylesheets="@application.css">
+                <Pane layoutX="110.0" layoutY="41.0" prefHeight="432.0" prefWidth="586.0" styleClass="card" stylesheets="@application.css">
                     <children>
                         <TableView fx:id="taskViewTable" layoutX="26.0" layoutY="22.0" prefHeight="274.0" prefWidth="534.0" stylesheets="@application.css">
                             <columns>
@@ -43,13 +43,6 @@
                                 <TableColumn fx:id="detailColumn" prefWidth="280.0" text="Detail" />
                             </columns>
                         </TableView>
-                        <Button fx:id="backButton" layoutX="241.0" layoutY="421.0" mnemonicParsing="false" onAction="#logOut" style="-fx-font-size: 18;" stylesheets="@application.css" text="Log Out" textFill="WHITE">
-                            <styleClass>
-                                <String fx:value="secondaryButton" />
-                                <String fx:value="font" />
-                                <String fx:value="Button" />
-                            </styleClass>
-                        </Button>
                         <Label layoutX="152.0" layoutY="329.0" styleClass="font" stylesheets="@application.css" text="Enter Task ID: " textFill="WHITE">
                             <font>
                                 <Font size="20.0" />

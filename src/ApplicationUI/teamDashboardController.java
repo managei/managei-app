@@ -9,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class teamDashboardController {
@@ -107,6 +109,17 @@ public class teamDashboardController {
         userNameLabel.setText(Main.getLoggedInUser().getFirstName() + " " + Main.getLoggedInUser().getLastName());
     }
 
+    @FXML
+    private ImageView logOutButton;
+    @FXML
+    void logOut(MouseEvent event) {
+        Main.logOutUser();
+        try {
+            Main.changeScene("welcome.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     @FXML
     void initialize() {
         assert CompletedTaskLabel != null : "fx:id=\"CompletedTaskLabel\" was not injected: check your FXML file 'teamDashboard.fxml'.";
