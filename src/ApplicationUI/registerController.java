@@ -46,7 +46,7 @@ public class registerController {
             label_info.setText("Please Wait...");
             user u = d.registerUser(1,textBox_userName.getText(),textBox_firstName.getText(),textBox_lastName.getText(),textBox_password.getText(),"admin");
             Main.setLoggedInUser(u);
-            Main.gotoDashboard(u.getUserType());
+            Main.gotoDashboard(u.getType());
         }
     }
 

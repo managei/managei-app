@@ -61,7 +61,7 @@ public class createProjectController {
 
         // Todo: Faraz will add create Team after this (called on click of next button)
         try {
-            Main.changeScene("createTeam.fxml");
+            Main.changeScene("createTeamPage.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

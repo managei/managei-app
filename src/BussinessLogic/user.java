@@ -19,7 +19,22 @@ public abstract class user {
                 ", userType='" + type + '\'' +
                 '}';
     }
-
+    public static user returnUserByType(Integer userId, String userName, String firstName, String lastName,String password, String userType)
+    {
+        return switch (userType) {
+            case "admin" ->
+                    new admin(userId, userName, firstName, lastName, password, userType);
+            case "supervisor" ->
+                    new supervisor(userId, userName, firstName, lastName, password, userType);
+            case "teamMember" ->
+                    new teamMember(userId, userName, firstName, lastName, password, userType);
+            case "headOfDepartment" ->
+                    new headOfDepartment(userId, userName, firstName, lastName, password, userType);
+            case "fypLabInstructor" ->
+                    new fypLabInstructor(userId, userName, firstName, lastName, password, userType);
+            default -> null;
+        };
+    }
     public user(Integer userId, String userName, String firstName, String lastName,String password, String userType) {
         this.id = userId;
         this.userName = userName;
@@ -35,6 +50,9 @@ public abstract class user {
         else
             return false;
 
+    }
+    public Integer getId() {
+        return id;
     }
     public Integer getUserId() {
         return id;
@@ -75,7 +93,7 @@ public abstract class user {
         this.password = password;
     }
 
-    public String getUserType() {
+    public String getType() {
         return type;
     }
 

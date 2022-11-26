@@ -14,8 +14,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main extends Application {
+    private static DBHandler db;
+    private static dashboard d=new dashboard();
     private static Stage stg;
     private static user loggedInUser=null;
+    public static DBHandler getDBHandler ()
+    {
+        return db;
+    }
+    public static dashboard getDashBoard ()
+    {
+        return d;
+    }
+
     public static user getLoggedUser ()
     {
         return loggedInUser;
@@ -65,17 +76,15 @@ public class Main extends Application {
     }
     public static void initializeLists()
     {
-        DBHandler db = new DBHandler();
-        dashboard.setFypList(db.readFyps());
+        db = new DBHandler();
+        dashboard.setFypList(db.readFYP());
         dashboard.setTaskList(db.readTasks());
         dashboard.setUserList(db.readUsers());
         dashboard.setTeamList(db.readTeams());
         dashboard.setSupervisorList(db.readSupervisors());
-        dashboard.setTeamMembersList(db.readMembers());
+        dashboard.setTeamMembersList(db.readTeamMembers());
     }
     public static void main(String[] args) {
-
         launch(args);
-
     }
 }

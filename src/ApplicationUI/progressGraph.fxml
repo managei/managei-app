@@ -33,7 +33,7 @@
                                                 </Label>
                                                 <ImageView fitHeight="75.0" fitWidth="92.0" layoutX="710.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@graphBannerTop.gif" />
+                                                        <Image url="@../images/graphBannerTop.gif" />
                                                     </image>
                                                 </ImageView>
                                             </children>

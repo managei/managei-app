@@ -2,6 +2,8 @@ package BussinessLogic;
 
 import ApplicationUI.Main;
 import DBHandler.DBHandler;
+import Utils.Printing;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
@@ -12,6 +14,9 @@ public class dashboard {
     static private ArrayList<team> teamList=null;
     static private ArrayList<finalYearProject> fypList=null;
     static private ArrayList<task> taskList=null;
+    static private ArrayList<supervisor> supervisorList=null;
+    static private ArrayList<teamMember> teamMembersList=null;
+
 
     public static ArrayList<teamMember> getTeamMembersList() {
         return teamMembersList;
@@ -21,7 +26,6 @@ public class dashboard {
         dashboard.teamMembersList = teamMembersList;
     }
 
-    static private ArrayList<teamMember> teamMembersList = null;
 
     public static ArrayList<supervisor> getSupervisorList() {
         return supervisorList;
@@ -30,8 +34,7 @@ public class dashboard {
     public static void setSupervisorList(ArrayList<supervisor> supervisorList) {
         dashboard.supervisorList = supervisorList;
     }
-
-    static private ArrayList<supervisor> supervisorList=null;
+    // Why needed a new list for supervisor, we have user already
     public user loginUser(String userName,String password)
     {
         for (user u:
@@ -56,7 +59,10 @@ public class dashboard {
         db.saveUser(ad);
         return ad;
     }
-
+    public String addTeamMember(Integer memberID,Integer teamID)
+    {
+        return Main.getDBHandler().addToTeam(memberID, teamID);
+    }
     public static ArrayList<user> getUserList() {
         return userList;
     }
@@ -94,16 +100,14 @@ public class dashboard {
 //        return arr;
 //    }
 
+    public void createTeam(DBHandler dbh,String name, String details,Integer fypID){
+        dbh.saveNewTeamInDB(name,details,fypID);
+        Main.initializeLists();
+    }
     public void createProject(DBHandler dbh,String projectName, String projectStatus){
-//        if(fypList==null) fypList=new ArrayList<finalYearProject>();
-//        int sizeOffyp=fypList.size();
-//        if(sizeOffyp>0)
-//        finalYearProject fyp= new finalYearProject(fypList.get(fypList.size()-1).getId()+1,projectName,projectStatus);
-//        fypList.add(fyp);
         dbh.saveNewProjectInDB(projectName,projectStatus);
         Main.initializeLists();
     }
-
     public void updateProjectDetail(DBHandler dbh,String fypName,String fypStatus,String fypID) throws SQLException {
         dbh.updateProjectDetails(fypName,fypStatus,fypID);
         Main.initializeLists();
@@ -117,6 +121,33 @@ public class dashboard {
         ObservableList<finalYearProject> arr = dbh.getDataforSupervisorProjects();
         return arr;
     }
+    public static ObservableList<user> displayAllUsers(){
+        ObservableList<user> data = FXCollections.observableArrayList();
+        for (user u:userList) {
+            data.add(u);
+        }
+        return data;
+    }
+    public static ObservableList<team> displayAllTeams(){
+        ObservableList<team> data = FXCollections.observableArrayList();
+        for (team t:teamList) {
+            data.add(t);
+        }
+        return data;
+    }
+    public static ArrayList<user> getUsersByType(String userType){
+        ArrayList<user> filteredUsers= new ArrayList<user>();
+        for (user u:userList) {
+            if(u.getType().equals(userType)){
+                filteredUsers.add(u);
+            }
+        }
+        return filteredUsers;
+    }
+    public static ArrayList<finalYearProject> getFYP(){
+        return fypList;
+    }
+
 
     public ArrayList<String> generateShortProjectProgressReport(String teamID){
         return supervisor.generateShortProjectProgressReport(teamID);
@@ -135,7 +166,6 @@ public class dashboard {
         for(int i=0; i<teamMembersList.size(); i++){
             System.out.println(teamMembersList.get(i).getUserId());
             System.out.println(currentUser.getUserId());
-
             if(teamMembersList.get(i).getUserId()==currentUser.getUserId()){
                 currentTeamMember=teamMembersList.get(i);
                 System.out.println(teamMembersList.get(i).getFirstName());
@@ -151,7 +181,7 @@ public class dashboard {
             }
         }
 
-        String fypID = curTeam.getFypId();
+        String fypID = curTeam.getFypId().toString();
         teamMember.suggestNewTask(taskName,taskDetail,fypID,Main.getLoggedInUser().getUserId().toString());
 
     }

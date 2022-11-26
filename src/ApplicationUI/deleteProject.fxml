@@ -32,7 +32,7 @@
                                                 </Label>
                                                 <ImageView fitHeight="81.0" fitWidth="69.0" layoutX="723.0" layoutY="7.0" pickOnBounds="true">
                                                     <image>
-                                                        <Image url="@supervisorDashManageProj.png" />
+                                                        <Image url="@../images/supervisorDashManageProj.png" />
                                                     </image>
                                                 </ImageView>
                                                 <Text layoutX="740.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete" textAlignment="CENTER" />
@@ -66,7 +66,7 @@
                                                         <TextField fx:id="fypIDTextField" layoutX="199.0" layoutY="253.0" prefHeight="26.0" prefWidth="229.0" />
                                           <ImageView fitHeight="192.0" fitWidth="204.0" layoutX="144.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@deleteProject.png" />
+                                                <Image url="@../images/deleteProject.png" />
                                              </image>
                                           </ImageView>
                                                     </children>

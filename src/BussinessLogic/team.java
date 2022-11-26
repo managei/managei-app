@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class team {
     private Integer id;
     private String name;
-    private String fypId;
-    private String hodId;
+    private String detail;
+    private Integer fypId;
 
-    public team(Integer id, String name, String fypId, String hodId) {
+    public team(Integer id, String name,String detail, Integer fypId) {
         this.id = id;
         this.name = name;
         this.fypId = fypId;
-        this.hodId = hodId;
+        this.detail = detail;
     }
 
     public Integer getId() {
@@ -31,20 +31,20 @@ public class team {
         this.name = name;
     }
 
-    public String getFypId() {
+    public Integer getFypId() {
         return fypId;
     }
 
-    public void setFypId(String fypId) {
+    public void setFypId(Integer fypId) {
         this.fypId = fypId;
     }
 
-    public String getHodId() {
-        return hodId;
+    public String getDetail() {
+        return detail;
     }
 
-    public void setHodId(String hodId) {
-        this.hodId = hodId;
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
     public static ArrayList<team> returnTeamList(){

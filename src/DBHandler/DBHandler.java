@@ -17,14 +17,67 @@ public class DBHandler {
 
     public DBHandler() {
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ManageiTaskManagementSystem", "root", "root");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ManageiTaskManagementSystem", "root", "Razi.432");
             Printing.PrintStr("Connection Done");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
-
+    public ArrayList<finalYearProject> readFYP() {
+        Statement stm;
+        ArrayList<finalYearProject> fypList = new ArrayList<finalYearProject>();
+        try {
+            stm = con.createStatement();
+            String query = "SELECT * FROM finalYearProject";
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next()) {
+                finalYearProject fyp = new finalYearProject(rs.getInt("fypID"), rs.getString("fypName"), rs.getString("fypStatus"));
+                if (fyp != null)
+                    fypList.add(fyp);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return fypList;
+    }
+    public ArrayList<team> readTeams() {
+        Statement stm;
+        ArrayList<team> teamList = new ArrayList<team>();
+        try {
+            stm = con.createStatement();
+            String query = "SELECT * FROM team";
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next()) {
+                team t = new team(rs.getInt("teamID"), rs.getString("teamName"),rs.getString("teamDetails"), rs.getInt("fypId"));
+                if (t != null)
+                    teamList.add(t);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return teamList;
+    }
+    public ArrayList<task> readTasks() {
+        Statement stm;
+        ArrayList<task> tasksList = new ArrayList<task>();
+        try {
+            stm = con.createStatement();
+            String query = "SELECT * FROM task";
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next()) {
+                task t = new task(rs.getInt("taskID"), rs.getString("taskName"), rs.getString("taskDetail"), rs.getString("taskStatus"),rs.getInt("fypID"),rs.getInt("memberID"));
+                if (t != null)
+                    tasksList.add(t);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return tasksList;
+    }
     public ArrayList<user> readUsers() {
         Statement stm;
         ArrayList<user> userList = new ArrayList<user>();
@@ -56,23 +109,6 @@ public class DBHandler {
         }
         return userList;
     }
-
-    public ArrayList<finalYearProject> readFyps(){
-
-        ArrayList<finalYearProject> arr = new ArrayList<finalYearProject>();
-        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from finalYearProject");
-
-        try {
-            while (rs.next()) {
-                finalYearProject fyp = new finalYearProject(Integer.parseInt(rs.getString("fypID")), rs.getString("fypName"),rs.getString("fypStatus"));
-                arr.add(fyp);
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return arr;
-    }
-
     public ArrayList<supervisor> readSupervisors(){
 
         ArrayList<supervisor> arr = new ArrayList<supervisor>();
@@ -91,58 +127,24 @@ public class DBHandler {
         }
         return arr;
     }
-
-    public ArrayList<team> readTeams(){
-
-        ArrayList<team> arr = new ArrayList<team>();
-        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from team;");
-
-        try {
-            while (rs.next()) {
-                team t = new team(rs.getInt(1),rs.getString("teamName"),rs.getString("fypID"),"NULL");
-                arr.add(t);
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return arr;
-    }
-
-    public ArrayList<task> readTasks(){
-
-        ArrayList<task> arr = new ArrayList<task>();
-        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from task;");
-
-        try {
-            while (rs.next()) {
-                task t = new task(rs.getInt("taskID"),rs.getString("taskName"),rs.getString("taskDetail"),
-                        rs.getString("taskStatus"),rs.getInt("fypID"),rs.getInt("memberID"));
-                arr.add(t);
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return arr;
-    }
-
-    public ArrayList<teamMember> readMembers(){
+    public ArrayList<teamMember> readTeamMembers(){
 
         ArrayList<teamMember> arr = new ArrayList<teamMember>();
-        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select* from teammember m inner join users u on m.memberID=u.userID;");
-
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select * from teamMember s inner join users u on s.memberID=u.userID;");
         try {
             while (rs.next()) {
-                teamMember t = new teamMember(rs.getInt(1),rs.getString("userName"),
+                teamMember s = new teamMember(
+                        rs.getInt("userID"),rs.getString("userName"),
                         rs.getString("firstName"), rs.getString("lastName"),
-                        rs.getString("password"),rs.getString("userType"),rs.getInt(2));
-                arr.add(t);
+                        rs.getString("password"),rs.getString("userType"),
+                        rs.getInt("teamID"));
+                arr.add(s);
             }
         }catch (SQLException e){
             e.printStackTrace();
         }
         return arr;
     }
-
     public void saveUser(user u) {
         try {
 
@@ -152,14 +154,43 @@ public class DBHandler {
             stmt.setString(2, u.getPassword());
             stmt.setString(3, u.getFirstName());
             stmt.setString(4, u.getLastName());
-            stmt.setString(5, u.getUserType());
+            stmt.setString(5, u.getType());
 
             int rows = stmt.executeUpdate();
             if (rows > 0) {
                 System.out.println("A user was added...");
+                String query2;
+                ResultSet rs = executeGenericSelectQueryAndGetResultSet("SELECT userID AS LastID FROM users WHERE userID = @@Identity;");
+                rs.next();
+                switch (u.getType())
+                {
+                    case "supervisor" ->{
+                        query2="insert into supervisor (supervisorID) values ("+ rs.getInt(1) +")";
+                        System.out.println(query2);
+                        executeGenericInsertQuery(query2);
+                    }
+                    case "teamMember" ->
+                    {
+                        query2="insert into teamMember (memberID) values ("+ "'" + rs.getInt(1) + "'" + ")";
+                        System.out.println(query2);
+                        executeGenericInsertQuery(query2);
+                    }
+                    case "headOfDepartment" ->
+                    {
+                        query2="insert into headOfDepartment (hodID) values ("+ "'" + rs.getInt(1) + "'" + ")";
+                        System.out.println(query2);
+                        executeGenericInsertQuery(query2);
+                    }
+                    case "FYPLabInstructor"->{
+                        query2="insert into labInstructor (instructorID) values ("+ "'" + rs.getInt(1) + "'" + ")";
+                        System.out.println(query2);
+                        executeGenericInsertQuery(query2);
+                    }
+                    default -> {
+                    }
+                }
             } else
                 System.out.println("User register failed...");
-
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -182,7 +213,7 @@ public class DBHandler {
         }
     }
 
-    public void executeGenericInsertQuery(String query){
+    public String executeGenericInsertQuery(String query){
         Statement st = null;
         try {
             st = con.createStatement();
@@ -192,6 +223,7 @@ public class DBHandler {
         }
 
         System.out.println("Data added to DB");
+        return "Operation Success";
     }
 
     public void executeGenericUpdateDeleteQuery(String query) throws SQLException{
@@ -215,9 +247,18 @@ public class DBHandler {
         }
         return null;
     }
-
+    public String addToTeam(Integer memberID,Integer teamID){
+        String query="update teamMember set teamID= "+ "'" +teamID + "'" + " Where memberID = " + "'" + memberID + "';";
+        System.out.println(query);
+        return executeGenericInsertQuery(query);
+    }
     public void saveNewProjectInDB(String fypName,String fypStatus){
         String query="insert into finalYearProject (fypName,fypStatus) values ("+ "'" +fypName + "'" + "," + "'" + fypStatus + "'" + ")";
+//        System.out.println(query);
+        executeGenericInsertQuery(query);
+    }
+    public void saveNewTeamInDB(String teamName,String teamDetails,Integer fypId){
+        String query="insert into team (teamName,teamDetails,fypID) values ("+ "'" +teamName + "'" + "," + "'" + teamDetails + "'" + ","+fypId+")";
         System.out.println(query);
         executeGenericInsertQuery(query);
     }
@@ -294,13 +335,28 @@ public class DBHandler {
         ObservableList<finalYearProject> data = FXCollections.observableArrayList();
 
         user u= Main.getLoggedInUser();
-        String user_id = u.getUserId().toString();
+        String user_id = u.getId().toString();
         ResultSet rs = executeGenericSelectQueryAndGetResultSet(
                 "select f.fypID,f.fypName,f.fypStatus,t.teamID from manageitaskmanagementsystem.finalyearproject f inner join manageitaskmanagementsystem.team t on f.fypID=t.fypID inner join manageitaskmanagementsystem.supervisor s on s.assignedTeamID=t.teamID where s.supervisorID=" + user_id + ";");
         try{
             while(rs.next()) {
                 finalYearProject fyp = new finalYearProject(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4));
                 data.add(fyp);
+            }
+        }catch (SQLException sql){
+            sql.printStackTrace();
+        }
+
+        return data;
+    }
+    public ObservableList<user> getDataforAllUsers(){
+        ObservableList<user> data = FXCollections.observableArrayList();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet(
+                "select * from manageitaskmanagementsystem.users");
+        try{
+            while(rs.next()) {
+                user newUser = user.returnUserByType( rs.getInt("userId"), rs.getString("userName"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("password"), rs.getString("userType"));
+                data.add(newUser);
             }
         }catch (SQLException sql){
             sql.printStackTrace();
