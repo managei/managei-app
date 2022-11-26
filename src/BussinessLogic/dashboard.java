@@ -14,6 +14,18 @@ public class dashboard {
     static private ArrayList<team> teamList=null;
     static private ArrayList<finalYearProject> fypList=null;
     static private ArrayList<task> taskList=null;
+    static private ArrayList<supervisor> supervisorList=null;
+    static private ArrayList<teamMember> teamMembersList=null;
+
+
+    public static ArrayList<teamMember> getTeamMembersList() {
+        Printing.PrintStr(teamMembersList.toString());
+        return teamMembersList;
+    }
+
+    public static void setTeamMembersList(ArrayList<teamMember> teamMembersList) {
+        dashboard.teamMembersList = teamMembersList;
+    }
 
     public static ArrayList<supervisor> getSupervisorList() {
         return supervisorList;
@@ -23,7 +35,6 @@ public class dashboard {
         dashboard.supervisorList = supervisorList;
     }
     // Why needed a new list for supervisor, we have user already
-    static private ArrayList<supervisor> supervisorList=null;
     public user loginUser(String userName,String password)
     {
         for (user u:
@@ -48,7 +59,10 @@ public class dashboard {
         db.saveUser(ad);
         return ad;
     }
-
+    public String addTeamMember(Integer memberID,Integer teamID)
+    {
+        return Main.getDBHandler().addToTeam(memberID, teamID);
+    }
     public static ArrayList<user> getUserList() {
         return userList;
     }

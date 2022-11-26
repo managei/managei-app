@@ -115,7 +115,24 @@ public class DBHandler {
         }
         return arr;
     }
+    public ArrayList<teamMember> readTeamMembers(){
 
+        ArrayList<teamMember> arr = new ArrayList<teamMember>();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select * from teamMember s inner join users u on s.memberID=u.userID;");
+        try {
+            while (rs.next()) {
+                teamMember s = new teamMember(
+                        rs.getInt("userID"),rs.getString("userName"),
+                        rs.getString("firstName"), rs.getString("lastName"),
+                        rs.getString("password"),rs.getString("userType"),
+                        rs.getInt("teamID"));
+                arr.add(s);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arr;
+    }
     public void saveUser(user u) {
         try {
 
@@ -130,9 +147,38 @@ public class DBHandler {
             int rows = stmt.executeUpdate();
             if (rows > 0) {
                 System.out.println("A user was added...");
+                String query2;
+                ResultSet rs = executeGenericSelectQueryAndGetResultSet("SELECT userID AS LastID FROM users WHERE userID = @@Identity;");
+                rs.next();
+                switch (u.getType())
+                {
+                    case "supervisor" ->{
+                        query2="insert into supervisor (supervisorID) values ("+ rs.getInt(1) +")";
+                        System.out.println(query2);
+                        executeGenericInsertQuery(query2);
+                    }
+                    case "teamMember" ->
+                    {
+                        query2="insert into teamMember (memberID) values ("+ "'" + rs.getInt(1) + "'" + ")";
+                        System.out.println(query2);
+                        executeGenericInsertQuery(query2);
+                    }
+                    case "headOfDepartment" ->
+                    {
+                        query2="insert into headOfDepartment (hodID) values ("+ "'" + rs.getInt(1) + "'" + ")";
+                        System.out.println(query2);
+                        executeGenericInsertQuery(query2);
+                    }
+                    case "FYPLabInstructor"->{
+                        query2="insert into labInstructor (instructorID) values ("+ "'" + rs.getInt(1) + "'" + ")";
+                        System.out.println(query2);
+                        executeGenericInsertQuery(query2);
+                    }
+                    default -> {
+                    }
+                }
             } else
                 System.out.println("User register failed...");
-
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -155,16 +201,17 @@ public class DBHandler {
         }
     }
 
-    public void executeGenericInsertQuery(String query){
+    public String executeGenericInsertQuery(String query){
         Statement st = null;
         try {
             st = con.createStatement();
             st.executeUpdate(query);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+//            throw new RuntimeException(e);
+            return "Operation Failed";
         }
-
         System.out.println("Data added to DB");
+        return "Operation Success";
     }
 
     public void executeGenericUpdateDeleteQuery(String query) throws SQLException{
@@ -184,19 +231,23 @@ public class DBHandler {
             ResultSet rs = st.executeQuery(q);
             return rs;
         } catch (SQLException sqe) {
-            System.out.println("Query Execution Error");
+            System.out.println("Query Execution Error\n "+sqe);
         }
         return null;
     }
-
+    public String addToTeam(Integer memberID,Integer teamID){
+        String query="update teamMember set teamID= "+ "'" +teamID + "'" + " Where memberID = " + "'" + memberID + "'" + ")";
+        System.out.println(query);
+        return executeGenericInsertQuery(query);
+    }
     public void saveNewProjectInDB(String fypName,String fypStatus){
         String query="insert into finalYearProject (fypName,fypStatus) values ("+ "'" +fypName + "'" + "," + "'" + fypStatus + "'" + ")";
-        System.out.println(query);
+//        System.out.println(query);
         executeGenericInsertQuery(query);
     }
     public void saveNewTeamInDB(String teamName,String teamDetails,Integer fypId){
         String query="insert into team (teamName,teamDetail,fypID) values ("+ "'" +teamName + "'" + "," + "'" + teamDetails + "'" + ","+fypId+")";
-        System.out.println(query);
+//        System.out.println(query);
         executeGenericInsertQuery(query);
     }
     public void updateProjectDetails(String fypName,String fypStatus,String fypID) throws SQLException{

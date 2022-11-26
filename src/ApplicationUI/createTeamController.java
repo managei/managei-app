@@ -43,7 +43,10 @@ public class createTeamController {
 
     @FXML
     void goBack(ActionEvent event) throws IOException {
-        Main.changeScene("adminDashBoard.fxml");
+        if(Main.getLoggedUser().getType().equals("admin"))
+            Main.changeScene("adminDashBoard.fxml");
+        else if(Main.getLoggedUser().getType().equals("supervisor"))
+            Main.changeScene("supervisorDashboard.fxml");
     }
 
     @FXML

@@ -35,8 +35,12 @@ public class adminDashboard {
         Main.changeScene("createTeamPage.fxml");
     }
     @FXML
-    void addMember(ActionEvent event) throws IOException {
-        Main.changeScene("addMemberPage.fxml");
+    void manageMembers(ActionEvent event) throws IOException {
+        Main.changeScene("manageMembersPage.fxml");
+    }
+    @FXML
+    void updateTeam(ActionEvent event) throws IOException {
+        Main.changeScene("updateTeamPage.fxml");
     }
     @FXML
     void registerUser(ActionEvent event) throws IOException {

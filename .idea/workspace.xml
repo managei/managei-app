@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="createTeam + viewTeams + viewUsers">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/main_javaFx.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/main_javaFx.xml" afterDir="false" />
+    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="merge fixed 2">
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/manageMembersPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/updateTeamController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/National_University_of_Computer_and_Emerging_Sciences_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/National_University_of_Computer_and_Emerging_Sciences_logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/deleteProject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/deleteProject.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/deleteProject.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/deleteProject.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/shortReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/shortReport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/addMemberPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/updateTeamPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/adminDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/adminDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/adminDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/adminDashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/createProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/createProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/createTeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/createTeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/manageMembersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/manageMembersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/supervisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/supervisor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/teamMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/teamMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DBHandler/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBHandler/DBHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +157,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669411379188</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="merge fixed + moved images">
+      <created>1669412407164</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669412407164</updated>
+    </task>
+    <task id="LOCAL-00010" summary="merge fixed 2">
+      <created>1669412476641</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669412476641</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,13 +185,43 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/DBHandling" />
+                        <option value="origin/devBranch-Faraz" />
                       </list>
                     </value>
                   </entry>
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/devBranch-Faraz" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/devBranch-Fasih" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="devBranch-Faraz" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -184,6 +235,9 @@
     <MESSAGE value="Added View FYP for supervisor limited to current supervisor." />
     <MESSAGE value="moved images" />
     <MESSAGE value="createTeam + viewTeams + viewUsers" />
-    <option name="LAST_COMMIT_MESSAGE" value="createTeam + viewTeams + viewUsers" />
+    <MESSAGE value="error fixed" />
+    <MESSAGE value="merge fixed + moved images" />
+    <MESSAGE value="merge fixed 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge fixed 2" />
   </component>
 </project>

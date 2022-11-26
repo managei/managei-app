@@ -76,16 +76,15 @@ public class Main extends Application {
     }
     public static void initializeLists()
     {
-        DBHandler db = new DBHandler();
+        db = new DBHandler();
         dashboard.setFypList(db.readFYP());
         dashboard.setTaskList(db.readTasks());
         dashboard.setUserList(db.readUsers());
         dashboard.setTeamList(db.readTeams());
         dashboard.setSupervisorList(db.readSupervisors());
+        dashboard.setTeamMembersList(db.readTeamMembers());
     }
     public static void main(String[] args) {
-
         launch(args);
-
     }
 }
