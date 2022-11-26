@@ -85,6 +85,8 @@ public class Main extends Application {
         dashboard.setTeamMembersList(db.readTeamMembers());
     }
     public static void main(String[] args) {
+
         launch(args);
+
     }
 }

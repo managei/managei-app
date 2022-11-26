@@ -3,6 +3,8 @@ package ApplicationUI;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import BussinessLogic.dashboard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -60,6 +62,7 @@ public class teamDashboardController {
         }catch(IOException ie){
             ie.printStackTrace();
         }
+        Main.initializeLists();
     }
 
     @FXML
@@ -70,8 +73,7 @@ public class teamDashboardController {
         }catch(IOException ie){
             ie.printStackTrace();
         }
-
-
+        Main.initializeLists();
     }
 
     @FXML
@@ -93,6 +95,18 @@ public class teamDashboardController {
         }
     }
 
+    public void getTeamMemberTasks(){
+        dashboard d = new dashboard();
+        Integer completedTasks= d.getTeamMemberTasksWithStatus("complete");
+        Integer assignedTasks=d.getTeamMemberTasksWithStatus("assigned");
+        assignedTasks+=d.getTeamMemberTasksWithStatus("suggested");
+
+        System.out.println("Assigned: " + assignedTasks.toString());
+        completedTaskCountLabel.setText(completedTasks.toString());
+        assignedTaskCountLabel.setText(assignedTasks.toString());
+        userNameLabel.setText(Main.getLoggedInUser().getFirstName() + " " + Main.getLoggedInUser().getLastName());
+    }
+
     @FXML
     void initialize() {
         assert CompletedTaskLabel != null : "fx:id=\"CompletedTaskLabel\" was not injected: check your FXML file 'teamDashboard.fxml'.";
@@ -107,6 +121,7 @@ public class teamDashboardController {
         assert userNameLabel != null : "fx:id=\"userNameLabel\" was not injected: check your FXML file 'teamDashboard.fxml'.";
         assert viewOwnTasksButton != null : "fx:id=\"viewOwnTasksButton\" was not injected: check your FXML file 'teamDashboard.fxml'.";
 
+        getTeamMemberTasks();
     }
 
 }
