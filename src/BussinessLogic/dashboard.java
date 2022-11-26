@@ -160,6 +160,9 @@ public class dashboard {
         return teamMember.viewOwnTasks();
     }
 
+    public Integer getTeamMemberTasksWithStatus(String status){
+        return teamMember.getTasksWithStatus(status);
+    }
     public boolean completeTask(String taskID){
         return teamMember.completeTask(taskID);
     }
