@@ -1,6 +1,6 @@
 package BussinessLogic;
 
-import DBHandler.DBHandler;
+import DBHandler.PersistantHandlerClass;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -72,7 +72,7 @@ public class finalYearProject {
     }
 
     public void deleteProject(String fypID) throws SQLException {
-        DBHandler dbh = new DBHandler();
+        PersistantHandlerClass dbh = new PersistantHandlerClass();
         dbh.deleteProject(fypID);
     }
 

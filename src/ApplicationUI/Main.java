@@ -2,7 +2,7 @@ package ApplicationUI;
 
 import BussinessLogic.*;
 import DBHandler.DBHandler;
-import Utils.Printing;
+import DBHandler.PersistantHandlerClass;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,14 +11,13 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Main extends Application {
-    private static DBHandler db;
+    private static PersistantHandlerClass db;
     private static dashboard d=new dashboard();
     private static Stage stg;
     private static user loggedInUser=null;
-    public static DBHandler getDBHandler ()
+    public static PersistantHandlerClass getDBHandler ()
     {
         return db;
     }
@@ -43,11 +42,17 @@ public class Main extends Application {
             primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../images/Managei.png")));
             primaryStage.show();
             root.requestFocus();
+            PersistantHandlerClass.setPh(new DBHandler());
             initializeLists();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    public static void setPersistantHandler(){
+        PersistantHandlerClass.setPh(new DBHandler());
+    }
+
     public static void changeScene(String fxml) throws IOException {
         Parent pane = FXMLLoader.load(Main.class.getResource(fxml));
         Scene scene = new Scene(pane);
@@ -76,7 +81,7 @@ public class Main extends Application {
     }
     public static void initializeLists()
     {
-        db = new DBHandler();
+        db = new PersistantHandlerClass();
         dashboard.setFypList(db.readFYP());
         dashboard.setTaskList(db.readTasks());
         dashboard.setUserList(db.readUsers());

@@ -11,13 +11,13 @@ import javafx.collections.ObservableList;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class DBHandler {
+public class DBHandler extends PersistantHandlerClass {
 
     Connection con; // connection object
 
     public DBHandler() {
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ManageiTaskManagementSystem", "root", "Razi.432");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ManageiTaskManagementSystem", "root", "root");
             Printing.PrintStr("Connection Done");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -290,7 +290,7 @@ public class DBHandler {
     }
     public void saveTask(String taskName,String taskDetail,String fypID,String memberID,String taskStatus){
         String query="insert into task (fypID,memberID,taskName,taskDetail,taskStatus) values ("
-                 + fypID + ", " + memberID + ", " + "'" + taskName + "', " + "'" + taskDetail + "', '" + taskStatus + "');";
+                + fypID + ", " + memberID + ", " + "'" + taskName + "', " + "'" + taskDetail + "', '" + taskStatus + "');";
         System.out.println(query);
         executeGenericInsertQuery(query);
     }

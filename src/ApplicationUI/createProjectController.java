@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import BussinessLogic.dashboard;
-import DBHandler.DBHandler;
+import DBHandler.PersistantHandlerClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,7 +15,7 @@ import javafx.scene.text.Text;
 
 public class createProjectController {
 
-    DBHandler dbh=null;
+    PersistantHandlerClass dbh=null;
 
     @FXML
     private ResourceBundle resources;
@@ -87,7 +87,7 @@ public class createProjectController {
         assert taskNameLabel != null : "fx:id=\"taskNameLabel\" was not injected: check your FXML file 'createProject.fxml'.";
         assert taskNameLabel1 != null : "fx:id=\"taskNameLabel1\" was not injected: check your FXML file 'createProject.fxml'.";
 
-        dbh= new DBHandler();
+        dbh= new PersistantHandlerClass();
         createErrorMsg.setText("");
     }
 

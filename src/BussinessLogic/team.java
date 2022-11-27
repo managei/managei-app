@@ -2,7 +2,7 @@ package BussinessLogic;
 
 import ApplicationUI.Main;
 import ApplicationUI.projectLongReportController;
-import DBHandler.DBHandler;
+import DBHandler.PersistantHandlerClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
@@ -59,7 +59,7 @@ public class team {
     }
 
     public static ObservableList<teamTaskViewCapsule> getTeamTaskAndProgress(){
-        DBHandler dbh = new DBHandler();
+        PersistantHandlerClass dbh = new PersistantHandlerClass();
         Main.initializeLists();
         teamMember currentMember =null;
 
@@ -77,7 +77,7 @@ public class team {
 
     public static ObservableList<task> selectViewAllTask(){
         ObservableList<task> arr = FXCollections.observableArrayList();
-        DBHandler dbh = new DBHandler();
+        PersistantHandlerClass dbh = new PersistantHandlerClass();
         Main.initializeLists();
         for(int i=0; i<dashboard.getTaskList().size(); i++){
             arr.add(dashboard.getTaskList().get(i));
