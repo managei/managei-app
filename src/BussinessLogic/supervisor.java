@@ -18,11 +18,10 @@ public class supervisor extends user {
     public supervisor(Integer userId, String userName, String firstName, String lastName, String password, String userType) {
         super(userId, userName, firstName, lastName, password, userType);
     }
-
-    public supervisor(){
-        super(-1,"","","","","supervisor");
+    public supervisor(Integer userId, String userName, String firstName, String lastName, String password, String userType,Integer assignedTeamId) {
+        super(userId, userName, firstName, lastName, password, userType);
+        this.assignedTeamId=assignedTeamId;
     }
-
     public static ArrayList<String> generateShortProjectProgressReport(String teamID){
         DBHandler dbh = new DBHandler();
         ArrayList<String> arr = dbh.generateShortReportData(teamID);

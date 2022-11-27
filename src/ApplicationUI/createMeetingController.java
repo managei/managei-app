@@ -69,7 +69,10 @@ public class createMeetingController {
         else if(Main.getLoggedUser().getType().equals("supervisor"))
             Main.changeScene("supervisorDashboard.fxml");
     }
-
+    @FXML
+    void gotoViewMeetings(ActionEvent event) throws IOException {
+            Main.changeScene("viewMeetings.fxml");
+    }
     @FXML
     void initialize() {
         for (user u:

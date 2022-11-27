@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class suggestTaskController {
 
@@ -53,7 +54,7 @@ public class suggestTaskController {
     }
 
     @FXML
-    void suggestTask(ActionEvent event) {
+    void suggestTask(ActionEvent event) throws SQLException {
 
         if(taskNameField.getText().equals("") || taskDetailsField.getText().equals("")){
             errorTextField.setText("Fill all fields first");

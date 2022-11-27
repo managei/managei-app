@@ -91,7 +91,7 @@ public class progressReportController {
         }
         Main.initializeLists();
 
-        if(dashboard.getFypList()==null || fypReportteamID>dashboard.getFypList().size()){
+        if(dashboard.getFypList()==null){
             errorTextField.setText("No such team");
             return;
         }
@@ -121,7 +121,7 @@ public class progressReportController {
     }
     @FXML
     void goToTeamDashboard(ActionEvent event) {
-        Main.logOutUser();
+//        Main.logOutUser();
         try {
             Main.changeScene("supervisorDashboard.fxml");
         } catch (IOException e) {

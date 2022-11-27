@@ -73,10 +73,14 @@ public class viewMeetingsController {
             }
         }
     }
-
+    @FXML
+    void gotoCreateMeeting(ActionEvent event) throws IOException {
+        Main.changeScene("createMeeting.fxml");
+    }
     @FXML
     void initialize() {
         ObservableList<meetingSchedule> arr = Main.getDashBoard().getMeetings(Main.getDBHandler());
+
         meetingIDColumn.setCellValueFactory(new PropertyValueFactory<meetingSchedule,Integer>("id"));
         instructorIDColumn.setCellValueFactory(new PropertyValueFactory<meetingSchedule,Integer>("instructorId"));
         supervisorIDColumn.setCellValueFactory(new PropertyValueFactory<meetingSchedule,Integer>("supervisorId"));

@@ -31,7 +31,7 @@ public class teamMember extends user{
         super(userId, userName, firstName, lastName, password, userType);
         this.teamId=teamId;
     }
-    public static void suggestNewTask(String taskName,String taskDetail,String fypID,String userID){
+    public static void suggestNewTask(String taskName,String taskDetail,String fypID,String userID) throws SQLException {
         DBHandler dbh = new DBHandler();
         dbh.saveTask(taskName,taskDetail,fypID,userID,"suggested");
     }

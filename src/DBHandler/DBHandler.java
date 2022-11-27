@@ -119,7 +119,7 @@ public class DBHandler {
                 supervisor s = new supervisor(
                         rs.getInt("supervisorID"),rs.getString("userName"),
                         rs.getString("firstName"), rs.getString("lastName"),
-                        rs.getString("password"),rs.getString("userType"));
+                        rs.getString("password"),rs.getString("userType"),rs.getInt("assignedTeamId"));
                 arr.add(s);
             }
         }catch (SQLException e){
@@ -294,7 +294,11 @@ public class DBHandler {
         System.out.println(query);
         executeGenericInsertQuery(query);
     }
-
+    public void updateTask(Integer taskId, String taskName,String taskDetail,String fypID,String memberID,String taskStatus) throws SQLException {
+        String query="update task set fypID="+fypID+",memberID="+memberID+",taskName='"+taskName+"',taskDetail='"+taskDetail+"',taskStatus='"+taskStatus+"' where taskID="+taskId+";";
+        System.out.println(query);
+        executeGenericUpdateDeleteQuery(query);
+    }
     public void updateProjectDetails(String fypName,String fypStatus,String fypID) throws SQLException{
         String query= "UPDATE manageitaskmanagementsystem.finalyearproject" +
                 " SET manageitaskmanagementsystem.finalyearproject.fypName='" + fypName +"', manageitaskmanagementsystem.finalyearproject.fypStatus='" +

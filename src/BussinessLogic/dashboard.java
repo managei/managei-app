@@ -110,6 +110,40 @@ public class dashboard {
         dbh.saveNewTeamInDB(name,details,fypID,supID);
         Main.initializeLists();
     }
+    public void createTask(DBHandler dbh,String name, String details,Integer memberID) throws SQLException {
+        Integer fypId=0;
+        Integer teamId=0;
+        for (teamMember tm: getTeamMembersList()) {
+            if(tm.getMemberId().equals(memberID))
+            {
+                teamId=tm.getTeamId();
+            }
+        }
+        for (team t:teamList) {
+            if(t.getId().equals(teamId)){
+                fypId=t.getFypId();
+            }
+        }
+        dbh.saveTask(name,details,fypId.toString(),memberID.toString(),"assigned");
+        Main.initializeLists();
+    }
+    public void updateTask(DBHandler dbh,Integer taskId,String name, String details,Integer memberID) throws SQLException {
+        Integer fypId=0;
+        Integer teamId=0;
+        for (teamMember tm: getTeamMembersList()) {
+            if(tm.getMemberId().equals(memberID))
+            {
+                teamId=tm.getTeamId();
+            }
+        }
+        for (team t:teamList) {
+            if(t.getId().equals(teamId)){
+                fypId=t.getFypId();
+            }
+        }
+        dbh.updateTask(taskId,name,details,fypId.toString(),memberID.toString(),"approved");
+        Main.initializeLists();
+    }
     public void updateTeam(DBHandler dbh,Integer teamID,String name, String details,Integer fypID) throws SQLException {
         dbh.updateTeamInDB(teamID,name,details,fypID);
         Main.initializeLists();
@@ -174,7 +208,25 @@ public class dashboard {
         arr=team.returnTeamList();
         return arr;
     }
-    public void selectSuggestNewTask(String taskName,String taskDetail){
+    public ArrayList<teamMember> getSupervisorsTeamMembers(DBHandler dbh,Integer supId){
+        ArrayList <Integer> teamsList= new ArrayList<Integer>();
+        for (supervisor t: dbh.readSupervisors()) {
+            if(t.getId()==supId)
+            {
+                teamsList.add(t.getAssignedTeamId());
+            }
+        }
+        Printing.PrintStr(teamsList.toString());
+        ArrayList <teamMember> TMlist= new ArrayList<teamMember>();
+        for (teamMember t: getTeamMembersList()) {
+            if(teamsList.contains(t.getTeamId()))
+            {
+                TMlist.add(t);
+            }
+        }
+        return TMlist;
+    }
+    public void selectSuggestNewTask(String taskName,String taskDetail) throws SQLException {
         user currentUser = Main.getLoggedInUser();
 
         teamMember currentTeamMember = null;

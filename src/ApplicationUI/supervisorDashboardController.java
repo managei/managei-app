@@ -57,7 +57,7 @@ public class supervisorDashboardController {
 
     @FXML
     void createTask(ActionEvent event) throws IOException {
-//        Main.changeScene("suggestTask.fxml");
+        Main.changeScene("createTask.fxml");
     }
 
     @FXML
@@ -121,6 +121,14 @@ public class supervisorDashboardController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    @FXML
+    void updateTask(ActionEvent event) throws IOException {
+        Main.changeScene("updateTask.fxml");
+    }
+    @FXML
+    void approveTask(ActionEvent event) throws IOException {
+        Main.changeScene("approveTask.fxml");
     }
 
     @FXML
