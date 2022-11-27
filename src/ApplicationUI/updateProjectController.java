@@ -87,7 +87,7 @@ public class updateProjectController {
     @FXML
     void modifyTeam(ActionEvent event) {
         try {
-            Main.changeScene("modifyTeam.fxml");
+            Main.changeScene("manageMembersPage.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
