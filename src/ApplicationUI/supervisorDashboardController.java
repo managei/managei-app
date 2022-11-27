@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import DBHandler.DBHandler;
+import DBHandler.PersistantHandlerClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 
 public class supervisorDashboardController {
 
-    DBHandler dbh=null;
+    PersistantHandlerClass dbh=null;
 
     @FXML
     private ResourceBundle resources;

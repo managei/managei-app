@@ -2,7 +2,6 @@ package ApplicationUI;
 
 import BussinessLogic.dashboard;
 import BussinessLogic.user;
-import DBHandler.DBHandler;
 import Utils.Printing;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

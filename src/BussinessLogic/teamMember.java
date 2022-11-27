@@ -1,13 +1,11 @@
 package BussinessLogic;
 
 import ApplicationUI.Main;
-import DBHandler.DBHandler;
-import Utils.Printing;
+import DBHandler.PersistantHandlerClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class teamMember extends user{
     private Integer teamId;
@@ -32,7 +30,7 @@ public class teamMember extends user{
         this.teamId=teamId;
     }
     public static void suggestNewTask(String taskName,String taskDetail,String fypID,String userID) throws SQLException {
-        DBHandler dbh = new DBHandler();
+        PersistantHandlerClass dbh = new PersistantHandlerClass();
         dbh.saveTask(taskName,taskDetail,fypID,userID,"suggested");
     }
 
@@ -91,7 +89,7 @@ public class teamMember extends user{
     }
 
     public static boolean completeTask(String taskID){
-        DBHandler dbh = new DBHandler();
+        PersistantHandlerClass dbh = new PersistantHandlerClass();
         try {
             dbh.updateTaskStatus(taskID,"complete");
         } catch (SQLException e) {
@@ -101,7 +99,7 @@ public class teamMember extends user{
     }
 
     public static boolean assignTask(String taskID){
-        DBHandler dbh = new DBHandler();
+        PersistantHandlerClass dbh = new PersistantHandlerClass();
         try {
             dbh.updateTaskStatus(taskID,"approved");
         } catch (SQLException e) {

@@ -5,8 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import BussinessLogic.meetingSchedule;
-import BussinessLogic.team;
-import DBHandler.DBHandler;
+import DBHandler.PersistantHandlerClass;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class viewMeetingsController {
 
-    private DBHandler dbh;
+    private PersistantHandlerClass dbh;
 
     @FXML
     private ResourceBundle resources;
@@ -65,7 +64,14 @@ public class viewMeetingsController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }else {
+        }/*else if(Main.getLoggedInUser().getType().equals("labInstructor")) {
+            try {
+                Main.changeScene("fyplDashboard.fxml");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }*/
+        else {
             try {
                 Main.changeScene("supervisorDashboard.fxml");
             } catch (IOException e) {

@@ -6,10 +6,7 @@ import java.util.ResourceBundle;
 
 import BussinessLogic.dashboard;
 import BussinessLogic.finalYearProject;
-import BussinessLogic.supervisor;
-import DBHandler.DBHandler;
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
+import DBHandler.PersistantHandlerClass;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class viewProjectsController {
 
-    private DBHandler dbh;
+    private PersistantHandlerClass dbh;
 
     @FXML
     private ResourceBundle resources;
@@ -72,7 +69,7 @@ public class viewProjectsController {
         assert taskViewTable != null : "fx:id=\"taskViewTable\" was not injected: check your FXML file 'viewProjects.fxml'.";
         assert teamIDColumn != null : "fx:id=\"teamIDColumn\" was not injected: check your FXML file 'viewProjects.fxml'.";
 
-        dbh= new DBHandler();
+        dbh= new PersistantHandlerClass();
 
         dashboard d = new dashboard();
         ObservableList<finalYearProject> arr = d.displaySupervisorProjects(dbh);

@@ -7,8 +7,7 @@ import java.util.ResourceBundle;
 
 import BussinessLogic.dashboard;
 import BussinessLogic.finalYearProject;
-import DBHandler.DBHandler;
-import javafx.collections.FXCollections;
+import DBHandler.PersistantHandlerClass;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +17,7 @@ import javafx.scene.text.Text;
 
 public class updateProjectController {
 
-    private DBHandler dbh=null;
+    private PersistantHandlerClass dbh=null;
 
     @FXML
     private ResourceBundle resources;
@@ -142,7 +141,7 @@ public class updateProjectController {
         assert updateButton != null : "fx:id=\"updateButton\" was not injected: check your FXML file 'createProject.fxml'.";
 
 
-        dbh=new DBHandler();
+        dbh=new PersistantHandlerClass();
 
         fypIDCol.setCellValueFactory(new PropertyValueFactory<finalYearProject,Integer>("id"));
         fypNameCol.setCellValueFactory(new PropertyValueFactory<finalYearProject,String>("name"));

@@ -1,7 +1,7 @@
 package BussinessLogic;
 
 import ApplicationUI.Main;
-import DBHandler.DBHandler;
+import DBHandler.PersistantHandlerClass;
 import Utils.Printing;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -46,7 +46,7 @@ public class dashboard {
     }
     public user registerUser(Integer userId, String userName, String firstName, String lastName, String password, String userType)
     {
-        DBHandler db= new DBHandler();
+        PersistantHandlerClass db= new PersistantHandlerClass();
         user ad = switch (userType) {
             case "admin" -> new admin(userId, userName, firstName, lastName, password, userType);
             case "supervisor" -> new supervisor(userId, userName, firstName, lastName, password, userType);
@@ -102,15 +102,15 @@ public class dashboard {
 //        ObservableList<ObservableList<String>> arr = dbh.getDataforTableUsingQuery(query);
 //        return arr;
 //    }
-    public void createMeeting(DBHandler dbh,String name, String details,String location,String data,String time,Integer supID,Integer teamID,Integer instructorID) throws SQLException {
+    public void createMeeting(PersistantHandlerClass dbh, String name, String details, String location, String data, String time, Integer supID, Integer teamID, Integer instructorID) throws SQLException {
     dbh.saveNewMeetingInDB(name,details,location,data,time,supID,teamID,instructorID);
     Main.initializeLists();
 }
-    public void createTeam(DBHandler dbh,String name, String details,Integer fypID,Integer supID) throws SQLException {
+    public void createTeam(PersistantHandlerClass dbh, String name, String details, Integer fypID, Integer supID) throws SQLException {
         dbh.saveNewTeamInDB(name,details,fypID,supID);
         Main.initializeLists();
     }
-    public void createTask(DBHandler dbh,String name, String details,Integer memberID) throws SQLException {
+    public void createTask(PersistantHandlerClass dbh, String name, String details, Integer memberID) throws SQLException {
         Integer fypId=0;
         Integer teamId=0;
         for (teamMember tm: getTeamMembersList()) {
@@ -127,7 +127,7 @@ public class dashboard {
         dbh.saveTask(name,details,fypId.toString(),memberID.toString(),"assigned");
         Main.initializeLists();
     }
-    public void updateTask(DBHandler dbh,Integer taskId,String name, String details,Integer memberID) throws SQLException {
+    public void updateTask(PersistantHandlerClass dbh, Integer taskId, String name, String details, Integer memberID) throws SQLException {
         Integer fypId=0;
         Integer teamId=0;
         for (teamMember tm: getTeamMembersList()) {
@@ -144,15 +144,15 @@ public class dashboard {
         dbh.updateTask(taskId,name,details,fypId.toString(),memberID.toString(),"approved");
         Main.initializeLists();
     }
-    public void updateTeam(DBHandler dbh,Integer teamID,String name, String details,Integer fypID) throws SQLException {
+    public void updateTeam(PersistantHandlerClass dbh, Integer teamID, String name, String details, Integer fypID) throws SQLException {
         dbh.updateTeamInDB(teamID,name,details,fypID);
         Main.initializeLists();
     }
-    public void createProject(DBHandler dbh,String projectName, String projectStatus){
+    public void createProject(PersistantHandlerClass dbh, String projectName, String projectStatus){
         dbh.saveNewProjectInDB(projectName,projectStatus);
         Main.initializeLists();
     }
-    public void updateProjectDetail(DBHandler dbh,String fypName,String fypStatus,String fypID) throws SQLException {
+    public void updateProjectDetail(PersistantHandlerClass dbh, String fypName, String fypStatus, String fypID) throws SQLException {
         dbh.updateProjectDetails(fypName,fypStatus,fypID);
         Main.initializeLists();
     }
@@ -161,7 +161,7 @@ public class dashboard {
         finalYearProject fyp = new finalYearProject();
         fyp.deleteProject(fypID);
     }
-    public ObservableList<finalYearProject> displaySupervisorProjects(DBHandler dbh){
+    public ObservableList<finalYearProject> displaySupervisorProjects(PersistantHandlerClass dbh){
         ObservableList<finalYearProject> arr = dbh.getDataforSupervisorProjects();
         return arr;
     }
@@ -191,7 +191,7 @@ public class dashboard {
     public static ArrayList<finalYearProject> getFYP(){
         return fypList;
     }
-    public ObservableList<meetingSchedule> getMeetings(DBHandler dbh){
+    public ObservableList<meetingSchedule> getMeetings(PersistantHandlerClass dbh){
         ObservableList<meetingSchedule> data = FXCollections.observableArrayList();
         for (meetingSchedule t:dbh.readMeetings()) {
             data.add(t);
@@ -208,7 +208,7 @@ public class dashboard {
         arr=team.returnTeamList();
         return arr;
     }
-    public ArrayList<teamMember> getSupervisorsTeamMembers(DBHandler dbh,Integer supId){
+    public ArrayList<teamMember> getSupervisorsTeamMembers(PersistantHandlerClass dbh, Integer supId){
         ArrayList <Integer> teamsList= new ArrayList<Integer>();
         for (supervisor t: dbh.readSupervisors()) {
             if(t.getId()==supId)

@@ -1,6 +1,6 @@
 package BussinessLogic;
 
-import DBHandler.DBHandler;
+import DBHandler.PersistantHandlerClass;
 
 import java.util.ArrayList;
 
@@ -23,7 +23,7 @@ public class supervisor extends user {
         this.assignedTeamId=assignedTeamId;
     }
     public static ArrayList<String> generateShortProjectProgressReport(String teamID){
-        DBHandler dbh = new DBHandler();
+        PersistantHandlerClass dbh = new PersistantHandlerClass();
         ArrayList<String> arr = dbh.generateShortReportData(teamID);
         return arr;
     }
