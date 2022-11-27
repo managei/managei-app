@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.createTaskController">
+   <center>
+      <AnchorPane styleClass="background" stylesheets="@application.css" BorderPane.alignment="CENTER">
+         <children>
+            <Pane layoutX="70.0" layoutY="92.0" prefHeight="346.0" prefWidth="667.0" styleClass="card" stylesheets="@application.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="24.0" layoutY="31.0" prefHeight="35.0" prefWidth="179.0" text="Input in required fields to create a new Task." textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="taskName_textField" layoutX="39.0" layoutY="86.0" promptText="Task Name" />
+                  <MenuButton fx:id="selectTM_MenuButton" layoutX="40.0" layoutY="211.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Select Team Member" />
+                  <Label fx:id="label_info" alignment="CENTER" layoutX="24.0" layoutY="245.0" prefHeight="29.0" prefWidth="179.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="133.0" layoutY="288.0" mnemonicParsing="false" onAction="#createTask" stylesheets="@application.css" text="Create">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="primaryButton" />
+                     </styleClass>
+                  </Button>
+                  <Button layoutX="14.0" layoutY="288.0" mnemonicParsing="false" onAction="#goBack" stylesheets="@application.css" text="Go Back">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="secondaryButton" />
+                     </styleClass>
+                  </Button>
+                  <Label layoutX="40.0" layoutY="196.0" styleClass="font" stylesheets="@application.css" text="Assigned To" textFill="WHITE" />
+                  <TextArea fx:id="taskDetails_textArea" layoutX="39.0" layoutY="120.0" prefHeight="72.0" prefWidth="149.0" promptText="Task Details" />
+                  <TableView fx:id="ViewTable" layoutX="221.0" layoutY="38.0" prefHeight="297.0" prefWidth="439.0" styleClass="tableView" stylesheets="@application.css">
+                     <columns>
+                        <TableColumn fx:id="taskIdColumn" prefWidth="55.0" text="Task ID" />
+                        <TableColumn fx:id="fypIDColumn" prefWidth="42.0" text="FYP ID" />
+                        <TableColumn fx:id="nameColumn" prefWidth="71.0" text="Name" />
+                        <TableColumn fx:id="detailsColumn" prefWidth="127.0" text="Details" />
+                        <TableColumn fx:id="statusColumn" prefWidth="63.0" text="Status" />
+                        <TableColumn fx:id="assignedToColumn" text="Assigned To" />
+                     </columns>
+                  </TableView>
+                  <Label alignment="CENTER" layoutX="351.0" layoutY="5.0" prefHeight="35.0" prefWidth="179.0" text="All Tasks" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="806.0" styleClass="titleBannerBackground" stylesheets="@application.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="35.0" layoutY="25.0" styleClass="font" stylesheets="@application.css" text="Create Task" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="81.0" fitWidth="69.0" layoutX="723.0" layoutY="7.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/supervisorDashManageProj.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="740.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

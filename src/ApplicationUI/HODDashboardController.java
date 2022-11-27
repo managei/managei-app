@@ -3,17 +3,13 @@ package ApplicationUI;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import DBHandler.DBHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-public class supervisorDashboardController {
-
-    DBHandler dbh=null;
+public class HODDashboardController {
 
     @FXML
     private ResourceBundle resources;
@@ -22,22 +18,16 @@ public class supervisorDashboardController {
     private URL location;
 
     @FXML
-    private Button button_logOut;
+    private Button approveTaskButton;
 
     @FXML
     private Button createProjectButton;
 
     @FXML
-    private Button createTaskButton;
-
-    @FXML
     private Button deleteProjectButton;
 
     @FXML
-    private Button generateReportButton;
-
-    @FXML
-    private Button modifyTeamButton;
+    private ImageView logOutButton;
 
     @FXML
     private Button updateProjectButton;
@@ -46,18 +36,21 @@ public class supervisorDashboardController {
     private Button viewProjectButton;
 
     @FXML
-    void createProject(ActionEvent event) {
-//        Main m = new Main();
+    void approveTask(ActionEvent event) {
         try {
-            Main.changeScene("createProject.fxml");
+            Main.changeScene("approveTask.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     @FXML
-    void createTask(ActionEvent event) throws IOException {
-        Main.changeScene("createTask.fxml");
+    void createProject(ActionEvent event) {
+        try {
+            Main.changeScene("createProject.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -70,22 +63,6 @@ public class supervisorDashboardController {
     }
 
     @FXML
-    void generateProjectProgressReport(ActionEvent event) {
-//        Main m= new Main();
-        try {
-            Main.changeScene("progressReport.fxml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @FXML
-    private ImageView logOutButton;
-
-    @FXML
-    private Button meetingButton;
-
-    @FXML
     void logOut(MouseEvent event) {
         Main.logOutUser();
         try {
@@ -93,16 +70,6 @@ public class supervisorDashboardController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @FXML
-    void modifyTeam(ActionEvent event) throws IOException {
-        Main.changeScene("manageMembersPage.fxml");
-    }
-
-    @FXML
-    void scheduleFypMeeting(ActionEvent event) throws IOException {
-        Main.changeScene("createMeeting.fxml");
     }
 
     @FXML
@@ -122,17 +89,16 @@ public class supervisorDashboardController {
             throw new RuntimeException(e);
         }
     }
-    @FXML
-    void updateTask(ActionEvent event) throws IOException {
-        Main.changeScene("updateTask.fxml");
-    }
-    @FXML
-    void approveTask(ActionEvent event) throws IOException {
-        Main.changeScene("approveTask.fxml");
-    }
 
     @FXML
     void initialize() {
+        assert approveTaskButton != null : "fx:id=\"approveTaskButton\" was not injected: check your FXML file 'HODDashboard.fxml'.";
+        assert createProjectButton != null : "fx:id=\"createProjectButton\" was not injected: check your FXML file 'HODDashboard.fxml'.";
+        assert deleteProjectButton != null : "fx:id=\"deleteProjectButton\" was not injected: check your FXML file 'HODDashboard.fxml'.";
+        assert logOutButton != null : "fx:id=\"logOutButton\" was not injected: check your FXML file 'HODDashboard.fxml'.";
+        assert updateProjectButton != null : "fx:id=\"updateProjectButton\" was not injected: check your FXML file 'HODDashboard.fxml'.";
+        assert viewProjectButton != null : "fx:id=\"viewProjectButton\" was not injected: check your FXML file 'HODDashboard.fxml'.";
+
     }
 
 }

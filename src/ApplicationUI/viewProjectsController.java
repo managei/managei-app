@@ -48,11 +48,18 @@ public class viewProjectsController {
 
     @FXML
     void goToSupervisorDashboard(ActionEvent event) {
-//        Main.logOutUser();
-        try {
-            Main.changeScene("supervisorDashboard.fxml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+      if(Main.getLoggedInUser().getType().equals("headOfDepartment")){
+            try {
+                Main.changeScene("HODDashboard.fxml");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            try {
+                Main.changeScene("supervisorDashboard.fxml");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

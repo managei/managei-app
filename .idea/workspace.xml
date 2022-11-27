@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="partial commit for Manage Teams">
+    <list default="true" id="10ce178d-ac72-4c82-bb06-3ed36c3ce5e7" name="Changes" comment="Instructor + Admin completed">
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/createTask.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/createTaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/updateTask.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ApplicationUI/updateTaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/bouncy-project-management-workflow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/sammy-line-man-plans-tasks-in-a-kanban-board.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_19_2022_9_58_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_19_2022_9_58_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/approveTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/approveTaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/createMeeting.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/createMeeting.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/createMeetingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/createMeetingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/progressReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/progressReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/shortReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/shortReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/suggestTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/suggestTaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/supervisorDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/viewMeetings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/viewMeetings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationUI/viewMeetingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationUI/viewMeetingsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BussinessLogic/dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BussinessLogic/supervisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/supervisor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BussinessLogic/teamMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/teamMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BussinessLogic/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BussinessLogic/user.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DBHandler/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBHandler/DBHandler.java" afterDir="false" />
@@ -62,7 +80,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Projects/Managei/src/ApplicationUI&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Projects/Managei/src/images&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.26436782&quot;,
@@ -71,6 +89,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Projects\Managei\src\images" />
       <recent name="F:\Projects\Managei\src\ApplicationUI" />
       <recent name="D:\Java Dev\managei-app\.idea\runConfigurations" />
       <recent name="D:\Java Dev\managei-app\src" />
@@ -171,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669456146106</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Instructor + Admin completed">
+      <created>1669498741732</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669498741732</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,7 +211,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/devBranch-Faraz" />
+                        <option value="devBranch-Faraz" />
                       </list>
                     </value>
                   </entry>
@@ -203,6 +229,11 @@
             <list>
               <RecentGroup>
                 <option name="FILTER_VALUES">
+                  <option value="devBranch-Faraz" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
                   <option value="origin/devBranch-Faraz" />
                 </option>
               </RecentGroup>
@@ -214,11 +245,6 @@
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="origin/master" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="devBranch-Faraz" />
                 </option>
               </RecentGroup>
             </list>
@@ -239,6 +265,7 @@
     <MESSAGE value="merge fixed + moved images" />
     <MESSAGE value="merge fixed 2" />
     <MESSAGE value="partial commit for Manage Teams" />
-    <option name="LAST_COMMIT_MESSAGE" value="partial commit for Manage Teams" />
+    <MESSAGE value="Instructor + Admin completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Instructor + Admin completed" />
   </component>
 </project>

@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class suggestTaskController {
 
@@ -40,16 +41,20 @@ public class suggestTaskController {
 
     @FXML
     void gotoTeamDashboard(ActionEvent event) {
-        Main m = new Main();
         try {
-            m.changeScene("teamDashboard.fxml");
+            if(Main.getLoggedUser().getType().equals("admin"))
+                Main.changeScene("adminDashBoard.fxml");
+            else if(Main.getLoggedUser().getType().equals("teamMember"))
+                Main.changeScene("teamDashboard.fxml");
+            else if(Main.getLoggedUser().getType().equals("supervisor"))
+                Main.changeScene("supervisorDashboard.fxml");
         }catch(IOException ie){
             ie.printStackTrace();
         }
     }
 
     @FXML
-    void suggestTask(ActionEvent event) {
+    void suggestTask(ActionEvent event) throws SQLException {
 
         if(taskNameField.getText().equals("") || taskDetailsField.getText().equals("")){
             errorTextField.setText("Fill all fields first");

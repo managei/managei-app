@@ -5,6 +5,7 @@ import DBHandler.DBHandler;
 import Utils.Printing;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.XYChart;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,7 +17,6 @@ public class dashboard {
     static private ArrayList<task> taskList=null;
     static private ArrayList<supervisor> supervisorList=null;
     static private ArrayList<teamMember> teamMembersList=null;
-
 
     public static ArrayList<teamMember> getTeamMembersList() {
         return teamMembersList;
@@ -55,13 +55,16 @@ public class dashboard {
             case "fypLabInstructor" -> new fypLabInstructor(userId, userName, firstName, lastName, password, userType);
             default -> null;
         };
-        userList.add(ad);
         db.saveUser(ad);
         return ad;
     }
     public String addTeamMember(Integer memberID,Integer teamID)
     {
         return Main.getDBHandler().addToTeam(memberID, teamID);
+    }
+    public String removeTeamMember(Integer memberID,Integer teamID)
+    {
+        return Main.getDBHandler().removeFromTeam(memberID, teamID);
     }
     public static ArrayList<user> getUserList() {
         return userList;
@@ -99,9 +102,50 @@ public class dashboard {
 //        ObservableList<ObservableList<String>> arr = dbh.getDataforTableUsingQuery(query);
 //        return arr;
 //    }
-
-    public void createTeam(DBHandler dbh,String name, String details,Integer fypID){
-        dbh.saveNewTeamInDB(name,details,fypID);
+    public void createMeeting(DBHandler dbh,String name, String details,String location,String data,String time,Integer supID,Integer teamID,Integer instructorID) throws SQLException {
+    dbh.saveNewMeetingInDB(name,details,location,data,time,supID,teamID,instructorID);
+    Main.initializeLists();
+}
+    public void createTeam(DBHandler dbh,String name, String details,Integer fypID,Integer supID) throws SQLException {
+        dbh.saveNewTeamInDB(name,details,fypID,supID);
+        Main.initializeLists();
+    }
+    public void createTask(DBHandler dbh,String name, String details,Integer memberID) throws SQLException {
+        Integer fypId=0;
+        Integer teamId=0;
+        for (teamMember tm: getTeamMembersList()) {
+            if(tm.getMemberId().equals(memberID))
+            {
+                teamId=tm.getTeamId();
+            }
+        }
+        for (team t:teamList) {
+            if(t.getId().equals(teamId)){
+                fypId=t.getFypId();
+            }
+        }
+        dbh.saveTask(name,details,fypId.toString(),memberID.toString(),"assigned");
+        Main.initializeLists();
+    }
+    public void updateTask(DBHandler dbh,Integer taskId,String name, String details,Integer memberID) throws SQLException {
+        Integer fypId=0;
+        Integer teamId=0;
+        for (teamMember tm: getTeamMembersList()) {
+            if(tm.getMemberId().equals(memberID))
+            {
+                teamId=tm.getTeamId();
+            }
+        }
+        for (team t:teamList) {
+            if(t.getId().equals(teamId)){
+                fypId=t.getFypId();
+            }
+        }
+        dbh.updateTask(taskId,name,details,fypId.toString(),memberID.toString(),"approved");
+        Main.initializeLists();
+    }
+    public void updateTeam(DBHandler dbh,Integer teamID,String name, String details,Integer fypID) throws SQLException {
+        dbh.updateTeamInDB(teamID,name,details,fypID);
         Main.initializeLists();
     }
     public void createProject(DBHandler dbh,String projectName, String projectStatus){
@@ -147,7 +191,13 @@ public class dashboard {
     public static ArrayList<finalYearProject> getFYP(){
         return fypList;
     }
-
+    public ObservableList<meetingSchedule> getMeetings(DBHandler dbh){
+        ObservableList<meetingSchedule> data = FXCollections.observableArrayList();
+        for (meetingSchedule t:dbh.readMeetings()) {
+            data.add(t);
+        }
+        return data;
+    }
 
     public ArrayList<String> generateShortProjectProgressReport(String teamID){
         return supervisor.generateShortProjectProgressReport(teamID);
@@ -158,7 +208,25 @@ public class dashboard {
         arr=team.returnTeamList();
         return arr;
     }
-    public void selectSuggestNewTask(String taskName,String taskDetail){
+    public ArrayList<teamMember> getSupervisorsTeamMembers(DBHandler dbh,Integer supId){
+        ArrayList <Integer> teamsList= new ArrayList<Integer>();
+        for (supervisor t: dbh.readSupervisors()) {
+            if(t.getId()==supId)
+            {
+                teamsList.add(t.getAssignedTeamId());
+            }
+        }
+        Printing.PrintStr(teamsList.toString());
+        ArrayList <teamMember> TMlist= new ArrayList<teamMember>();
+        for (teamMember t: getTeamMembersList()) {
+            if(teamsList.contains(t.getTeamId()))
+            {
+                TMlist.add(t);
+            }
+        }
+        return TMlist;
+    }
+    public void selectSuggestNewTask(String taskName,String taskDetail) throws SQLException {
         user currentUser = Main.getLoggedInUser();
 
         teamMember currentTeamMember = null;
@@ -190,10 +258,27 @@ public class dashboard {
         return teamMember.viewOwnTasks();
     }
 
+    public ObservableList<task> selectViewAllTasks(){
+        return team.selectViewAllTask();
+    }
+
     public Integer getTeamMemberTasksWithStatus(String status){
         return teamMember.getTasksWithStatus(status);
     }
     public boolean completeTask(String taskID){
         return teamMember.completeTask(taskID);
     }
+
+    public ObservableList<teamTaskViewCapsule> openTaskView(){
+        return teamMember.openTaskView();
+    }
+
+    public boolean assignTask(String taskID){
+        return teamMember.assignTask(taskID);
+    }
+
+    public static XYChart.Series<String,Integer>  getTeamGraphData(){
+        return team.getTeamGraphData();
+    }
+
 }

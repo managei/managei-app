@@ -100,4 +100,6 @@ public abstract class user {
     public void setUserType(String userType) {
         this.type = userType;
     }
+
+
 }

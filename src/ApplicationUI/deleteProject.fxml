@@ -57,7 +57,6 @@
                                                                 <String fx:value="primaryButton" />
                                                             </styleClass>
                                                         </Button>
-                                                        <Text fx:id="createErrorMsg" fill="RED" layoutX="219.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="28.0" />
                                                         <Label fx:id="taskNameLabel2" layoutX="39.0" layoutY="252.0" styleClass="font" stylesheets="@application.css" text="Enter FYP ID:" textFill="WHITE">
                                                             <font>
                                                                 <Font size="24.0" />
@@ -71,6 +70,7 @@
                                           </ImageView>
                                                     </children>
                                                 </Pane>
+                                                  <Text fx:id="createErrorMsg" fill="RED" layoutX="244.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="318.40008544921875" />
                                             </children>
                                         </AnchorPane>
                                     </children>

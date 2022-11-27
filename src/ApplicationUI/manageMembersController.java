@@ -70,10 +70,11 @@ public class manageMembersController {
             Integer teamId=Integer.parseInt(teamID_textField.getText());
             if(Main.getDashBoard().addTeamMember(memberId,teamId).equals("Operation Success"))
             {
-                label_info.setText("User Added Successfully");
+                label_info.setText("Add to Team Successfully");
                 label_info.setTextFill(Color.color(0, 1, 0));
                 memberID_textField.setText("");
                 teamID_textField.setText("");
+                initialize();
             }
             else
             {
@@ -85,12 +86,37 @@ public class manageMembersController {
 
     @FXML
     void deleteMember(ActionEvent event) {
-
+        if(teamID_textField.getText().isEmpty()||memberID_textField.getText().isEmpty())
+        {
+            label_info.setText("Please fill all fields");
+            label_info.setTextFill(Color.color(1, 0, 0));
+        }else {
+            Integer memberId=Integer.parseInt(memberID_textField.getText());
+            Integer teamId=Integer.parseInt(teamID_textField.getText());
+            if(Main.getDashBoard().removeTeamMember(memberId,teamId).equals("Operation Success"))
+            {
+                label_info.setText("Removed from Team Successfully");
+                label_info.setTextFill(Color.color(0, 1, 0));
+                memberID_textField.setText("");
+                teamID_textField.setText("");
+                initialize();
+            }
+            else
+            {
+                label_info.setText("Remove from Team Failed.");
+                label_info.setTextFill(Color.color(1, 0, 0));
+            }
+        }
     }
 
     @FXML
     void goBack(ActionEvent event) throws IOException {
-        Main.changeScene("adminDashboard.fxml");
+        if(Main.getLoggedUser().getType().equals("admin"))
+            Main.changeScene("adminDashBoard.fxml");
+        else if(Main.getLoggedUser().getType().equals("headOfDepartment"))
+            Main.changeScene("HODDashboard.fxml");
+        else if(Main.getLoggedUser().getType().equals("supervisor"))
+            Main.changeScene("supervisorDashboard.fxml");
     }
 
     @FXML
@@ -105,7 +131,6 @@ public class manageMembersController {
         memberNameIDCol.setCellValueFactory(new PropertyValueFactory<teamMember,String>("userName"));
         teamIDCol.setCellValueFactory(new PropertyValueFactory<teamMember,Integer>("teamId"));
         allMembersTableView.setItems(arr);
-
     }
 
 }

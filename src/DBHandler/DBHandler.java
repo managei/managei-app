@@ -17,7 +17,7 @@ public class DBHandler {
 
     public DBHandler() {
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ManageiTaskManagementSystem", "root", "root");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ManageiTaskManagementSystem", "root", "Razi.432");
             Printing.PrintStr("Connection Done");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -119,7 +119,7 @@ public class DBHandler {
                 supervisor s = new supervisor(
                         rs.getInt("supervisorID"),rs.getString("userName"),
                         rs.getString("firstName"), rs.getString("lastName"),
-                        rs.getString("password"),rs.getString("userType"));
+                        rs.getString("password"),rs.getString("userType"),rs.getInt("assignedTeamId"));
                 arr.add(s);
             }
         }catch (SQLException e){
@@ -145,9 +145,21 @@ public class DBHandler {
         }
         return arr;
     }
+    public ArrayList<meetingSchedule> readMeetings(){
+        ArrayList<meetingSchedule> arr = new ArrayList<meetingSchedule>();
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet("select * from meetingSchedule;");
+        try {
+            while (rs.next()) {
+                meetingSchedule s = new meetingSchedule(rs.getInt("meetingID"),rs.getInt("instructorID"),rs.getInt("supervisorID"),rs.getInt("teamID"),rs.getString("meetingTime"),rs.getString("meetingDate"),rs.getString("location"),rs.getString("meetingName"),rs.getString("details"));
+                arr.add(s);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arr;
+    }
     public void saveUser(user u) {
         try {
-
             String query = "INSERT INTO users (userName,password,firstName,lastName,userType) VALUES (?,?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, u.getUserName());
@@ -181,7 +193,7 @@ public class DBHandler {
                         System.out.println(query2);
                         executeGenericInsertQuery(query2);
                     }
-                    case "FYPLabInstructor"->{
+                    case "fypLabInstructor"->{
                         query2="insert into labInstructor (instructorID) values ("+ "'" + rs.getInt(1) + "'" + ")";
                         System.out.println(query2);
                         executeGenericInsertQuery(query2);
@@ -228,13 +240,8 @@ public class DBHandler {
 
     public void executeGenericUpdateDeleteQuery(String query) throws SQLException{
         Statement st = null;
-//        try {
-            st = con.createStatement();
-            st.executeUpdate(query);
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-
+        st = con.createStatement();
+        st.executeUpdate(query);
         System.out.println("Data updated/Deleted in DB");
     }
     public ResultSet executeGenericSelectQueryAndGetResultSet(String q) {
@@ -252,24 +259,46 @@ public class DBHandler {
         System.out.println(query);
         return executeGenericInsertQuery(query);
     }
+    public String removeFromTeam(Integer memberID,Integer teamID){
+        String query="update teamMember set teamID= "+  -1 + " Where memberID = "  + memberID + " and teamID="+ teamID +";";
+        System.out.println(query);
+        return executeGenericInsertQuery(query);
+    }
     public void saveNewProjectInDB(String fypName,String fypStatus){
         String query="insert into finalYearProject (fypName,fypStatus) values ("+ "'" +fypName + "'" + "," + "'" + fypStatus + "'" + ")";
 //        System.out.println(query);
         executeGenericInsertQuery(query);
     }
-    public void saveNewTeamInDB(String teamName,String teamDetails,Integer fypId){
+    public void saveNewTeamInDB(String teamName,String teamDetails,Integer fypId,Integer supId) throws SQLException {
         String query="insert into team (teamName,teamDetails,fypID) values ("+ "'" +teamName + "'" + "," + "'" + teamDetails + "'" + ","+fypId+")";
-        System.out.println(query);
+        if(executeGenericInsertQuery(query).equals("Operation Success"))
+        {
+            ResultSet rs = executeGenericSelectQueryAndGetResultSet("SELECT teamID AS LastID FROM team WHERE teamID = @@Identity;");
+            rs.next();
+            query="insert into supervisor (supervisorID, assignedTeamID) values ("+supId+", "+rs.getInt("LastID")+");";
+            executeGenericInsertQuery(query);
+        }
+    }
+    public void saveNewMeetingInDB(String name,String details,String location,String date,String time,Integer supId,Integer teamId,Integer instructorId) throws SQLException {
+        String query="insert into meetingSchedule (meetingName,details,location,meetingDate,meetingTime,supervisorID,teamID,instructorID) values ('" + name + "', '" + details + "', '"+location+"', '" + date + "', '" + time + "', "+supId+", "+teamId+", "+instructorId+");";
         executeGenericInsertQuery(query);
     }
-
+    public void updateTeamInDB(Integer teamID,String teamName,String teamDetails,Integer fypId) throws SQLException {
+        String query="update team set teamName='"+teamName+"',teamDetails='"+teamDetails+"',fypID='"+fypId+"' where teamID="+ teamID + ";";
+        Printing.PrintStr(query);
+        executeGenericUpdateDeleteQuery(query);
+    }
     public void saveTask(String taskName,String taskDetail,String fypID,String memberID,String taskStatus){
         String query="insert into task (fypID,memberID,taskName,taskDetail,taskStatus) values ("
                  + fypID + ", " + memberID + ", " + "'" + taskName + "', " + "'" + taskDetail + "', '" + taskStatus + "');";
         System.out.println(query);
         executeGenericInsertQuery(query);
     }
-
+    public void updateTask(Integer taskId, String taskName,String taskDetail,String fypID,String memberID,String taskStatus) throws SQLException {
+        String query="update task set fypID="+fypID+",memberID="+memberID+",taskName='"+taskName+"',taskDetail='"+taskDetail+"',taskStatus='"+taskStatus+"' where taskID="+taskId+";";
+        System.out.println(query);
+        executeGenericUpdateDeleteQuery(query);
+    }
     public void updateProjectDetails(String fypName,String fypStatus,String fypID) throws SQLException{
         String query= "UPDATE manageitaskmanagementsystem.finalyearproject" +
                 " SET manageitaskmanagementsystem.finalyearproject.fypName='" + fypName +"', manageitaskmanagementsystem.finalyearproject.fypStatus='" +
@@ -336,8 +365,14 @@ public class DBHandler {
 
         user u= Main.getLoggedInUser();
         String user_id = u.getId().toString();
-        ResultSet rs = executeGenericSelectQueryAndGetResultSet(
-                "select f.fypID,f.fypName,f.fypStatus,t.teamID from manageitaskmanagementsystem.finalyearproject f inner join manageitaskmanagementsystem.team t on f.fypID=t.fypID inner join manageitaskmanagementsystem.supervisor s on s.assignedTeamID=t.teamID where s.supervisorID=" + user_id + ";");
+
+        String query;
+
+        if(Main.getLoggedInUser().getType().equals("headOfDepartment")){
+            query="select f.fypID,f.fypName,f.fypStatus,t.teamID from finalYearProject f left outer join team t on f.fypID=t.fypID;";
+        }else query= "select f.fypID,f.fypName,f.fypStatus,t.teamID from manageitaskmanagementsystem.finalyearproject f inner join manageitaskmanagementsystem.team t on f.fypID=t.fypID inner join manageitaskmanagementsystem.supervisor s on s.assignedTeamID=t.teamID where s.supervisorID=" + user_id + ";";
+
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet(query);
         try{
             while(rs.next()) {
                 finalYearProject fyp = new finalYearProject(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4));
@@ -365,6 +400,25 @@ public class DBHandler {
         return data;
     }
 
+    public ObservableList<teamTaskViewCapsule> generateTeamTaskView(String teamID){
+        ObservableList<teamTaskViewCapsule> arr = FXCollections.observableArrayList();
+
+        ResultSet rs = executeGenericSelectQueryAndGetResultSet(
+                "select t.taskID, t.memberID, t.taskName, t.taskDetail, t.taskStatus " +
+                        "from task t inner join teamMember tm on t.memberID=tm.memberID " +
+                        "where tm.teamID=" + teamID + ";");
+        try{
+            while(rs.next()) {
+                teamTaskViewCapsule cap = new teamTaskViewCapsule(rs.getInt(1),rs.getInt(2),rs.getString(3),
+                        rs.getString(4),rs.getString(5));
+                arr.add(cap);
+            }
+        }catch (SQLException sql){
+            sql.printStackTrace();
+        }
+//        System.out.println(arr.toString());
+        return arr;
+    }
 
     public void closeConnection() {
         try {

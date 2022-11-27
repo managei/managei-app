@@ -42,11 +42,24 @@ public class deleteProjectController {
             createErrorMsg.setText("No ID Entered");
             return;
         }
+
+        Integer fypID=-1;
+        try {
+            fypID=Integer.parseInt(fypIDTextField.getText());
+        }
+        catch (Exception e){
+            createErrorMsg.setText("ID must be a number.");
+        }
+
+        if(fypID>dashboard.getFypList().size() || fypID<0){
+            createErrorMsg.setText("ID is out of range");
+        }
+
         dashboard d = new dashboard();
         try {
             d.deleteProject(fypIDTextField.getText());
         } catch (SQLException e) {
-            createErrorMsg.setText("No such ID");
+            createErrorMsg.setText("ID has team assigned. Contact DB Administrator.");
             return;
         }
         Main.initializeLists();
@@ -54,10 +67,18 @@ public class deleteProjectController {
 
     @FXML
     void gotoSupervisorDashboard(ActionEvent event) {
-        try {
-            Main.changeScene("supervisorDashboard.fxml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if(Main.getLoggedInUser().getType().equals("headOfDepartment")){
+            try {
+                Main.changeScene("HODDashboard.fxml");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            try {
+                Main.changeScene("supervisorDashboard.fxml");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

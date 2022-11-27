@@ -25,9 +25,9 @@
                                     <Font size="36.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="75.0" fitWidth="92.0" layoutX="693.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="logOutButton" fitHeight="65.0" fitWidth="53.0" layoutX="733.0" layoutY="21.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/teamDashTopBanner.gif" />
+                                    <Image url="@../images/logOut.png" />
                                  </image>
                               </ImageView>
                            </children>

@@ -70,7 +70,5 @@ public class shortReportController {
             fypTaskCount.setText(arr.get(3));
             fypCompletedTaskCount.setText(arr.get(4));
         }
-
     }
-
 }

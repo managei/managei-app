@@ -3,6 +3,7 @@
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,19 +15,7 @@
    <center>
       <AnchorPane prefHeight="510.0" prefWidth="786.0" styleClass="background" stylesheets="@application.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="button_logOut" contentDisplay="CENTER" layoutX="355.0" layoutY="521.0" mnemonicParsing="false" onAction="#logOut" prefHeight="39.0" prefWidth="90.0" stylesheets="@application.css" text="Log out" textFill="WHITE">
-               <styleClass>
-                  <String fx:value="Button" />
-                  <String fx:value="secondaryButton" />
-                  <String fx:value="font" />
-               </styleClass>
-            </Button>
-            <Label alignment="CENTER" layoutX="301.0" layoutY="67.0" prefHeight="42.0" prefWidth="199.0" stylesheets="@application.css" text="Welcome" textFill="WHITE">
-               <font>
-                  <Font name="SansSerif Regular" size="36.0" />
-               </font>
-            </Label>
-            <Pane layoutX="170.0" layoutY="168.0" prefHeight="146.0" prefWidth="460.0" style="-fx-background-radius: 25; -fx-background-color: #4c5a6b;" styleClass="code" stylesheets="@application.css">
+            <Pane layoutX="170.0" layoutY="86.0" prefHeight="146.0" prefWidth="460.0" style="-fx-background-radius: 25; -fx-background-color: #4c5a6b;" styleClass="code" stylesheets="@application.css">
                <children>
                   <Button fx:id="button_registerUser" layoutX="300.0" layoutY="32.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Register User" textFill="WHITE">
                      <styleClass>
@@ -48,7 +37,7 @@
                      </image>
                   </ImageView>
                </children></Pane>
-            <Pane layoutX="168.0" layoutY="331.0" prefHeight="152.0" prefWidth="464.0" style="-fx-background-color: #4c5a6b; -fx-background-radius: 25;" stylesheets="@application.css">
+            <Pane layoutX="168.0" layoutY="272.0" prefHeight="152.0" prefWidth="464.0" style="-fx-background-color: #4c5a6b; -fx-background-radius: 25;" stylesheets="@application.css">
                <children>
                   <Button fx:id="button_createTeam" layoutX="159.0" layoutY="34.0" mnemonicParsing="false" onAction="#createTeam" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Create Team" textFill="WHITE">
                      <styleClass>
@@ -76,21 +65,38 @@
                         <String fx:value="font" />
                      </styleClass>
                   </Button>
-                  <Button fx:id="button_manageMembers" layoutX="159.0" layoutY="88.0" mnemonicParsing="false" onAction="#manageMembers" prefHeight="39.0" prefWidth="146.0" style="-fx-font-size: 16;" stylesheets="@application.css" text="Manage Members" textFill="WHITE">
+                  <Button fx:id="button_manageMembers" layoutX="159.0" layoutY="88.0" mnemonicParsing="false" onAction="#manageMembers" prefHeight="39.0" prefWidth="146.0" style="-fx-font-size: 14;" stylesheets="@application.css" text="Manage Members" textFill="WHITE">
                      <styleClass>
                         <String fx:value="Button" />
                         <String fx:value="primaryButton" />
                         <String fx:value="font" />
                      </styleClass>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
                   </Button>
                </children>
             </Pane>
-            <Label fx:id="label_name" alignment="CENTER" layoutX="299.0" layoutY="109.0" prefHeight="42.0" prefWidth="204.0" stylesheets="@application.css" text="User" textFill="WHITE">
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="76.0" prefWidth="800.0" styleClass="titleBannerBackground" stylesheets="@application.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="21.0" layoutY="17.0" prefHeight="42.0" prefWidth="378.0" stylesheets="@application.css" text="Admin Dashboard" textFill="WHITE">
                <font>
                   <Font name="SansSerif Regular" size="36.0" />
                </font>
             </Label>
+            <Separator layoutY="75.0" prefHeight="0.0" prefWidth="800.0" />
+            <Button fx:id="button_logOut" contentDisplay="CENTER" layoutX="693.0" layoutY="14.0" mnemonicParsing="false" onAction="#logOut" prefHeight="39.0" prefWidth="90.0" stylesheets="@application.css" text="Log out" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="Button" />
+                  <String fx:value="secondaryButton" />
+                  <String fx:value="font" />
+               </styleClass>
+            </Button>
          </children>
       </AnchorPane>
-   </center>
+   </top>
 </BorderPane>

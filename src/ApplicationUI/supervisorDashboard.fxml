@@ -10,82 +10,90 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationUI.supervisorDashboardController">
     <center>
         <AnchorPane prefHeight="510.0" prefWidth="800.0" styleClass="background" stylesheets="@application.css" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="button_logOut" contentDisplay="CENTER" layoutX="355.0" layoutY="546.0" mnemonicParsing="false" onAction="#logOut" prefHeight="39.0" prefWidth="90.0" stylesheets="@application.css" text="Log out" textFill="WHITE">
-                    <styleClass>
-                        <String fx:value="Button" />
-                        <String fx:value="secondaryButton" />
-                        <String fx:value="font" />
-                    </styleClass>
-                </Button>
-                <Pane layoutX="170.0" layoutY="86.0" prefHeight="228.0" prefWidth="460.0" style="-fx-background-radius: 25; -fx-background-color: #4c5a6b;" styleClass="code" stylesheets="@application.css">
+                <Pane layoutX="125.0" layoutY="31.0" prefHeight="230.0" prefWidth="550.0" style="-fx-background-radius: 25; -fx-background-color: #4c5a6b;" styleClass="code" stylesheets="@application.css">
                     <children>
-                        <Button fx:id="viewProjectButton" layoutX="286.0" layoutY="22.0" mnemonicParsing="false" onAction="#viewProjects" prefHeight="39.0" prefWidth="145.0" stylesheets="@application.css" text="View Projects" textFill="WHITE">
+                        <Button fx:id="viewProjectButton" layoutX="325.0" layoutY="15.0" mnemonicParsing="false" onAction="#viewProjects" prefHeight="39.0" prefWidth="145.0" stylesheets="@application.css" text="View Projects" textFill="WHITE">
                             <styleClass>
                                 <String fx:value="Button" />
                                 <String fx:value="primaryButton" />
                                 <String fx:value="font" />
                             </styleClass>
                         </Button>
-                        <Button fx:id="createProjectButton" layoutX="286.0" layoutY="72.0" mnemonicParsing="false" onAction="#createProject" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Create Project" textFill="WHITE">
+                        <Button fx:id="createProjectButton" layoutX="325.0" layoutY="70.0" mnemonicParsing="false" onAction="#createProject" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Create Project" textFill="WHITE">
                             <styleClass>
                                 <String fx:value="Button" />
                                 <String fx:value="primaryButton" />
                                 <String fx:value="font" />
                             </styleClass>
                         </Button>
-                        <ImageView fitHeight="155.0" fitWidth="164.0" layoutX="38.0" layoutY="46.0" pickOnBounds="true">
-                            <image>
-                                <Image url="@../images/supervisorDashManageProj.png" />
-                            </image>
-                        </ImageView>
-                  <Button fx:id="updateProjectButton" layoutX="286.0" layoutY="123.0" mnemonicParsing="false" onAction="#updateProject" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Update Project" textFill="WHITE">
+                  <Button fx:id="updateProjectButton" layoutX="325.0" layoutY="123.0" mnemonicParsing="false" onAction="#updateProject" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Update Project" textFill="WHITE">
                      <styleClass>
                         <String fx:value="Button" />
                         <String fx:value="primaryButton" />
                         <String fx:value="font" />
                      </styleClass>
                   </Button>
-                  <Button fx:id="deleteProjectButton" layoutX="286.0" layoutY="174.0" mnemonicParsing="false" onAction="#deleteProject" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Delete Project" textFill="WHITE">
+                  <Button fx:id="deleteProjectButton" layoutX="325.0" layoutY="176.0" mnemonicParsing="false" onAction="#deleteProject" prefHeight="39.0" prefWidth="146.0" stylesheets="@application.css" text="Delete Project" textFill="WHITE">
                      <styleClass>
                         <String fx:value="Button" />
                         <String fx:value="primaryButton" />
                         <String fx:value="font" />
                      </styleClass>
                   </Button>
-                  <Text fill="#b140a8" layoutX="58.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Project" textAlignment="CENTER">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
+                  <ImageView fitHeight="200.0" fitWidth="220.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/bouncy-project-management-workflow.png" />
+                     </image>
+                  </ImageView>
                     </children></Pane>
-                <Pane layoutX="168.0" layoutY="331.0" prefHeight="200.0" prefWidth="464.0" style="-fx-background-color: #4c5a6b; -fx-background-radius: 25;" stylesheets="@application.css">
+                <Pane layoutX="125.0" layoutY="269.0" prefHeight="230.0" prefWidth="550.0" style="-fx-background-color: #4c5a6b; -fx-background-radius: 25;" stylesheets="@application.css">
                     <children>
-                        <Button fx:id="modifyTeamButton" layoutX="277.0" layoutY="27.0" mnemonicParsing="false" onAction="#modifyTeam" prefHeight="39.0" prefWidth="160.0" stylesheets="@application.css" text="Modify Team" textFill="WHITE">
+                        <Button fx:id="modifyTeamButton" layoutX="403.0" layoutY="41.0" mnemonicParsing="false" onAction="#modifyTeam" prefHeight="39.0" prefWidth="133.0" stylesheets="@application.css" text="Modify Team" textFill="WHITE">
                             <styleClass>
                                 <String fx:value="Button" />
                                 <String fx:value="primaryButton" />
                                 <String fx:value="font" />
                             </styleClass>
                         </Button>
-                        <Button fx:id="generateReportButton" layoutX="277.0" layoutY="80.0" mnemonicParsing="false" onAction="#generateProjectProgressReport" prefHeight="39.0" prefWidth="160.0" stylesheets="@application.css" text="Generate Report" textFill="WHITE">
+                        <Button fx:id="generateReportButton" layoutX="252.0" layoutY="160.0" mnemonicParsing="false" onAction="#generateProjectProgressReport" prefHeight="39.0" prefWidth="133.0" style="-fx-font-size: 14;" stylesheets="@application.css" text="Progress Report" textFill="WHITE">
                             <styleClass>
                                 <String fx:value="Button" />
                                 <String fx:value="primaryButton" />
                                 <String fx:value="font" />
                             </styleClass>
                         </Button>
-                        <ImageView fitHeight="158.0" fitWidth="168.0" layoutX="44.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="201.0" fitWidth="206.0" layoutX="18.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/gearsAnimated.gif" />
+                                <Image url="@../images/sammy-line-man-plans-tasks-in-a-kanban-board.png" />
                             </image>
                         </ImageView>
-                  <Button fx:id="createTaskButton" layoutX="277.0" layoutY="135.0" mnemonicParsing="false" onAction="#createTask" prefHeight="39.0" prefWidth="160.0" stylesheets="@application.css" text="Create Task" textFill="WHITE">
+                  <Button fx:id="approveTaskButton" layoutX="403.0" layoutY="101.0" mnemonicParsing="false" onAction="#approveTask" prefHeight="39.0" prefWidth="133.0" style="-fx-font-size: 14;" stylesheets="@application.css" text="Approve Tasks" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="primaryButton" />
+                        <String fx:value="font" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="meetingButton" layoutX="403.0" layoutY="160.0" mnemonicParsing="false" onAction="#scheduleFypMeeting" prefHeight="39.0" prefWidth="133.0" stylesheets="@application.css" text="Meetings" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="primaryButton" />
+                        <String fx:value="font" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="updateTaskButton" layoutX="252.0" layoutY="101.0" mnemonicParsing="false" onAction="#updateTask" prefHeight="39.0" prefWidth="133.0" stylesheets="@application.css" text="Update Task" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="primaryButton" />
+                        <String fx:value="font" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="createTaskButton11" layoutX="252.0" layoutY="41.0" mnemonicParsing="false" onAction="#createTask" prefHeight="39.0" prefWidth="133.0" stylesheets="@application.css" text="Create Task" textFill="WHITE">
                      <styleClass>
                         <String fx:value="Button" />
                         <String fx:value="primaryButton" />
@@ -94,17 +102,24 @@
                   </Button>
                     </children>
                 </Pane>
-            <AnchorPane prefHeight="76.0" prefWidth="800.0" styleClass="titleBannerBackground" stylesheets="@application.css">
-               <children>
-                      <Label alignment="CENTER" layoutX="21.0" layoutY="17.0" prefHeight="42.0" prefWidth="378.0" stylesheets="@application.css" text="Supervisor Dashboard" textFill="WHITE">
-                          <font>
-                              <Font name="SansSerif Regular" size="36.0" />
-                          </font>
-                      </Label>
-                  <Separator layoutY="75.0" prefHeight="0.0" prefWidth="800.0" />
-               </children>
-            </AnchorPane>
             </children>
         </AnchorPane>
     </center>
+   <top>
+      <AnchorPane prefHeight="76.0" prefWidth="800.0" styleClass="titleBannerBackground" stylesheets="@application.css" BorderPane.alignment="CENTER">
+         <children>
+                <Label alignment="CENTER" layoutX="21.0" layoutY="17.0" prefHeight="42.0" prefWidth="378.0" stylesheets="@application.css" text="Supervisor Dashboard" textFill="WHITE">
+                    <font>
+                        <Font name="SansSerif Regular" size="36.0" />
+                    </font>
+                </Label>
+            <Separator layoutY="75.0" prefHeight="0.0" prefWidth="800.0" />
+            <ImageView fx:id="logOutButton" fitHeight="58.0" fitWidth="55.0" layoutX="731.0" layoutY="12.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logOut.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
 </BorderPane>
