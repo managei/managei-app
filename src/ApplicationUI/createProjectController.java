@@ -54,7 +54,7 @@ public class createProjectController {
         String fypStatus=fypStatusField.getText();
 
         if(fypName.equals("") || fypStatus.equals("")){
-            errorTextField.setText("Please fill all boxes");
+            createErrorMsg.setText("Please fill all boxes");
             return;
         }
         d.createProject(dbh,fypName,fypStatus);
@@ -88,6 +88,7 @@ public class createProjectController {
         assert taskNameLabel1 != null : "fx:id=\"taskNameLabel1\" was not injected: check your FXML file 'createProject.fxml'.";
 
         dbh= new DBHandler();
+        createErrorMsg.setText("");
     }
 
 }

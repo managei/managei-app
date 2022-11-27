@@ -38,8 +38,8 @@
                                       <TableColumn fx:id="taskIDColumn" prefWidth="52.0" text="TaskID" />
                         <TableColumn fx:id="memberIDColumn" prefWidth="71.20001220703125" text="Member ID" />
                                       <TableColumn fx:id="tasknameColumn" prefWidth="99.20001220703125" text="Task Name" />
-                                      <TableColumn fx:id="detailColumn" prefWidth="296.79998779296875" text="Detail" />
-                                      <TableColumn fx:id="statusColumn" prefWidth="51.2000732421875" text="Status" />
+                                      <TableColumn fx:id="detailColumn" prefWidth="265.5999450683594" text="Detail" />
+                                      <TableColumn fx:id="statusColumn" prefWidth="83.20001220703125" text="Status" />
                                   </columns>
                               </TableView>
                               <Button fx:id="backButton" layoutX="253.0" layoutY="449.0" mnemonicParsing="false" onAction="#goToTeamDashboard" prefHeight="34.0" prefWidth="99.0" style="-fx-font-size: 18;" stylesheets="@application.css" text="Go Back" textFill="WHITE">

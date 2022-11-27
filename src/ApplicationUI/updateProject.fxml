@@ -45,7 +45,7 @@
                                                 <Separator layoutY="1.0" prefHeight="2.0" prefWidth="806.0" />
                                                 <Pane layoutX="169.0" layoutY="67.0" prefHeight="378.0" prefWidth="467.0" styleClass="card" stylesheets="@application.css">
                                                     <children>
-                                                        <Button fx:id="goBackButton" layoutX="334.0" layoutY="330.0" mnemonicParsing="false" onAction="#gotoSupervisorDashboard" prefHeight="34.0" prefWidth="122.0" stylesheets="@application.css" text="Go Back" textFill="WHITE">
+                                                        <Button fx:id="goBackButton" layoutX="334.0" layoutY="332.0" mnemonicParsing="false" onAction="#gotoSupervisorDashboard" prefHeight="34.0" prefWidth="122.0" stylesheets="@application.css" text="Go Back" textFill="WHITE">
                                                             <styleClass>
                                                                 <String fx:value="Button" />
                                                                 <String fx:value="font" />
@@ -58,7 +58,7 @@
                                                             </font>
                                                         </Label>
                                                         <TextField fx:id="fypNameField" layoutX="220.0" layoutY="246.0" prefHeight="26.0" prefWidth="229.0" />
-                                                        <Button fx:id="updateButton" layoutX="17.0" layoutY="329.0" mnemonicParsing="false" onAction="#updateProjectdetails" prefHeight="34.0" prefWidth="139.0" stylesheets="@application.css" text="Update">
+                                                        <Button fx:id="updateButton" layoutX="17.0" layoutY="331.0" mnemonicParsing="false" onAction="#updateProjectdetails" prefHeight="34.0" prefWidth="139.0" stylesheets="@application.css" text="Update">
                                                             <styleClass>
                                                                 <String fx:value="Button" />
                                                                 <String fx:value="font" />
@@ -71,7 +71,7 @@
                                                             </font>
                                                         </Label>
                                                         <TextField fx:id="fypStatusField" layoutX="220.0" layoutY="285.0" prefHeight="26.0" prefWidth="229.0" />
-                                                        <Text fx:id="createErrorMsg" fill="RED" layoutX="220.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="28.0" />
+                                                        <Text fx:id="createErrorMsg" fill="RED" layoutX="172.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="148.04296875" />
                                                         <Label fx:id="taskNameLabel2" layoutX="60.0" layoutY="209.0" styleClass="font" stylesheets="@application.css" text="Enter FYP ID:" textFill="WHITE">
                                                             <font>
                                                                 <Font size="24.0" />
@@ -85,7 +85,7 @@
                                                                 <TableColumn fx:id="fypStatusCol" prefWidth="78.39996337890625" text="Status" />
                                                             </columns>
                                                         </TableView>
-                                          <Button fx:id="modifyTeamButton" layoutX="177.0" layoutY="329.0" mnemonicParsing="false" onAction="#modifyTeam" prefHeight="34.0" prefWidth="139.0" stylesheets="@application.css" text="Modify Team">
+                                          <Button fx:id="modifyTeamButton" layoutX="177.0" layoutY="331.0" mnemonicParsing="false" onAction="#modifyTeam" prefHeight="34.0" prefWidth="139.0" stylesheets="@application.css" text="Modify Team">
                                              <styleClass>
                                                 <String fx:value="Button" />
                                                 <String fx:value="font" />

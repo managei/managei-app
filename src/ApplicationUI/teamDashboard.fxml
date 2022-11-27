@@ -91,7 +91,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="completedTaskCountLabel" layoutX="218.0" layoutY="149.0" styleClass="font" stylesheets="@application.css" text="0" textFill="WHITE">
+                                    <Label fx:id="completedTaskCountLabel" layoutX="218.0" layoutY="147.0" styleClass="font" stylesheets="@application.css" text="0" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>

@@ -58,10 +58,15 @@ public class suggestTaskController {
 
         if(taskNameField.getText().equals("") || taskDetailsField.getText().equals("")){
             errorTextField.setText("Fill all fields first");
+//            errorTextField.setStyle("-fx-text-fill: red");
+            return;
         }
         dashboard d = new dashboard();
         d.selectSuggestNewTask(taskNameField.getText(),taskDetailsField.getText());
+//        errorTextField.setStyle("-fx-text-fill: green");
         errorTextField.setText("Task suggested successfully");
+        taskDetailsField.setText("");
+        taskNameField.setText("");
     }
 
 }

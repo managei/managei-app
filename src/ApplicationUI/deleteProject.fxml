@@ -68,9 +68,9 @@
                                                 <Image url="@../images/deleteProject.png" />
                                              </image>
                                           </ImageView>
+                                                        <Text fx:id="createErrorMsg" fill="WHITE" layoutX="74.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="318.40008544921875" />
                                                     </children>
                                                 </Pane>
-                                                  <Text fx:id="createErrorMsg" fill="RED" layoutX="244.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="318.40008544921875" />
                                             </children>
                                         </AnchorPane>
                                     </children>

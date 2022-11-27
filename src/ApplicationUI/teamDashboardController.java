@@ -101,6 +101,7 @@ public class teamDashboardController {
         dashboard d = new dashboard();
         Integer completedTasks= d.getTeamMemberTasksWithStatus("complete");
         Integer assignedTasks=d.getTeamMemberTasksWithStatus("assigned");
+        assignedTasks+=d.getTeamMemberTasksWithStatus("approved");
         assignedTasks+=d.getTeamMemberTasksWithStatus("suggested");
 
         System.out.println("Assigned: " + assignedTasks.toString());

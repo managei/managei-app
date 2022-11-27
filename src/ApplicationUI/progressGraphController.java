@@ -45,7 +45,7 @@ public class progressGraphController {
         XYChart.Series<String,Integer> s1 = new XYChart.Series<String,Integer>();
         s1.setName("Project Progress Graph");
         XYChart.Series<String,Integer> data = dashboard.getTeamGraphData();
-
+        progressGraph.setTitle("Distribution of Tasks");
         progressGraph.getData().add(data);
     }
 
