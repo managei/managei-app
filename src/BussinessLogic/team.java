@@ -1,6 +1,7 @@
 package BussinessLogic;
 
 import ApplicationUI.Main;
+import ApplicationUI.projectLongReportController;
 import DBHandler.DBHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -84,52 +85,90 @@ public class team {
         return arr;
     }
 
-    public static XYChart.Series<String,Integer> getTeamGraphData(){
-        Main.initializeLists();
-        XYChart.Series<String,Integer> data = new XYChart.Series<String,Integer>();
+    public static XYChart.Series<String,Integer> getTeamGraphData() {
 
-        teamMember currentMember =null;
+        if (Main.getLoggedInUser().getType().equals("supervisor")) {
+            Main.initializeLists();
+            XYChart.Series<String, Integer> data = new XYChart.Series<String, Integer>();
 
-        for(int i=0; i<dashboard.getTeamMembersList().size(); i++){
-            if(dashboard.getTeamMembersList().get(i).getMemberId()==Main.getLoggedInUser().getUserId()){
-                currentMember=dashboard.getTeamMembersList().get(i);
+            int teamID = projectLongReportController.getTeamID();
+
+            ArrayList<teamMember> members = new ArrayList<teamMember>();
+
+            for (int i = 0; i < dashboard.getTeamMembersList().size(); i++) {
+                if (dashboard.getTeamMembersList().get(i).getTeamId() == teamID) {
+                    members.add(dashboard.getTeamMembersList().get(i));
+                }
+
             }
-        }
-
-        if(currentMember==null) {
-            System.out.println("Current Member was null :(");
-            return null;
-        }
-
-        int teamID = currentMember.getTeamId();
-
-        ArrayList<teamMember> members = new ArrayList<teamMember>();
-
-        for(int i=0; i<dashboard.getTeamMembersList().size(); i++){
-            if(dashboard.getTeamMembersList().get(i).getTeamId()==teamID){
-                members.add(dashboard.getTeamMembersList().get(i));
-            }
-
-        }
 
 //        ArrayList<Integer> arr = new ArrayList<Integer>();
 
-        for(int i=0; i<members.size(); i++){
-            Integer memberID = members.get(i).getMemberId();
-            Integer count=0;
+            for (int i = 0; i < members.size(); i++) {
+                Integer memberID = members.get(i).getMemberId();
+                Integer count = 0;
 
-            for(int j=0; j<dashboard.getTaskList().size(); j++){
-                if(dashboard.getTaskList().get(j).getMemberId()==memberID){
-                    count++;
+                for (int j = 0; j < dashboard.getTaskList().size(); j++) {
+                    if (dashboard.getTaskList().get(j).getMemberId() == memberID) {
+                        count++;
+                    }
+                }
+                XYChart.Data<String, Integer> d = new XYChart.Data<String, Integer>(
+                        members.get(i).getFirstName() + " " + members.get(i).getLastName(),
+                        count
+                );
+                data.getData().add(d);
+            }
+
+            return data;
+        } else {
+
+            Main.initializeLists();
+            XYChart.Series<String, Integer> data = new XYChart.Series<String, Integer>();
+
+            teamMember currentMember = null;
+
+            for (int i = 0; i < dashboard.getTeamMembersList().size(); i++) {
+                if (dashboard.getTeamMembersList().get(i).getMemberId() == Main.getLoggedInUser().getUserId()) {
+                    currentMember = dashboard.getTeamMembersList().get(i);
                 }
             }
-            XYChart.Data<String,Integer> d = new XYChart.Data<String,Integer>(
-                    members.get(i).getFirstName() + " " + members.get(i).getLastName(),
-                    count
-            );
-            data.getData().add(d);
-        }
 
-        return data;
+            if (currentMember == null) {
+                System.out.println("Current Member was null :(");
+                return null;
+            }
+
+            int teamID = currentMember.getTeamId();
+
+            ArrayList<teamMember> members = new ArrayList<teamMember>();
+
+            for (int i = 0; i < dashboard.getTeamMembersList().size(); i++) {
+                if (dashboard.getTeamMembersList().get(i).getTeamId() == teamID) {
+                    members.add(dashboard.getTeamMembersList().get(i));
+                }
+
+            }
+
+//        ArrayList<Integer> arr = new ArrayList<Integer>();
+
+            for (int i = 0; i < members.size(); i++) {
+                Integer memberID = members.get(i).getMemberId();
+                Integer count = 0;
+
+                for (int j = 0; j < dashboard.getTaskList().size(); j++) {
+                    if (dashboard.getTaskList().get(j).getMemberId() == memberID) {
+                        count++;
+                    }
+                }
+                XYChart.Data<String, Integer> d = new XYChart.Data<String, Integer>(
+                        members.get(i).getFirstName() + " " + members.get(i).getLastName(),
+                        count
+                );
+                data.getData().add(d);
+            }
+
+            return data;
+        }
     }
 }
