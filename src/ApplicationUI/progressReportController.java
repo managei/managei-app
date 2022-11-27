@@ -104,7 +104,7 @@ public class progressReportController {
             }
         }else{
             try {
-                Main.changeScene("longReport.fxml");
+                Main.changeScene("projectLongReport.fxml");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
